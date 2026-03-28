@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { Info } from "lucide-react";
 import type { ReactNode } from "react";
 
 import { HistoryMenu } from "@/components/HistoryMenu";
@@ -117,6 +118,13 @@ async function LayoutFooter({
         ) : (
           <p className="text-sm text-stone-600">Add sources in data/newsletter-sources.json.</p>
         )}
+        <Link
+          href="/how-it-works"
+          className="inline-flex items-center gap-1.5 text-sm text-stone-400 transition-colors hover:text-stone-600"
+        >
+          <Info className="h-3.5 w-3.5" />
+          How this works
+        </Link>
       </div>
     </footer>
   );

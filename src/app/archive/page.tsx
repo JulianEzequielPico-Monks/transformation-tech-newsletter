@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { ArchiveAllIssues } from "@/components/ArchiveAllIssues";
+import { formatNewsletterDate, getAllNewsletters } from "@/lib/newsletters";
 
-import { getAllNewsletters } from "@/lib/newsletters";
+export const dynamic = "force-static";
 
 export const metadata = {
   title: "Newsletter Archive",
@@ -9,39 +11,43 @@ export const metadata = {
 
 export default async function ArchivePage() {
   const newsletters = await getAllNewsletters();
+  const latest = newsletters[0] ?? null;
 
   return (
-    <section className="panel space-y-6 border border-violet-200 bg-gradient-to-b from-white via-violet-50/35 to-white p-5 md:p-7">
-      <div className="space-y-2">
-        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-violet-700">Explore</p>
-        <h1 className="text-3xl font-semibold md:text-4xl">Archive</h1>
-        <p className="max-w-2xl text-stone-600">
-          {newsletters.length} issues generated from your JSON feed.
-        </p>
-      </div>
-
-      {newsletters.length === 0 ? (
-        <p className="text-stone-600">No issues found yet. Add JSON files in data/newsletters.</p>
-      ) : (
-        <ul className="space-y-4">
-          {newsletters.map((newsletter) => (
-            <li
-              key={newsletter.slug}
-              className="rounded-2xl border border-stone-200 bg-white p-4 shadow-[0_12px_28px_-24px_rgba(30,41,59,0.4)] transition-shadow hover:shadow-md"
+    <div className="space-y-5 md:space-y-6">
+      {latest ? (
+        <section className="panel space-y-4 border border-violet-200 bg-gradient-to-r from-white via-violet-50/50 to-amber-50/40 p-5 md:p-7">
+          <div className="space-y-1">
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-violet-500">Latest issue</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-stone-400">
+              {formatNewsletterDate(latest.date)}
+            </p>
+          </div>
+          <h1 className="text-3xl font-bold leading-tight md:text-5xl">{latest.title}</h1>
+          <div className="flex items-center gap-3">
+            <Link
+              href={`/newsletter/${latest.slug}`}
+              className="inline-flex items-center gap-2 rounded-full bg-violet-700 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-violet-800"
             >
-              <h2 className="text-xl font-semibold leading-tight">{newsletter.title}</h2>
+              Read issue
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+            <span className="text-sm text-stone-400">
+              {latest.counts.total} links curated
+            </span>
+          </div>
+        </section>
+      ) : null}
 
-              <Link
-                href={`/newsletter/${newsletter.slug}`}
-                className="mt-4 inline-flex items-center gap-2 rounded-full border border-violet-300 bg-violet-50 px-3 py-1.5 text-sm font-medium text-violet-950 transition-colors hover:bg-violet-100"
-              >
-                Open issue
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-            </li>
-          ))}
-        </ul>
-      )}
-    </section>
+      <ArchiveAllIssues
+        newsletters={newsletters.map((n) => ({
+          slug: n.slug,
+          title: n.title,
+          formattedDate: formatNewsletterDate(n.date),
+          total: n.counts.total,
+        }))}
+        total={newsletters.length}
+      />
+    </div>
   );
 }

@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 
+export const dynamic = "force-static";
+
 export const metadata: Metadata = {
   title: "How This Works - Transformation Tech Digest",
   description: "The pipeline, the AI curation prompt, and the tools behind the digest.",

@@ -35,6 +35,7 @@ function normalizeTag(tag: string): string {
 
 export function IssueSections({ newsletterSlug, date, sections }: IssueSectionsProps) {
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
+  const [tagMode, setTagMode] = useState<"or" | "and">("or");
   const [openSections, setOpenSections] = useState<Record<string, boolean>>(() =>
     Object.fromEntries(sections.map((section) => [section.key, section.defaultOpen ?? true])),
   );
@@ -88,15 +89,35 @@ export function IssueSections({ newsletterSlug, date, sections }: IssueSectionsP
                 <Tag className="h-3 w-3" />
                 Filter by tag
               </span>
-              {selectedTags.length > 0 ? (
-                <button
-                  type="button"
-                  className="text-[0.72rem] font-medium text-violet-600 transition-colors hover:text-violet-800"
-                  onClick={() => { trackTagFilter({ newsletterSlug, tag: "", action: "clear" }); setSelectedTags([]); }}
-                >
-                  Clear ({selectedTags.length})
-                </button>
-              ) : null}
+              <div className="flex items-center gap-3">
+                {selectedTags.length >= 2 ? (
+                  <div className="inline-flex items-center rounded-full border border-stone-200 bg-stone-100 p-0.5">
+                    <button
+                      type="button"
+                      className={`rounded-full px-2.5 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wide transition-colors ${tagMode === "or" ? "bg-white text-stone-800 shadow-sm" : "text-stone-400 hover:text-stone-600"}`}
+                      onClick={() => setTagMode("or")}
+                    >
+                      Match any
+                    </button>
+                    <button
+                      type="button"
+                      className={`rounded-full px-2.5 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wide transition-colors ${tagMode === "and" ? "bg-white text-stone-800 shadow-sm" : "text-stone-400 hover:text-stone-600"}`}
+                      onClick={() => setTagMode("and")}
+                    >
+                      Match all
+                    </button>
+                  </div>
+                ) : null}
+                {selectedTags.length > 0 ? (
+                  <button
+                    type="button"
+                    className="text-[0.72rem] font-medium text-violet-600 transition-colors hover:text-violet-800"
+                    onClick={() => { trackTagFilter({ newsletterSlug, tag: "", action: "clear" }); setSelectedTags([]); }}
+                  >
+                    Clear ({selectedTags.length})
+                  </button>
+                ) : null}
+              </div>
             </div>
 
             <div className="flex flex-wrap gap-2">
@@ -139,7 +160,9 @@ export function IssueSections({ newsletterSlug, date, sections }: IssueSectionsP
         const filteredLinks = selectedTags.length > 0
           ? section.links.filter((link) => {
               const linkTagKeys = link.tags.map(normalizeTag).filter((tag) => tag.length > 0);
-              return selectedTags.some((tag) => linkTagKeys.includes(tag));
+              return tagMode === "and"
+                ? selectedTags.every((tag) => linkTagKeys.includes(tag))
+                : selectedTags.some((tag) => linkTagKeys.includes(tag));
             })
           : section.links;
 

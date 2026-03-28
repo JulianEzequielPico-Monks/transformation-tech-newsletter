@@ -4,8 +4,6 @@ import Link from "next/link";
 import { Info } from "lucide-react";
 import type { ReactNode } from "react";
 
-import { HistoryMenu } from "@/components/HistoryMenu";
-import { getAllNewsletters, getLatestNewsletter } from "@/lib/newsletters";
 import { getNewsletterSourcesConfig } from "@/lib/newsletter-sources";
 
 import "./globals.css";
@@ -21,8 +19,6 @@ export default function RootLayout({
 }: Readonly<{
   children: ReactNode;
 }>) {
-  const allNewslettersPromise = getAllNewsletters();
-  const latestNewsletterPromise = getLatestNewsletter();
   const sourceConfigPromise = getNewsletterSourcesConfig();
 
   return (
@@ -53,11 +49,6 @@ export default function RootLayout({
                 Transformation Tech Digest
               </span>
             </Link>
-
-            <LayoutHistoryMenu
-              allNewslettersPromise={allNewslettersPromise}
-              latestNewsletterPromise={latestNewsletterPromise}
-            />
           </div>
         </header>
 
@@ -65,27 +56,6 @@ export default function RootLayout({
         <LayoutFooter sourceConfigPromise={sourceConfigPromise} />
       </body>
     </html>
-  );
-}
-
-async function LayoutHistoryMenu({
-  allNewslettersPromise,
-  latestNewsletterPromise,
-}: {
-  allNewslettersPromise: ReturnType<typeof getAllNewsletters>;
-  latestNewsletterPromise: ReturnType<typeof getLatestNewsletter>;
-}) {
-  const [allNewsletters, latestNewsletter] = await Promise.all([
-    allNewslettersPromise,
-    latestNewsletterPromise,
-  ]);
-
-  const history = latestNewsletter
-    ? allNewsletters.filter((item) => item.slug !== latestNewsletter.slug)
-    : allNewsletters;
-
-  return (
-    <HistoryMenu latest={latestNewsletter} history={history.slice(0, 5)} />
   );
 }
 

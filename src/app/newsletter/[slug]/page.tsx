@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ChevronLeft } from "lucide-react";
 
 import {
   IssueSections,
@@ -79,11 +81,20 @@ export default async function NewsletterPage({
 
   return (
     <article className="space-y-5 md:space-y-6">
-      <header className="panel space-y-2 border border-violet-200 bg-gradient-to-r from-white via-violet-50/50 to-amber-50/40 p-5 md:p-6">
-        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-violet-500">
-          {formatNewsletterDate(newsletter.date)}
-        </p>
-        <h1 className="text-3xl font-bold leading-tight md:text-5xl">{newsletter.title}</h1>
+      <header className="panel space-y-3 border border-violet-200 bg-gradient-to-r from-white via-violet-50/50 to-amber-50/40 p-5 md:p-6">
+        <Link
+          href="/archive"
+          className="inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-[0.14em] text-stone-400 transition-colors hover:text-stone-600"
+        >
+          <ChevronLeft className="h-3 w-3" />
+          All issues
+        </Link>
+        <div className="space-y-2">
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-violet-500">
+            {formatNewsletterDate(newsletter.date)}
+          </p>
+          <h1 className="text-3xl font-bold leading-tight md:text-5xl">{newsletter.title}</h1>
+        </div>
       </header>
 
       <IssueSections key={newsletter.slug} newsletterSlug={newsletter.slug} date={newsletter.date} sections={sections} />

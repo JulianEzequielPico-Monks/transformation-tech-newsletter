@@ -172,7 +172,7 @@ export function IssueSections({ newsletterSlug, date, sections }: IssueSectionsP
               <div className="space-y-2">
                 <h2 className="flex items-baseline gap-2 text-[1.7rem] font-bold leading-tight">
                   {section.title}
-                  <span className="text-[1rem] font-normal text-stone-400">({section.links.length})</span>
+                  <span className="text-[1rem] font-normal text-stone-400">({filteredLinks.length})</span>
                 </h2>
                 <p className="max-w-2xl text-[0.88rem] leading-6 text-stone-400">{section.description}</p>
               </div>

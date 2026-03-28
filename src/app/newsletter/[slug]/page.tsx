@@ -56,6 +56,7 @@ export default async function NewsletterPage({
       title: "Useful Links",
       description: "High-confidence links with immediate practical value for your team.",
       tone: "teal",
+      defaultOpen: false,
       links: newsletter.sections.useful,
     },
     {
@@ -63,6 +64,7 @@ export default async function NewsletterPage({
       title: "Maybe Useful Links",
       description: "Interesting signals and experiments that are worth a quick scan.",
       tone: "amber",
+      defaultOpen: false,
       links: newsletter.sections.maybeUseful,
     },
     {
@@ -70,15 +72,17 @@ export default async function NewsletterPage({
       title: "Discarded Links",
       description: "Low-priority links kept for transparency and future traceability.",
       tone: "rose",
-      collapsible: true,
-      defaultOpen: true,
+      defaultOpen: false,
       links: newsletter.sections.discarded,
     },
   ];
 
   return (
     <article className="space-y-5 md:space-y-6">
-      <header className="panel space-y-4 border border-violet-200 bg-gradient-to-r from-white via-violet-50/50 to-amber-50/40 p-5 md:p-6">
+      <header className="panel space-y-2 border border-violet-200 bg-gradient-to-r from-white via-violet-50/50 to-amber-50/40 p-5 md:p-6">
+        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-violet-500">
+          {formatNewsletterDate(newsletter.date)}
+        </p>
         <h1 className="text-3xl font-bold leading-tight md:text-5xl">{newsletter.title}</h1>
       </header>
 

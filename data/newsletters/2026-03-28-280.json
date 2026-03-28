@@ -1,0 +1,2291 @@
+{
+    "slug": "2026-03-28",
+    "title": "Transformation Tech Weekly",
+    "date": "2026-03-28",
+    "sections": {
+        "useful": [
+            {
+                "id": "open-agents-with-memory-and-model-choice",
+                "title": "Open agents with memory and model choice",
+                "description": "A philosophical and strategic look at the requirements for open-source agent ecosystems.",
+                "reason": "Rule 2: Foundational Concepts - Broad paradigm-shifting piece on the nature of agentic software development.",
+                "tags": [
+                    "ai",
+                    "thinking",
+                    "general concepts"
+                ],
+                "url": "https://substack.com/redirect/73374557-fdba-441c-9b8d-57e7f3341b88"
+            },
+            {
+                "id": "agent-data-protocol",
+                "title": "Agent data protocol",
+                "description": "A standardized protocol for recording agent execution traces to improve observability and evaluation.",
+                "reason": "Rule 1: Universal Utilities - Solves cross-discipline problems related to agent debugging and quality assurance.",
+                "tags": [
+                    "automation",
+                    "qa",
+                    "tooling",
+                    "ai"
+                ],
+                "url": "https://substack.com/redirect/28f21fa6-b739-40ce-a3ad-69527ff38bfc"
+            },
+            {
+                "id": "agent-eval-readiness-checklist",
+                "title": "Agent eval readiness checklist",
+                "description": "A practical checklist for determining if an AI agent is ready for production deployment.",
+                "reason": "Rule 1: Universal Utilities - Highly applicable tool for the entire cross-functional team to ensure product quality.",
+                "tags": [
+                    "qa",
+                    "automation",
+                    "ai"
+                ],
+                "url": "https://substack.com/redirect/1f17984d-1ae9-41ef-91a0-9fec850d80b4"
+            },
+            {
+                "id": "fleet-management-for-software-pattern",
+                "title": "Fleet management for software pattern",
+                "description": "An emerging UX pattern for managing multiple AI agents working on software tasks using kanban-like interfaces.",
+                "reason": "Rule 2: Foundational Concepts - Introduces a new conceptual paradigm for how engineers interact with AI-driven workflows.",
+                "tags": [
+                    "thinking",
+                    "general concepts",
+                    "frontend"
+                ],
+                "url": "https://substack.com/redirect/1070c799-816e-4621-8319-79fd5307779a"
+            },
+            {
+                "id": "building-shared-coding-guidelines-for-ai-and-people-too-11-minute-read",
+                "title": "Building shared coding guidelines for ai (and people too) (11 minute read)",
+                "description": "A discussion on creating prescriptive coding standards to ensure consistency as AI agents begin contributing to codebases.",
+                "reason": "This is a Foundational Concept piece that addresses a new paradigm in software development applicable to the entire team.",
+                "tags": [
+                    "thinking",
+                    "general concepts",
+                    "ai"
+                ],
+                "url": "https://stackoverflow.blog/2026/03/26/coding-guidelines-for-ai-agents-and-people-too/"
+            },
+            {
+                "id": "what-construction-at-a-train-station-taught-me-about-software-engineering-4-minute-read",
+                "title": "What construction at a train station taught me about software engineering (4 minute read)",
+                "description": "An exploration of software engineering as a discipline of managing complexity and system thinking under constraints.",
+                "reason": "This is a broad philosophical piece on foundational software engineering concepts and architectural strategies.",
+                "tags": [
+                    "thinking",
+                    "general concepts"
+                ],
+                "url": "https://engineering.leanix.net/blog/engineering/"
+            },
+            {
+                "id": "a-one-line-kubernetes-fix-that-saved-600-hours-a-year-6-minute-read",
+                "title": "A one-line kubernetes fix that saved 600 hours a year (6 minute read)",
+                "description": "Cloudflare engineers explain how changing the fsGroupChangePolicy setting in Kubernetes drastically reduced restart times.",
+                "reason": "This provides a foundational concept regarding system defaults and performance optimization that is highly applicable to any team using Kubernetes.",
+                "tags": [
+                    "general concepts",
+                    "mindblown",
+                    "tooling"
+                ],
+                "url": "https://blog.cloudflare.com/one-line-kubernetes-fix-saved-600-hours-a-year/"
+            },
+            {
+                "id": "building-a-kubernetes-native-pattern-for-ai-infrastructure-at-scale-6-minute-read",
+                "title": "Building a kubernetes-native pattern for ai infrastructure at scale (6 minute read)",
+                "description": "An exploration of moving toward a unified, Kubernetes-native architecture for managing AI model lifecycles and GPU scheduling.",
+                "reason": "This covers broad architectural strategies and new conceptual paradigms for scaling AI infrastructure, applicable to the whole team.",
+                "tags": [
+                    "ai",
+                    "general concepts",
+                    "thinking"
+                ],
+                "url": "https://thenewstack.io/kubernetes-native-ai-infrastructure/"
+            },
+            {
+                "id": "whats-in-a-codebase",
+                "title": "What's in a codebase?",
+                "description": "An essay on the nature of human knowledge in codebases and the challenges of reproducing system failures for AI agents.",
+                "reason": "This is a foundational concept piece that explores broad philosophical questions about software development and the nature of technical knowledge, applicable to the entire engineering team.",
+                "tags": [
+                    "thinking",
+                    "general concepts"
+                ],
+                "url": "https://www.moderndescartes.com/essays/codebase_spec/"
+            },
+            {
+                "id": "the-white-collar-revolution-is-here",
+                "title": "The white collar revolution is here",
+                "description": "A discussion on how AI is changing business models and the necessity of automating tasks to build 'machines that build the machines'.",
+                "reason": "This is a foundational piece on new conceptual paradigms in the AI era that encourages engineers to think deeply about their work and business models.",
+                "tags": [
+                    "thinking",
+                    "general concepts"
+                ],
+                "url": "https://links.tldrnewsletter.com/UnpErD"
+            },
+            {
+                "id": "we-need-better-stories-about-the-future",
+                "title": "We need better stories about the future",
+                "description": "A philosophical piece arguing for more constructive narratives regarding the future of AI and technology.",
+                "reason": "This is a broad philosophical piece on the conceptual paradigms of technology and its impact on society, qualifying as a foundational concept.",
+                "tags": [
+                    "thinking"
+                ],
+                "url": "https://ashleymayer.substack.com/p/we-need-better-stories"
+            },
+            {
+                "id": "why-clis-are-handier-than-mcps",
+                "title": "Why clis are handier than mcps",
+                "description": "A conceptual comparison between CLI-based agent interactions and the Model Context Protocol.",
+                "reason": "Rule 2: Foundational piece on software development paradigms and agent interaction strategies.",
+                "tags": [
+                    "thinking",
+                    "ai"
+                ],
+                "url": "https://substack.com/redirect/443a18e5-971d-4023-b42b-1146380af3c4"
+            },
+            {
+                "id": "the-undeniable-trend-of-agent-clis",
+                "title": "The undeniable trend of agent clis",
+                "description": "Further discussion on why the industry is shifting toward CLI interfaces for AI agents.",
+                "reason": "Rule 2: Broad conceptual paradigm shift in how engineers think about agent interfaces.",
+                "tags": [
+                    "thinking",
+                    "ai"
+                ],
+                "url": "https://substack.com/redirect/f65c2d70-a1fd-46a1-9155-93eb2fda7dc7"
+            },
+            {
+                "id": "the-rise-of-harness-engineering",
+                "title": "The rise of harness engineering",
+                "description": "Exploring why the agent harness (middleware, memory, orchestration) is becoming the real product.",
+                "reason": "Rule 2: Foundational concept on macro architectural strategies for software development.",
+                "tags": [
+                    "thinking",
+                    "ai",
+                    "backend"
+                ],
+                "url": "https://substack.com/redirect/d4265f90-d13c-4042-9a11-a7d2d5ac0241"
+            },
+            {
+                "id": "hwchase17-on-agent-middleware",
+                "title": "Hwchase17 on agent middleware",
+                "description": "Discussion on middleware as the customization layer for agent behavior.",
+                "reason": "Rule 2: Foundational concept regarding agentic architecture.",
+                "tags": [
+                    "thinking",
+                    "ai",
+                    "backend"
+                ],
+                "url": "https://substack.com/redirect/023a3c19-589a-4544-a413-256404a2ebe4"
+            },
+            {
+                "id": "integrated-agentic-language-systems",
+                "title": "Integrated agentic language systems",
+                "description": "Argument that 'LLM' usage actually refers to complex systems with formatting, parsers, and memory.",
+                "reason": "Rule 2: Broad conceptual paradigm about the nature of modern AI engineering.",
+                "tags": [
+                    "thinking",
+                    "ai"
+                ],
+                "url": "https://substack.com/redirect/65f714eb-c856-4784-8565-aa3ca713b272"
+            },
+            {
+                "id": "openenv-standard-for-agentic-rl",
+                "title": "Openenv: standard for agentic rl",
+                "description": "An open standard for agentic reinforcement learning environments with async APIs and websocket transport.",
+                "reason": "Rule 1: Universal utility that solves cross-discipline problems for agent development.",
+                "tags": [
+                    "automation",
+                    "ai"
+                ],
+                "url": "https://substack.com/redirect/79bb3154-391d-47be-9e3d-558b73a8fb28"
+            },
+            {
+                "id": "cursors-real-time-rl-pattern",
+                "title": "Cursor's real-time rl pattern",
+                "description": "How Cursor ships improved model checkpoints every five hours using a productized RL loop.",
+                "reason": "Rule 2: Foundational concept on continual learning paradigms in production.",
+                "tags": [
+                    "thinking",
+                    "ai",
+                    "backend"
+                ],
+                "url": "https://substack.com/redirect/d90619f7-f982-4d11-aba8-f17193207730"
+            },
+            {
+                "id": "eliebakouch-on-continual-learning",
+                "title": "Eliebakouch on continual learning",
+                "description": "Discussion on the signs of continual learning in production for vertically integrated apps.",
+                "reason": "Rule 2: Foundational conceptual paradigm for AI engineering.",
+                "tags": [
+                    "thinking",
+                    "ai"
+                ],
+                "url": "https://substack.com/redirect/3d4ffc89-2f62-4b40-aae4-273389646331"
+            },
+            {
+                "id": "code_star-on-production-rl-loops",
+                "title": "Code_star on production rl loops",
+                "description": "Engineering perspective on high-frequency interaction data for model training.",
+                "reason": "Rule 2: Foundational concept regarding production training patterns.",
+                "tags": [
+                    "thinking",
+                    "ai",
+                    "backend"
+                ],
+                "url": "https://substack.com/redirect/277c1344-60f2-45ce-8619-df2a97e74cfe"
+            },
+            {
+                "id": "the-three-pillars-of-javascript-bloat",
+                "title": "The three pillars of javascript bloat",
+                "description": "An analysis of the structural causes of dependency bloat in JavaScript, covering legacy runtime support, atomic package architecture, and redundant ponyfills.",
+                "reason": "This is a foundational concept that encourages engineers to think deeply about architectural decisions and dependency management across the stack.",
+                "tags": [
+                    "frontend",
+                    "backend",
+                    "general concepts"
+                ],
+                "url": "https://43081j.com/2026/03/three-pillars-of-javascript-bloat"
+            },
+            {
+                "id": "thoughts-on-slowing-the-fuck-down",
+                "title": "Thoughts on slowing the fuck down",
+                "description": "A philosophical critique of over-reliance on AI coding agents, arguing that they can lead to unmaintainable codebases if not managed with human oversight.",
+                "reason": "A foundational concept piece that addresses macro architectural strategies and the evolving nature of engineering work in the AI era.",
+                "tags": [
+                    "thinking",
+                    "ai"
+                ],
+                "url": "https://mariozechner.at/posts/2026-03-25-thoughts-on-slowing-the-fuck-down/"
+            },
+            {
+                "id": "notes-from-the-saas-funeral",
+                "title": "Notes from the saas funeral",
+                "description": "A deep dive into the changing nature of SaaS moats and why software businesses still require human maintenance and verification.",
+                "reason": "Foundational concept piece providing broad philosophical insight into the nature of software development and architectural strategies.",
+                "tags": [
+                    "thinking",
+                    "general concepts"
+                ],
+                "url": "https://links.tldrnewsletter.com/zxvXLe"
+            },
+            {
+                "id": "app-store-age-of-agent",
+                "title": "App store | age of agent",
+                "description": "An analysis of why the agent era requires APIs instead of centralized app stores and the impact on payment layers.",
+                "reason": "Assign 100% Useful as a Foundational Concept exploring broad philosophical shifts in software distribution paradigms (Rule 2).",
+                "tags": [
+                    "thinking",
+                    "general concepts"
+                ],
+                "url": "https://robonomics.substack.com/p/app-store-age-of-agent"
+            },
+            {
+                "id": "introducing-ossature-spec-driven-code-generation",
+                "title": "Introducing ossature: spec-driven code generation",
+                "description": "An open-source harness for spec-driven code generation with built-in validation and repair agents.",
+                "reason": "Assign 100% Useful as a Universal Utility that solves cross-discipline development quality problems (Rule 1).",
+                "tags": [
+                    "tooling",
+                    "automation"
+                ],
+                "url": "https://ossature.dev/blog/introducing-ossature/"
+            },
+            {
+                "id": "you-need-more-aws-accounts-than-you-think",
+                "title": "You need more aws accounts than you think",
+                "description": "An argument for multi-account AWS architectures to improve security, automation, and environment isolation.",
+                "reason": "Foundational Concepts: Broad architectural strategy that makes engineers think deeply about infrastructure and security isolation.",
+                "tags": [
+                    "general concepts",
+                    "security"
+                ],
+                "url": "https://cloudposse.com/blog/you-need-more-aws-accounts-than-you-think"
+            },
+            {
+                "id": "anti-slop-github-repo",
+                "title": "Anti-slop (github repo)",
+                "description": "A GitHub Action that automatically detects and closes low-quality or AI-generated pull requests.",
+                "reason": "Universal Utilities: A tool that solves cross-discipline PR quality problems and is applicable to the entire team.",
+                "tags": [
+                    "tooling",
+                    "automation"
+                ],
+                "url": "https://github.com/peakoss/anti-slop"
+            }
+        ],
+        "maybeUseful": [
+            {
+                "id": "glm-51-availability-and-agent-docs",
+                "title": "Glm-5.1 availability and agent docs",
+                "description": "Technical documentation for implementing agentic workflows using the GLM-5.1 model.",
+                "reason": "Rule 2: Discipline-Specific Tools - Useful technical documentation for AI engineers building agents.",
+                "tags": [
+                    "ai",
+                    "tooling"
+                ],
+                "url": "https://substack.com/redirect/7ae679e7-35a8-44c1-bea5-d282600cd9d0"
+            },
+            {
+                "id": "turboquant-vllm-fork",
+                "title": "Turboquant vllm fork",
+                "description": "A specialized fork of vLLM featuring fused Triton KV write paths for massive context handling.",
+                "reason": "Rule 2: Discipline-Specific Tools - Highly technical utility for backend/AI engineers managing model inference.",
+                "tags": [
+                    "ai",
+                    "tooling",
+                    "backend"
+                ],
+                "url": "https://substack.com/redirect/f765036b-de0e-4b4e-b0ee-7b29221354b0"
+            },
+            {
+                "id": "turboquant-research-dispute",
+                "title": "Turboquant research dispute",
+                "description": "A technical critique of the TurboQuant paper methodology and benchmarking.",
+                "reason": "Rule 1: Applied Deep-Tech - Explains the underlying mechanics and flaws of a complex quantization technology.",
+                "tags": [
+                    "ai",
+                    "thinking"
+                ],
+                "url": "https://substack.com/redirect/44c84a78-a1e7-4d05-8cf4-27b736061c21"
+            },
+            {
+                "id": "aa-agentperf-benchmark",
+                "title": "Aa-agentperf benchmark",
+                "description": "A benchmark focused on real-world coding agent trajectories and throughput metrics.",
+                "reason": "Rule 2: Discipline-Specific Tools - Useful for AI and Backend engineers comparing serving infrastructure.",
+                "tags": [
+                    "ai",
+                    "tooling",
+                    "backend"
+                ],
+                "url": "https://substack.com/redirect/84d48fef-fcf7-4644-ae19-5010618b964c"
+            },
+            {
+                "id": "codex-plugins-and-use-case-gallery",
+                "title": "Codex plugins and use-case gallery",
+                "description": "A collection of plugins and implementations for workspace-native automation using Codex.",
+                "reason": "Rule 2: Discipline-Specific Tools - Practical utilities for developers looking to automate workflows.",
+                "tags": [
+                    "tooling",
+                    "automation"
+                ],
+                "url": "https://substack.com/redirect/f3681eda-31b7-46f3-a119-d07976ef07a8"
+            },
+            {
+                "id": "agent-browser-dashboard",
+                "title": "Agent-browser dashboard",
+                "description": "A real-time dashboard for debugging and monitoring agent-controlled browser sessions.",
+                "reason": "Rule 2: Discipline-Specific Tools - Tactical tool for engineers building browser-based agents.",
+                "tags": [
+                    "tooling",
+                    "qa",
+                    "automation"
+                ],
+                "url": "https://substack.com/redirect/fb861aee-d641-4854-a74f-9041723fe41f"
+            },
+            {
+                "id": "cursorbench-long-horizon-coding-evals",
+                "title": "Cursorbench: long-horizon coding evals",
+                "description": "A benchmark for evaluating AI coding performance on real, complex, multi-line tasks.",
+                "reason": "Rule 2: Discipline-Specific Tools - High-quality evaluation tool for AI coding workflows.",
+                "tags": [
+                    "ai",
+                    "tooling",
+                    "qa"
+                ],
+                "url": "https://substack.com/redirect/f3559f73-04c3-457c-90c6-47abd1259a6e"
+            },
+            {
+                "id": "sam-31-speedup-and-object-multiplexing",
+                "title": "Sam 3.1 speedup and object multiplexing",
+                "description": "A drop-in update for the Segment Anything Model that doubles throughput for video segmentation.",
+                "reason": "Rule 1: Applied Deep-Tech - Explains the mechanics of object multiplexing to improve performance.",
+                "tags": [
+                    "ai",
+                    "tooling"
+                ],
+                "url": "https://substack.com/redirect/ec7eb1ab-7ee8-473a-917a-f547db793e52"
+            },
+            {
+                "id": "unifolm-wbt-dataset",
+                "title": "Unifolm-wbt-dataset",
+                "description": "A real-world humanoid whole-body teleoperation dataset for robotics research.",
+                "reason": "Rule 2: Discipline-Specific Tools - Specialized dataset for robotics and multimodal AI engineers.",
+                "tags": [
+                    "ai",
+                    "tooling"
+                ],
+                "url": "https://substack.com/redirect/58c5afb7-b56c-490e-b6c2-9b860b5dc093"
+            },
+            {
+                "id": "molmobot-open-robotic-suite",
+                "title": "Molmobot open robotic suite",
+                "description": "An open robotic manipulation suite trained in simulation with code and data available.",
+                "reason": "Rule 2: Discipline-Specific Tools - Practical repository for robotics implementation.",
+                "tags": [
+                    "ai",
+                    "tooling"
+                ],
+                "url": "https://substack.com/redirect/ba91a127-a889-416b-b981-4e22f948e114"
+            },
+            {
+                "id": "skipping-90-of-kv-dequant-work-for-decode-speed",
+                "title": "Skipping 90% of kv dequant work for decode speed",
+                "description": "A technical optimization for llama.cpp that improves decode performance by leveraging attention sparsity.",
+                "reason": "Rule 1: Applied Deep-Tech - Explains specific kernel optimizations to improve LLM inference speed.",
+                "tags": [
+                    "ai",
+                    "backend"
+                ],
+                "url": "https://substack.com/redirect/8f1aac6d-9311-4dd2-b1f3-5ce3b5a24dbd"
+            },
+            {
+                "id": "rotorquant-clifford-rotors-for-vector-quantization",
+                "title": "Rotorquant: clifford rotors for vector quantization",
+                "description": "A novel approach to quantization using Clifford Algebra for significant speed improvements over TurboQuant.",
+                "reason": "Rule 1: Applied Deep-Tech - Deep dive into the mathematical mechanics of model compression and performance.",
+                "tags": [
+                    "ai",
+                    "backend"
+                ],
+                "url": "https://substack.com/redirect/8b0c7a73-2c12-4807-aa01-3466f8762bb2"
+            },
+            {
+                "id": "we-rewrote-jsonata-with-ai-in-a-day-saved-500kyear-5-minute-read",
+                "title": "We rewrote jsonata with ai in a day, saved $500k/year (5 minute read)",
+                "description": "A case study on using AI to port JSONata to pure Go, resulting in significant performance gains and cost savings.",
+                "reason": "This is Applied Deep-Tech that explains the mechanics of a complex migration and optimization using AI.",
+                "tags": [
+                    "ai",
+                    "backend"
+                ],
+                "url": "https://www.reco.ai/blog/we-rewrote-jsonata-with-ai"
+            },
+            {
+                "id": "reducing-our-monorepo-size-to-improve-developer-velocity-12-minute-read",
+                "title": "Reducing our monorepo size to improve developer velocity (12 minute read)",
+                "description": "Dropbox's technical deep dive into Git delta compression and server-side repacking to reduce monorepo bloat.",
+                "reason": "This is Applied Deep-Tech explaining the underlying mechanics of Git and repository infrastructure optimization.",
+                "tags": [
+                    "tooling",
+                    "backend"
+                ],
+                "url": "https://dropbox.tech/infrastructure/reducing-our-monorepo-size-to-improve-developer-velocity"
+            },
+            {
+                "id": "cog-github-repo",
+                "title": "Cog (github repo)",
+                "description": "A cognitive architecture for Claude Code using Unix tools to manage persistent memory.",
+                "reason": "This is a Discipline-Specific Tool focused on AI engineering and cognitive architectures.",
+                "tags": [
+                    "ai",
+                    "tooling"
+                ],
+                "url": "https://github.com/marciopuga/cog"
+            },
+            {
+                "id": "editor-github-repo",
+                "title": "Editor (github repo)",
+                "description": "A 3D architectural building tool built with React Three Fiber, WebGPU, and Zustand.",
+                "reason": "This is a Discipline-Specific Tool highly relevant to frontend and creative technologists.",
+                "tags": [
+                    "frontend",
+                    "tooling"
+                ],
+                "url": "https://github.com/pascalorg/editor"
+            },
+            {
+                "id": "supersplat-editor-github-repo",
+                "title": "Supersplat editor (github repo)",
+                "description": "An open-source web tool for editing and optimizing 3D Gaussian Splats.",
+                "reason": "This is a Discipline-Specific Tool serving frontend and creative technology disciplines.",
+                "tags": [
+                    "frontend",
+                    "tooling"
+                ],
+                "url": "https://github.com/playcanvas/supersplat"
+            },
+            {
+                "id": "my-minute-by-minute-response-to-the-litellm-malware-attack-18-minute-read",
+                "title": "My minute-by-minute response to the litellm malware attack (18 minute read)",
+                "description": "A detailed incident response transcript of a supply chain attack on the LiteLLM PyPI package.",
+                "reason": "This is Applied Deep-Tech explaining the mechanics of a real-world security breach and response.",
+                "tags": [
+                    "security",
+                    "ai"
+                ],
+                "url": "https://futuresearch.ai/blog/litellm-attack-transcript/"
+            },
+            {
+                "id": "from-skeptic-to-convert-how-fieldy-adopted-expo-for-their-ai-wearable-10-minute-read",
+                "title": "From skeptic to convert: how fieldy adopted expo for their ai wearable (10 minute read)",
+                "description": "A case study on migrating an AI wearable app to Expo, focusing on bundle optimization and EAS workflows.",
+                "reason": "This is a Discipline-Specific Tool article focused on mobile development and optimization.",
+                "tags": [
+                    "mobile"
+                ],
+                "url": "https://expo.dev/blog/how-fieldy-adopted-expo-for-their-ai-wearable"
+            },
+            {
+                "id": "model-collapse-is-already-happening-we-just-pretend-it-isnt-6-minute-read",
+                "title": "Model collapse is already happening, we just pretend it isn't (6 minute read)",
+                "description": "An analysis of how AI models degrade when trained on AI-generated data, leading to a loss of variance.",
+                "reason": "This is Applied Deep-Tech explaining the underlying mechanics of AI model degradation.",
+                "tags": [
+                    "ai"
+                ],
+                "url": "https://links.tldrnewsletter.com/wlFtzU"
+            },
+            {
+                "id": "shell-tricks-that-actually-make-life-easier-and-save-your-sanity-12-minute-read",
+                "title": "Shell tricks that actually make life easier (and save your sanity) (12 minute read)",
+                "description": "A collection of useful shell commands and tricks for Unix-like environments.",
+                "reason": "This is a collection of Discipline-Specific Tools (tooling) that are highly useful for developers working in terminal environments.",
+                "tags": [
+                    "tooling"
+                ],
+                "url": "https://blog.hofstede.it/shell-tricks-that-actually-make-life-easier-and-save-your-sanity/"
+            },
+            {
+                "id": "terraform-cloud-drift-detection-how-it-works-setup-8-minute-read",
+                "title": "Terraform cloud drift detection: how it works & setup (8 minute read)",
+                "description": "A guide on how Terraform Cloud detects infrastructure drift and how to set up scheduled checks.",
+                "reason": "This is a high-quality, discipline-specific tutorial for infrastructure automation and tooling.",
+                "tags": [
+                    "tooling",
+                    "automation"
+                ],
+                "url": "https://spacelift.io/blog/terraform-cloud-drift-detection"
+            },
+            {
+                "id": "reducing-our-monorepo-size-to-improve-developer-velocity-9-minute-read",
+                "title": "Reducing our monorepo size to improve developer velocity (9 minute read)",
+                "description": "Dropbox details how they reduced their monorepo size by 77% by optimizing Git's compression heuristics.",
+                "reason": "This is an applied deep-tech article that explains the underlying mechanics of Git compression in a complex environment.",
+                "tags": [
+                    "tooling",
+                    "general concepts"
+                ],
+                "url": "https://dropbox.tech/infrastructure/reducing-our-monorepo-size-to-improve-developer-velocity"
+            },
+            {
+                "id": "agentscope-github-repo",
+                "title": "Agentscope (github repo)",
+                "description": "A production-ready agent framework for Python designed for building agentic LLM applications.",
+                "reason": "This is a high-quality, discipline-specific tool for AI engineers and backend developers.",
+                "tags": [
+                    "ai",
+                    "tooling"
+                ],
+                "url": "https://github.com/agentscope-ai/agentscope"
+            },
+            {
+                "id": "oh-my-claudecode-github-repo",
+                "title": "Oh-my-claudecode (github repo)",
+                "description": "A multi-agent orchestration tool for Claude Code that automates coding workflows through a team-based pipeline.",
+                "reason": "This is a useful discipline-specific tool for automating developer workflows using AI.",
+                "tags": [
+                    "ai",
+                    "tooling",
+                    "automation"
+                ],
+                "url": "https://github.com/Yeachan-Heo/oh-my-claudecode"
+            },
+            {
+                "id": "making-kubernetes-cost-governance-practical-for-devops-teams-3-minute-read",
+                "title": "Making kubernetes cost governance practical for devops teams (3 minute read)",
+                "description": "An article on embedding FinOps and cost control into daily engineering workflows.",
+                "reason": "This provides high-quality advice on professional ownership and career growth regarding the financial impact of engineering decisions.",
+                "tags": [
+                    "general concepts"
+                ],
+                "url": "https://cloudnativenow.com/contributed-content/making-kubernetes-cost-governance-practical-for-devops-teams/"
+            },
+            {
+                "id": "what-about-juniors",
+                "title": "What about juniors?",
+                "description": "An exploration of the evolving role and path for junior engineers in the modern technical landscape.",
+                "reason": "This provides high-quality professional ownership advice aimed at individual contributors regarding career growth and the essence of engineering.",
+                "tags": [
+                    "thinking"
+                ],
+                "url": "https://brooker.co.za/blog/2026/03/25/ic-junior.html"
+            },
+            {
+                "id": "the-handoff-problem",
+                "title": "The handoff problem",
+                "description": "An analysis of the safety risks and technical challenges inherent in handing control from autonomous systems back to humans.",
+                "reason": "This is an applied deep-tech article that explains the underlying mechanics and risks of complex human-AI interaction systems.",
+                "tags": [
+                    "ai",
+                    "thinking"
+                ],
+                "url": "https://blog.dshr.org/2026/03/the-handoff-problem.html"
+            },
+            {
+                "id": "vllm-encoder-decoder-optimizations",
+                "title": "Vllm encoder-decoder optimizations",
+                "description": "Details on variable-length encoder batching and packed decoder attention in vLLM.",
+                "reason": "Rule 1: Applied deep-tech explaining underlying mechanics of throughput gains for speech workloads.",
+                "tags": [
+                    "backend",
+                    "ai"
+                ],
+                "url": "https://substack.com/redirect/9d021f83-3945-4b44-8511-e1eb25e47f0b"
+            },
+            {
+                "id": "cline-kanban-launch",
+                "title": "Cline kanban launch",
+                "description": "Open-source local web app for orchestrating multiple CLI coding agents.",
+                "reason": "Rule 2: High-quality tool that serves a specific discipline (AI-assisted coding).",
+                "tags": [
+                    "tooling",
+                    "ai",
+                    "frontend"
+                ],
+                "url": "https://substack.com/redirect/c20d036e-6a6b-4357-ac82-f27fa301a29a"
+            },
+            {
+                "id": "cline-kanban-multi-agent-orchestration",
+                "title": "Cline kanban multi-agent orchestration",
+                "description": "Technical details on how Cline Kanban manages git worktrees and dependencies.",
+                "reason": "Rule 2: Discipline-specific tool utility for AI engineers.",
+                "tags": [
+                    "tooling",
+                    "ai",
+                    "automation"
+                ],
+                "url": "https://substack.com/redirect/98edbac8-ec75-4171-821a-be1d1819c179"
+            },
+            {
+                "id": "arafat-on-cline-kanban",
+                "title": "Arafat on cline kanban",
+                "description": "Developer reaction to the Cline Kanban multi-agent interface.",
+                "reason": "Rule 2: Discipline-specific tool discussion.",
+                "tags": [
+                    "tooling",
+                    "ai"
+                ],
+                "url": "https://substack.com/redirect/dafa8227-8b34-480d-90c3-aad18d3d9d2b"
+            },
+            {
+                "id": "testingcatalog-cline-kanban-review",
+                "title": "Testingcatalog: cline kanban review",
+                "description": "Evaluation of Cline Kanban as a solution for coding-agent bottlenecks.",
+                "reason": "Rule 2: Discipline-specific tool evaluation.",
+                "tags": [
+                    "tooling",
+                    "ai",
+                    "qa"
+                ],
+                "url": "https://substack.com/redirect/29c1d3ce-7ed0-45a1-a740-c46de820bded"
+            },
+            {
+                "id": "sdrzn-on-agent-parallelism",
+                "title": "Sdrzn on agent parallelism",
+                "description": "Discussion on solving merge-conflict-heavy parallelism in agent workflows.",
+                "reason": "Rule 2: Discipline-specific tool discussion.",
+                "tags": [
+                    "tooling",
+                    "ai"
+                ],
+                "url": "https://substack.com/redirect/65707fe3-0787-4437-887e-abf9e22efd54"
+            },
+            {
+                "id": "hermes-agent-vs-openclaw",
+                "title": "Hermes agent vs openclaw",
+                "description": "Comparison of agent stacks for long-running, cross-platform autonomy.",
+                "reason": "Rule 1: Applied deep-tech explaining mechanics of persistent memory and autonomy.",
+                "tags": [
+                    "ai",
+                    "backend"
+                ],
+                "url": "https://substack.com/redirect/706055fd-9412-4835-9514-99e753e54895"
+            },
+            {
+                "id": "jayweeldreyer-on-long-running-agents",
+                "title": "Jayweeldreyer on long-running agents",
+                "description": "User reports on agents running unattended for hours using the Hermes stack.",
+                "reason": "Rule 1: Applied deep-tech regarding agentic workflow mechanics.",
+                "tags": [
+                    "ai",
+                    "backend"
+                ],
+                "url": "https://substack.com/redirect/7859626d-e3db-440d-bb54-a2ebb67880a9"
+            },
+            {
+                "id": "niels-rogge-on-shared-agent-memory",
+                "title": "Niels rogge on shared agent memory",
+                "description": "Technical discussion on implementing shared memory across multiple agents.",
+                "reason": "Rule 1: Applied deep-tech on agentic system mechanics.",
+                "tags": [
+                    "ai",
+                    "backend"
+                ],
+                "url": "https://substack.com/redirect/83e018fc-c223-4407-9f6b-f90fb2c185c9"
+            },
+            {
+                "id": "prorl-agent-decoupling-rollout-and-optimization",
+                "title": "Prorl agent: decoupling rollout and optimization",
+                "description": "Argument that decoupling rollout into a standalone service significantly improves agent RL performance.",
+                "reason": "Rule 1: Applied deep-tech explaining infrastructure mechanics for reinforcement learning.",
+                "tags": [
+                    "backend",
+                    "ai"
+                ],
+                "url": "https://substack.com/redirect/f6ed400f-d8b8-4809-900b-c4862ce02626"
+            },
+            {
+                "id": "attention-residuals-attnres",
+                "title": "Attention residuals (attnres)",
+                "description": "Kimi/Moonshot's architecture that turns transformer depth into an attention problem.",
+                "reason": "Rule 1: Applied deep-tech explaining the underlying mechanics of a complex technology.",
+                "tags": [
+                    "ai"
+                ],
+                "url": "https://substack.com/redirect/51a5be5b-ddc3-4ce7-9982-dcddb627309e"
+            },
+            {
+                "id": "the-turing-post-adaptive-retrieval-over-depth",
+                "title": "The turing post: adaptive retrieval over depth",
+                "description": "Explainer on the trend of deep transformers moving toward adaptive retrieval.",
+                "reason": "Rule 1: Applied deep-tech explaining architectural mechanics.",
+                "tags": [
+                    "ai"
+                ],
+                "url": "https://substack.com/redirect/f38dab20-5157-4667-aa7f-c7ffb982b307"
+            },
+            {
+                "id": "turboquant-3-bit-compression-mechanics",
+                "title": "Turboquant: 3-bit compression mechanics",
+                "description": "Technical details on PolarQuant and 1-bit error correction for inference efficiency.",
+                "reason": "Rule 1: Applied deep-tech on compression and memory-efficiency mechanics.",
+                "tags": [
+                    "ai",
+                    "backend"
+                ],
+                "url": "https://substack.com/redirect/bbc8b52b-4998-4a50-87a5-6610865e768a"
+            },
+            {
+                "id": "irpapers-multimodal-fusion-in-rag",
+                "title": "Irpapers: multimodal fusion in rag",
+                "description": "Research showing multimodal fusion beats text-only retrieval for scientific PDFs.",
+                "reason": "Rule 1: Applied deep-tech explaining the mechanics of specialized retrieval.",
+                "tags": [
+                    "ai"
+                ],
+                "url": "https://substack.com/redirect/dc691552-9afa-42a0-a6f1-a1040764c7bc"
+            },
+            {
+                "id": "chroma-context-1-search-focused-model",
+                "title": "Chroma context-1: search-focused model",
+                "description": "Open-source search model trained with SFT+RL over 8,000+ synthetic tasks.",
+                "reason": "Rule 2: High-quality tool that serves the specific discipline of search/retrieval.",
+                "tags": [
+                    "tooling",
+                    "ai"
+                ],
+                "url": "https://substack.com/redirect/685316bf-f584-40bc-bc38-603e3ab1e868"
+            },
+            {
+                "id": "john-schulman-on-context-1-curriculum",
+                "title": "John schulman on context-1 curriculum",
+                "description": "Discussion on verified synthetic data and context-pruning tools in Context-1.",
+                "reason": "Rule 1: Applied deep-tech on training curriculum and data verification.",
+                "tags": [
+                    "ai"
+                ],
+                "url": "https://substack.com/redirect/57261b60-c8d1-4aba-a0bd-08a8f5aef722"
+            },
+            {
+                "id": "css-refactoring-with-an-ai-safety-net",
+                "title": "Css refactoring with an ai safety net",
+                "description": "A case study on using Claude Code and Playwright to refactor CSS while maintaining visual consistency through automated screenshot comparisons.",
+                "reason": "It is a discipline-specific tool/technique (Frontend/QA) that provides a practical application of AI in a development workflow without being a simple tool launch.",
+                "tags": [
+                    "frontend",
+                    "qa",
+                    "ai"
+                ],
+                "url": "https://danielabaron.me/blog/css-refactoring-with-an-ai-safety-net/"
+            },
+            {
+                "id": "data-center-dc-embraces-800v-power-shift",
+                "title": "Data center dc embraces 800v power shift",
+                "description": "Technical exploration of the shift from AC to 800V DC power systems in modern AI data centers to improve efficiency.",
+                "reason": "This is applied deep-tech that explains the underlying hardware mechanics of the infrastructure supporting modern AI workloads.",
+                "tags": [
+                    "mindblown"
+                ],
+                "url": "https://spectrum.ieee.org/data-center-dc"
+            },
+            {
+                "id": "running-tesla-model-3s-computer-on-my-desk-using-parts-from-crashed-cars",
+                "title": "Running tesla model 3's computer on my desk using parts from crashed cars",
+                "description": "A detailed technical walkthrough of hardware hacking a Tesla computer for security vulnerability research.",
+                "reason": "High-quality applied deep-tech explaining complex system mechanics and security research methods.",
+                "tags": [
+                    "security",
+                    "mindblown"
+                ],
+                "url": "https://bugs.xdavidhu.me/tesla/2026/03/23/running-tesla-model-3s-computer-on-my-desk-using-parts-from-crashed-cars/"
+            },
+            {
+                "id": "why-i-forked-httpx",
+                "title": "Why i forked httpx",
+                "description": "A developer explains the decision to fork a popular Python library due to maintenance and transparency issues.",
+                "reason": "Provides high-quality career growth and professional ownership advice regarding open-source contributions and maintenance.",
+                "tags": [
+                    "backend",
+                    "thinking"
+                ],
+                "url": "https://tildeweb.nl/~michiel/httpxyz.html"
+            },
+            {
+                "id": "how-anthropics-claude-thinks",
+                "title": "How anthropic's claude thinks",
+                "description": "An analysis of research papers tracing the computational steps Claude takes to produce answers.",
+                "reason": "Applied Deep-Tech that explains the underlying mechanics of how a complex technology (LLM computation) works.",
+                "tags": [
+                    "ai"
+                ],
+                "url": "https://blog.bytebytego.com/p/how-anthropics-claude-thinks"
+            },
+            {
+                "id": "nobody-is-coming-to-save-your-career",
+                "title": "Nobody is coming to save your career",
+                "description": "Advice on professional ownership and the individual's responsibility for their own career growth.",
+                "reason": "High-quality career growth and professional ownership advice aimed at individual contributors.",
+                "tags": [
+                    "thinking"
+                ],
+                "url": "https://alifeengineered.substack.com/p/nobody-is-coming-to-save-your-career"
+            },
+            {
+                "id": "responsive-emails-written-in-markdown",
+                "title": "Responsive emails, written in markdown",
+                "description": "A tool that renders Markdown into email-safe HTML for responsive emails.",
+                "reason": "A discipline-specific tool that is highly useful for frontend developers and marketers.",
+                "tags": [
+                    "frontend",
+                    "tooling"
+                ],
+                "url": "https://www.emailmd.dev/"
+            },
+            {
+                "id": "ray-data-llm-enables-2x-throughput-over-vllms-synchronous-llm-engine-at-production-scale",
+                "title": "Ray data llm enables 2x throughput over vllm's synchronous llm engine at production-scale",
+                "description": "A library for large-scale batch inference for LLMs that optimizes throughput for modern workloads.",
+                "reason": "Assign 50% Useful as a Discipline-Specific Tool that is highly valuable for backend and AI engineers (Rule 2).",
+                "tags": [
+                    "backend",
+                    "ai"
+                ],
+                "url": "https://www.anyscale.com/blog/ray-data-llm-2x-throughput-vs-vllm"
+            },
+            {
+                "id": "googles-extreme-vector-compression",
+                "title": "Google's extreme vector compression",
+                "description": "TurboQuant is a quantization method that reduces vector memory overhead for faster search and cache efficiency.",
+                "reason": "Assign 50% Useful as Applied Deep-Tech explaining the underlying mechanics of vector memory optimization (Rule 1).",
+                "tags": [
+                    "ai",
+                    "backend"
+                ],
+                "url": "https://research.google/blog/turboquant-redefining-ai-efficiency-with-extreme-compression/"
+            },
+            {
+                "id": "eva",
+                "title": "Eva",
+                "description": "A framework for evaluating voice agents using a realistic bot-to-bot architecture for multi-turn conversations.",
+                "reason": "Assign 50% Useful as a Discipline-Specific Tool for QA and AI engineers working with voice interfaces (Rule 2).",
+                "tags": [
+                    "qa",
+                    "ai"
+                ],
+                "url": "https://huggingface.co/blog/ServiceNow-AI/eva"
+            },
+            {
+                "id": "remote-command-execution-in-google-cloud-with-single-directory-deletion",
+                "title": "Remote command execution in google cloud with single directory deletion",
+                "description": "A technical deep dive into an RCE vulnerability in Google Cloud Looker involving Ruby's FileUtils and Git hooks.",
+                "reason": "Applied Deep-Tech: Explains the underlying mechanics of a complex vulnerability (race conditions and post-order traversal) beyond simple news.",
+                "tags": [
+                    "security",
+                    "backend"
+                ],
+                "url": "https://flatt.tech/research/posts/remote-command-execution-in-google-cloud-with-single-directory-deletion/"
+            },
+            {
+                "id": "detect-snappyclient-cc-traffic-using-packetsmith-yara-x-detection-module",
+                "title": "Detect snappyclient c&c traffic using packetsmith + yara-x detection module",
+                "description": "A guide on fingerprinting encrypted C&C traffic using protocol-level analysis and Yara-X.",
+                "reason": "Discipline-Specific Tools: A high-quality utility and methodology specific to security and network engineering.",
+                "tags": [
+                    "security",
+                    "tooling"
+                ],
+                "url": "https://blog.netomize.ca/detect-snappyclient-c-c-traffic-using-packetsmith-yara-x-detection-module"
+            },
+            {
+                "id": "openclaw-trap-ai-assisted-lure-factory-targets-developers-gamers",
+                "title": "Openclaw trap: ai-assisted lure factory targets developers & gamers",
+                "description": "Analysis of a campaign using LuaJIT payloads and anti-analysis checks to target developers.",
+                "reason": "Applied Deep-Tech: Goes beyond hype to explain the mechanics of how the Trojan bypasses sandbox analysis.",
+                "tags": [
+                    "security",
+                    "ai"
+                ],
+                "url": "https://www.netskope.com/blog/openclaw-trap-ai-assisted-lure-factory-targets-developers-gamers"
+            }
+        ],
+        "discarded": [
+            {
+                "id": "",
+                "title": "-",
+                "description": "-",
+                "reason": "-",
+                "tags": [
+                    "-"
+                ],
+                "url": "-"
+            },
+            {
+                "id": "h100-rental-price-depreciation-cycle",
+                "title": "H100 rental price depreciation cycle",
+                "description": "An analysis of the rental price trends and depreciation cycles for NVIDIA H100 GPUs.",
+                "reason": "Rule 2: News, Gossip, & Launches - This is market share and pricing analysis rather than technical implementation.",
+                "tags": [
+                    "ai"
+                ],
+                "url": "https://substack.com/redirect/39845859-a953-451b-ae46-477ef9db2754"
+            },
+            {
+                "id": "deepseek-r1-shock",
+                "title": "Deepseek r1 shock",
+                "description": "Contextual news regarding the impact of DeepSeek R1 on the GPU market.",
+                "reason": "Rule 2: News, Gossip, & Launches - Market event analysis.",
+                "tags": [
+                    "ai"
+                ],
+                "url": "https://substack.com/redirect/d3c2ef17-6410-41cf-b567-668a9ccc7b86"
+            },
+            {
+                "id": "dylan-on-dwarkesh-h100-value",
+                "title": "Dylan on dwarkesh: h100 value",
+                "description": "Podcast discussion regarding the long-term value and utility of H100 chips.",
+                "reason": "Rule 2: News, Gossip, & Launches - General market commentary and hype.",
+                "tags": [
+                    "ai"
+                ],
+                "url": "https://substack.com/redirect/f813b56a-2b85-4ac7-8340-a813dd72dd65"
+            },
+            {
+                "id": "claude-mythos-and-capybara-tier-leak",
+                "title": "Claude mythos and capybara tier leak",
+                "description": "Leaked information regarding Anthropic's upcoming high-intelligence model tiers.",
+                "reason": "Rule 2: News, Gossip, & Launches - Product launch hype and leaks.",
+                "tags": [
+                    "ai"
+                ],
+                "url": "https://substack.com/redirect/d423838d-7eaa-407b-b764-ffc7f7f93a65"
+            },
+            {
+                "id": "google-funding-anthropic-data-center",
+                "title": "Google funding anthropic data center",
+                "description": "News report on Google's investment into Anthropic's infrastructure.",
+                "reason": "Rule 2: News, Gossip, & Launches - Funding and corporate news.",
+                "tags": [
+                    "ai"
+                ],
+                "url": "https://substack.com/redirect/993137b1-1d65-42d1-8804-320ffa226593"
+            },
+            {
+                "id": "leworldmodel-paper",
+                "title": "Leworldmodel paper",
+                "description": "Yann LeCun's research on small, open world models designed to prevent representational collapse.",
+                "reason": "Rule 7: Pure Academic Research - Theoretical research not yet practically applicable to product building.",
+                "tags": [
+                    "ai"
+                ],
+                "url": "https://substack.com/redirect/30c4a5e9-f920-4440-beda-fe089e398081"
+            },
+            {
+                "id": "how-to-evaluate-agentic-security-solutions-sponsor",
+                "title": "How to evaluate agentic security solutions (sponsor)",
+                "description": "A guide by Checkmarx on evaluating agentic AI security solutions and essential capabilities for IDE integration.",
+                "reason": "This content is labeled as a sponsor/ad, triggering the absolute 0% trump card rule.",
+                "tags": [
+                    "security",
+                    "ai"
+                ],
+                "url": "https://checkmarx.com/the-agentic-ai-buyers-guide/"
+            },
+            {
+                "id": "checkmarx-developer-assists-puts-agentic-security-in-the-ide",
+                "title": "Checkmarx developer assists puts agentic security in the ide",
+                "description": "Information on how CheckMarx implements agentic security directly within the developer IDE.",
+                "reason": "This is promotional content for a specific vendor's product, categorized under Sponsored/Ads.",
+                "tags": [
+                    "security",
+                    "tooling"
+                ],
+                "url": "https://dev.checkmarx.com/#how-it-works"
+            },
+            {
+                "id": "discover-why-developers-choose-checkmarx",
+                "title": "Discover why developers choose checkmarx",
+                "description": "Marketing content detailing the benefits and reasons for selecting CheckMarx tools.",
+                "reason": "This is promotional/sponsored content.",
+                "tags": [
+                    "security"
+                ],
+                "url": "https://dev.checkmarx.com/#why-checkmarx"
+            },
+            {
+                "id": "harness-design-for-long-running-application-development-28-minute-read",
+                "title": "Harness design for long-running application development (28 minute read)",
+                "description": "Anthropic engineers discuss multi-agent architectures and generator-evaluator loops for long-running AI development.",
+                "reason": "The article is estimated at 28 minutes, exceeding the 15-20 minute length penalty threshold.",
+                "tags": [
+                    "ai",
+                    "backend"
+                ],
+                "url": "https://www.anthropic.com/engineering/harness-design-long-running-apps"
+            },
+            {
+                "id": "is-your-aws-costing-you-more-time-and-money-than-it-should-sponsor",
+                "title": "Is your aws costing you more time and money than it should? (sponsor)",
+                "description": "Promoted AWS architecture review and modernization services from DuploCloud.",
+                "reason": "This content is labeled as a sponsor/ad.",
+                "tags": [
+                    "tooling"
+                ],
+                "url": "https://duplocloud.com/aws-modernization-session/"
+            },
+            {
+                "id": "how-to-route-opentelemetry-logs-to-sentry-with-just-2-environment-variables-sponsor",
+                "title": "How to route opentelemetry logs to sentry with just 2 environment variables (sponsor)",
+                "description": "A Sentry blog post on using OTLP to route logs without SDK changes.",
+                "reason": "This content is labeled as a sponsor/ad.",
+                "tags": [
+                    "tooling",
+                    "automation"
+                ],
+                "url": "https://blog.sentry.io/structured-logging-opentelemetry/"
+            },
+            {
+                "id": "building-a-digital-doorman-8-minute-read",
+                "title": "Building a digital doorman (8 minute read)",
+                "description": "A developer's personal project building an IRC-based AI agent to answer questions about their GitHub code.",
+                "reason": "This is a Hyper-Specific Tool/personal project tutorial with limited universal application.",
+                "tags": [
+                    "ai"
+                ],
+                "url": "https://georgelarson.me/writing/2026-03-23-nullclaw-doorman/"
+            },
+            {
+                "id": "two-studies-in-compiler-optimisations-26-minute-read",
+                "title": "Two studies in compiler optimisations (26 minute read)",
+                "description": "A deep dive into the LLVM compiler's optimization pipeline for C++ code.",
+                "reason": "The article is estimated at 26 minutes, exceeding the 15-20 minute length penalty threshold.",
+                "tags": [
+                    "backend"
+                ],
+                "url": "https://www.hmpcabral.com/2026/03/20/two-studies-in-compiler-optimisations/"
+            },
+            {
+                "id": "web-rewind-website",
+                "title": "Web rewind (website)",
+                "description": "An interactive website showcasing the 30-year history of the web.",
+                "reason": "This is categorized under News, Gossip, & Launches as it is a historical/interactive site rather than a technical utility or foundational concept.",
+                "tags": [
+                    "general concepts"
+                ],
+                "url": "https://www.web-rewind.com/"
+            },
+            {
+                "id": "get-your-free-forrester-wave-value-stream-management-report-to-see-why-planview-is-a-leader-sponsor",
+                "title": "Get your free forrester wave value stream management report to see why planview is a leader (sponsor)",
+                "description": "A Forrester Wave report evaluating Planview's Value Stream Management solution.",
+                "reason": "This is labeled as sponsored content, triggering the 0% rule for ads.",
+                "tags": [],
+                "url": "https://info.planview.com/forrester-wave-value-stream-management-_report_vsm_en_reg.html"
+            },
+            {
+                "id": "register-for-a-demo",
+                "title": "Register for a demo",
+                "description": "A registration link for a Planview product demo.",
+                "reason": "This is a promotional link for a specific vendor product, classified as an ad.",
+                "tags": [],
+                "url": "https://info.planview.com/digital-product-delivery-for-engineering-_demo-on-demand_lad_en_reg.html"
+            },
+            {
+                "id": "sandboxing-ai-agents-100x-faster-11-minute-read",
+                "title": "Sandboxing ai agents, 100x faster (11 minute read)",
+                "description": "Cloudflare announces the open beta of Dynamic Worker Loader for creating lightweight JavaScript sandboxes.",
+                "reason": "This is a product launch announcement for a specific vendor tool (Cloudflare), triggering the 0% rule for launches.",
+                "tags": [
+                    "ai",
+                    "backend"
+                ],
+                "url": "https://blog.cloudflare.com/dynamic-workers/"
+            },
+            {
+                "id": "announcing-kubescape-40-enterprise-stability-meets-the-ai-era-4-minute-read",
+                "title": "Announcing kubescape 4.0 enterprise stability meets the ai era (4 minute read)",
+                "description": "The release of Kubescape 4.0 featuring runtime threat detection and AI-focused security controls.",
+                "reason": "This is a product launch announcement for a specific tool version, triggering the 0% rule for launches.",
+                "tags": [
+                    "security",
+                    "automation"
+                ],
+                "url": "https://www.cncf.io/blog/2026/03/26/announcing-kubescape-4-0-enterprise-stability-meets-the-ai-era/"
+            },
+            {
+                "id": "what-really-matters-for-enterprise-search-sponsor",
+                "title": "What really matters for enterprise search? (sponsor)",
+                "description": "A sponsored look into unstructured data and search modernization with OpenSearch.",
+                "reason": "Labeled as a sponsor, triggering the 0% rule for ads.",
+                "tags": [],
+                "url": "https://hubs.la/Q047sRln0"
+            },
+            {
+                "id": "opensearch",
+                "title": "Opensearch",
+                "description": "Link to the OpenSearch project page within a sponsored block.",
+                "reason": "This is part of a sponsored content block.",
+                "tags": [],
+                "url": "https://hubs.la/Q047sRJm0"
+            },
+            {
+                "id": "start-improving-enterprise-search",
+                "title": "Start improving enterprise search",
+                "description": "A call to action for OpenSearch enterprise search solutions.",
+                "reason": "This is a promotional link for a vendor product.",
+                "tags": [],
+                "url": "https://opensearch.org/enterprise-search/"
+            },
+            {
+                "id": "inside-our-approach-to-the-model-spec-12-minute-read",
+                "title": "Inside our approach to the model spec (12 minute read)",
+                "description": "OpenAI's framework for how its models should behave regarding safety and instruction-following.",
+                "reason": "This is heavily anchored to OpenAI's specific internal releases and behavioral specifications.",
+                "tags": [
+                    "ai"
+                ],
+                "url": "https://links.tldrnewsletter.com/lvPfhv"
+            },
+            {
+                "id": "this-free-interactive-tool-specs-your-ideal-database-environment-without-guesswork-sponsor",
+                "title": "This free interactive tool specs your ideal database environment without guesswork (sponsor)",
+                "description": "A tool from EDB to generate custom architecture plans for database environments.",
+                "reason": "Labeled as a sponsor, triggering the 0% rule for ads.",
+                "tags": [],
+                "url": "https://www.enterprisedb.com/"
+            },
+            {
+                "id": "building-reusable-custom-images-for-azure-confidential-vms-using-azure-compute-gallery-7-minute-read",
+                "title": "Building reusable custom images for azure confidential vms using azure compute gallery (7 minute read)",
+                "description": "A tutorial on creating hardened images for Azure Confidential VMs using specific Azure services.",
+                "reason": "This is a hyper-specific tactical tutorial for a single vendor's (Azure) cloud product.",
+                "tags": [
+                    "security"
+                ],
+                "url": "https://techcommunity.microsoft.com/blog/azureinfrastructureblog/building-reusable-custom-images-for-azure-confidential-vms-using-azure-compute-g/4500880"
+            },
+            {
+                "id": "announcing-the-release-of-kubevirt-v18-4-minute-read",
+                "title": "Announcing the release of kubevirt v1.8 (4 minute read)",
+                "description": "Details on the release of KubeVirt v1.8, including hypervisor abstraction and Intel TDX support.",
+                "reason": "This is a product launch announcement for a specific tool version.",
+                "tags": [
+                    "tooling"
+                ],
+                "url": "https://www.cncf.io/blog/2026/03/25/announcing-the-release-of-kubevirt-v1-8/"
+            },
+            {
+                "id": "apply-here",
+                "title": "Apply here",
+                "description": "Job application link for TLDR.",
+                "reason": "Triggers the 0% rule for Hiring/HR content.",
+                "tags": [],
+                "url": "https://jobs.ashbyhq.com/tldr.tech"
+            },
+            {
+                "id": "create-your-own-role",
+                "title": "Create your own role",
+                "description": "Job application link for custom roles at TLDR.",
+                "reason": "Triggers the 0% rule for Hiring/HR content.",
+                "tags": [],
+                "url": "https://jobs.ashbyhq.com/tldr.tech/c227b917-a6a4-40ce-8950-d3e165357871"
+            },
+            {
+                "id": "tldr-is-one-of-incs-best-bootstrapped-businesses",
+                "title": "Tldr is one of inc.'s best bootstrapped businesses",
+                "description": "LinkedIn post about TLDR's business achievements.",
+                "reason": "Triggers the 0% rule for news, gossip, or market share analysis.",
+                "tags": [],
+                "url": "https://www.linkedin.com/feed/update/urn:li:activity:7401699691039830016/"
+            },
+            {
+                "id": "plaid-adds-382k-in-pipeline-with-tldr-campaign-sponsor",
+                "title": "Plaid adds $382k in pipeline with tldr campaign (sponsor)",
+                "description": "A case study on Plaid's advertising strategy and ROI using TLDR campaigns.",
+                "reason": "This content is labeled as a sponsor/ad, triggering the absolute 0% rule for sponsored content.",
+                "tags": [],
+                "url": "https://advertise.tldr.tech/case-studies/plaid-adds-382k-in-pipeline-with-tldr-campaign-their-best-direct-buy-yet//"
+            },
+            {
+                "id": "apple-plans-to-open-up-siri-to-rival-ai-assistants-in-ios-27-update",
+                "title": "Apple plans to open up siri to rival ai assistants in ios 27 update",
+                "description": "Apple will allow Siri to integrate with third-party AI services in a future iOS update to drive subscription revenue.",
+                "reason": "This is a product launch announcement and news heavily tied to a specific tech giant's release timeline (Apple/iOS), triggering the Company Anchored and News rules.",
+                "tags": [
+                    "ai"
+                ],
+                "url": "https://links.tldrnewsletter.com/fGBx5v"
+            },
+            {
+                "id": "the-spacex-ipo-will-be-just-as-unconventional-as-musk-himself",
+                "title": "The spacex ipo will be just as unconventional as musk himself",
+                "description": "Details regarding SpaceX's upcoming initial public offering and investor relations strategy.",
+                "reason": "This is financial news and market analysis regarding a specific company's IPO, triggering the News and Company Anchored rules.",
+                "tags": [],
+                "url": "https://links.tldrnewsletter.com/scajS5"
+            },
+            {
+                "id": "here-is-nasas-plan-for-nuking-gateway-and-sending-it-to-mars",
+                "title": "Here is nasa's plan for nuking gateway and sending it to mars",
+                "description": "NASA's shift in strategy from a lunar space station to a surface base and nuclear propulsion testing.",
+                "reason": "This is general news regarding government agency updates and project pivots, triggering the News rule.",
+                "tags": [],
+                "url": "https://arstechnica.com/space/2026/03/here-is-nasas-plan-for-nuking-gateway-and-sending-it-to-mars/"
+            },
+            {
+                "id": "what-happens-when-you-clone-mice-for-20-years-straight",
+                "title": "What happens when you clone mice for 20 years straight?",
+                "description": "A long-term study on the genetic mutations and eventual failure of multi-generational mouse cloning.",
+                "reason": "This is pure academic research and biological theory not practically applicable to building software products, triggering the Pure Academic Research rule.",
+                "tags": [],
+                "url": "https://denovo.substack.com/p/what-happens-when-you-clone-mice"
+            },
+            {
+                "id": "stop-stitching-databases-for-ai-agents-sponsor",
+                "title": "Stop stitching databases for ai agents (sponsor)",
+                "description": "An advertisement for Oracle AI Database's unified memory core for AI agents.",
+                "reason": "This content is labeled as a sponsor, triggering the absolute 0% rule for sponsored content.",
+                "tags": [
+                    "ai"
+                ],
+                "url": "https://www.oracle.com/database/"
+            },
+            {
+                "id": "oracle-ai-database",
+                "title": "Oracle ai database",
+                "description": "Oracle's database solution for relational, JSON, and graph data in AI applications.",
+                "reason": "This is part of a sponsored content block, triggering the absolute 0% rule for sponsored content.",
+                "tags": [
+                    "ai"
+                ],
+                "url": "https://www.oracle.com/database/"
+            },
+            {
+                "id": "see-how-developers-build-agent-memory",
+                "title": "See how developers build agent memory",
+                "description": "Developer resources for building agent memory using Oracle's database tools.",
+                "reason": "This is part of a sponsored content block, triggering the absolute 0% rule for sponsored content.",
+                "tags": [
+                    "ai"
+                ],
+                "url": "https://www.oracle.com/developer/resources/"
+            },
+            {
+                "id": "stripe-projects-provision-a-production-ready-dev-stack-from-your-terminal",
+                "title": "Stripe projects: provision a production-ready dev stack from your terminal",
+                "description": "A new tool in the Stripe CLI for provisioning services and managing credentials from the terminal.",
+                "reason": "This details a specific tool tied to a specific vendor's (Stripe) ecosystem and CLI, triggering the Company Anchored and Hyper-Specific Tools rules.",
+                "tags": [
+                    "tooling"
+                ],
+                "url": "https://links.tldrnewsletter.com/RrMlpG"
+            },
+            {
+                "id": "read-times-full-interview-with-spacexs-gwynne-shotwell",
+                "title": "Read time's full interview with spacex's gwynne shotwell",
+                "description": "A comprehensive interview covering SpaceX operations, mergers, and leadership dynamics.",
+                "reason": "This article is estimated to be a 20-minute read, triggering the Length Penalty, and is heavily company-anchored news.",
+                "tags": [],
+                "url": "https://time.com/article/2026/03/26/spacex-gwynne-shotwell-full-interview/"
+            },
+            {
+                "id": "now-shipping-microsoft-build-2026-june-2-3-san-francisco-microsoftpartner-sponsor",
+                "title": "Now shipping: microsoft build 2026, june 2-3, san francisco (#microsoftpartner) (sponsor)",
+                "description": "Announcement for the Microsoft Build 2026 developer conference.",
+                "reason": "This content is labeled as a sponsor/partner, triggering the absolute 0% rule for sponsored content.",
+                "tags": [
+                    "ai"
+                ],
+                "url": "https://fandf.co/4t6EwCv"
+            },
+            {
+                "id": "learn-more",
+                "title": "Learn more",
+                "description": "Additional information regarding the Microsoft Build event.",
+                "reason": "This is part of a sponsored content block, triggering the absolute 0% rule for sponsored content.",
+                "tags": [
+                    "ai"
+                ],
+                "url": "https://fandf.co/4t6EwCv"
+            },
+            {
+                "id": "jensen-manifesting-the-future",
+                "title": "Jensen manifesting the future",
+                "description": "A summary of Jensen Huang's keynote at the Nvidia GTC 2026 conference regarding AI factories.",
+                "reason": "This article is based on a 2.5-hour keynote and estimated as a 21-minute read, triggering the Length Penalty, and is heavily tied to company hype.",
+                "tags": [
+                    "ai"
+                ],
+                "url": "https://www.readtrung.com/p/how-jensen-manifests-the-future"
+            },
+            {
+                "id": "apple-discontinues-the-mac-pro-with-no-plans-for-future-hardware",
+                "title": "Apple discontinues the mac pro with no plans for future hardware",
+                "description": "News regarding Apple's decision to end the Mac Pro product line.",
+                "reason": "This is a product lifecycle/launch announcement tied to a specific tech giant, triggering the News and Company Anchored rules.",
+                "tags": [],
+                "url": "https://9to5mac.com/2026/03/26/apple-discontinues-the-mac-pro/"
+            },
+            {
+                "id": "apple-gives-iphone-designers-bonuses-up-to-400k-to-counter-openai-poaching",
+                "title": "Apple gives iphone designers bonuses up to $400k to counter openai poaching",
+                "description": "News regarding Apple's retention strategies and designer bonuses.",
+                "reason": "This content relates to hiring, HR, and corporate gossip, triggering the Hiring/HR and News rules.",
+                "tags": [],
+                "url": "https://www.macrumors.com/2026/03/26/apple-iphone-designer-bonuses/"
+            },
+            {
+                "id": "projectsdev",
+                "title": "Projects.dev",
+                "description": "Stripe's new service for agents to instantly provision backend services via CLI.",
+                "reason": "Rule 2: This is a product launch announcement from a specific company (Stripe).",
+                "tags": [],
+                "url": "http://Projects.dev"
+            },
+            {
+                "id": "stripe-projectsdev-announcement",
+                "title": "Stripe projects.dev announcement",
+                "description": "Details on Stripe's CLI-based service provisioning for AI agents.",
+                "reason": "Rule 2: Product launch announcement for a specific company service.",
+                "tags": [],
+                "url": "https://substack.com/redirect/d10dd6e5-2976-4113-ada0-bdc49e31cf52"
+            },
+            {
+                "id": "stripe-projects-launch-partners",
+                "title": "Stripe projects launch partners",
+                "description": "List of infrastructure partners for Stripe's agent provisioning service.",
+                "reason": "Rule 2: News regarding company partnerships and product launches.",
+                "tags": [],
+                "url": "https://substack.com/redirect/913a021c-053e-4684-86bb-b3cd9138af18"
+            },
+            {
+                "id": "andrej-karpathys-menugen-inspiration",
+                "title": "Andrej karpathy's menugen inspiration",
+                "description": "Andrej Karpathy's thoughts on the difficulty of agents setting up backend services.",
+                "reason": "Rule 2: Content serves as background/hype for the Stripe product launch.",
+                "tags": [],
+                "url": "https://substack.com/redirect/6d1819ee-2154-4880-9183-6b589367581f"
+            },
+            {
+                "id": "agent-native-infrastructure-trends",
+                "title": "Agent-native infrastructure trends",
+                "description": "Analysis of the emerging agent-native infrastructure landscape.",
+                "reason": "Rule 2: Market analysis and product hype regarding the infra vendor landscape.",
+                "tags": [],
+                "url": "https://substack.com/redirect/ea5e253d-eac3-4b90-9336-9cf93ed25432"
+            },
+            {
+                "id": "infra-vendor-landscape-charts",
+                "title": "Infra vendor landscape charts",
+                "description": "Visual charts mapping the current state of AI agent infrastructure vendors.",
+                "reason": "Rule 2: Market share analysis and industry news.",
+                "tags": [],
+                "url": "https://substack.com/redirect/84641bd8-8b65-4110-a512-41bd29e67e25"
+            },
+            {
+                "id": "ramp-cli-launch",
+                "title": "Ramp cli launch",
+                "description": "Ramp's new command line interface for financial operations.",
+                "reason": "Rule 2: Product launch announcement for a specific company tool.",
+                "tags": [],
+                "url": "https://substack.com/redirect/9ad77023-17c6-4e3f-a39b-82761eff7d31"
+            },
+            {
+                "id": "ramp-cli-usecases",
+                "title": "Ramp cli usecases",
+                "description": "Examples of how to use the new Ramp CLI in development workflows.",
+                "reason": "Rule 2: Product-specific tutorial/launch material.",
+                "tags": [],
+                "url": "https://substack.com/redirect/6914f0a8-b2b8-4fbc-b4ca-bad6d86771e4"
+            },
+            {
+                "id": "sendblue-cli-imessage",
+                "title": "Sendblue cli (imessage)",
+                "description": "A CLI tool for interacting with iMessage via Sendblue.",
+                "reason": "Rule 2: Product launch announcement.",
+                "tags": [],
+                "url": "https://substack.com/redirect/fa22cf0c-f9a3-40f3-bb93-cdec2235ae6d"
+            },
+            {
+                "id": "kapso-cli-whatsapp",
+                "title": "Kapso cli (whatsapp)",
+                "description": "A CLI tool for WhatsApp integration.",
+                "reason": "Rule 2: Product launch announcement.",
+                "tags": [],
+                "url": "https://substack.com/redirect/d0306db9-5882-418d-a1c8-9e256149253b"
+            },
+            {
+                "id": "elevenlabs-cli",
+                "title": "Elevenlabs cli",
+                "description": "Official CLI for ElevenLabs voice generation services.",
+                "reason": "Rule 2: Product launch announcement.",
+                "tags": [],
+                "url": "https://substack.com/redirect/9220f1e7-4477-49e2-8b24-16018eb50b52"
+            },
+            {
+                "id": "visa-cli",
+                "title": "Visa cli",
+                "description": "A command line tool for Visa financial services.",
+                "reason": "Rule 2: Product launch announcement.",
+                "tags": [],
+                "url": "https://substack.com/redirect/03984c78-be49-4e90-9331-9cd5f0ec5f0a"
+            },
+            {
+                "id": "resend-cli",
+                "title": "Resend cli",
+                "description": "Official CLI for the Resend email platform.",
+                "reason": "Rule 2: Product launch announcement.",
+                "tags": [],
+                "url": "https://substack.com/redirect/dc3788fd-1766-46d1-8b10-65335795021c"
+            },
+            {
+                "id": "steipetes-discord-cli",
+                "title": "Steipete’s discord cli",
+                "description": "A community-built CLI for Discord management.",
+                "reason": "Rule 5: Hyper-specific tool for a single platform.",
+                "tags": [],
+                "url": "https://substack.com/redirect/67f4cf84-0384-4f95-a082-cab3f7f3e78a"
+            },
+            {
+                "id": "google-workspace-cli",
+                "title": "Google workspace cli",
+                "description": "The official command line tool for managing Google Workspace.",
+                "reason": "Rule 2: Product launch announcement from a tech giant.",
+                "tags": [],
+                "url": "https://substack.com/redirect/60dff490-778d-4f32-9ead-bb26b7541984"
+            },
+            {
+                "id": "cloudflare-code-mode",
+                "title": "Cloudflare code mode",
+                "description": "Reference to Cloudflare's previous launch that influenced current agent trends.",
+                "reason": "Rule 3: Company-anchored product history.",
+                "tags": [],
+                "url": "https://substack.com/redirect/22c1807d-a397-40ff-b655-701cf0ea1b9d"
+            },
+            {
+                "id": "logan-kilpatrick-on-gemini-31-flash-live",
+                "title": "Logan kilpatrick on gemini 3.1 flash live",
+                "description": "Summary of Google's new realtime model for voice and vision agents.",
+                "reason": "Rule 2: Product launch announcement from Google.",
+                "tags": [],
+                "url": "https://substack.com/redirect/6f38cc68-f6ca-44dc-9451-8c37a7f0039f"
+            },
+            {
+                "id": "google-deepmind-gemini-31-launch",
+                "title": "Google deepmind: gemini 3.1 launch",
+                "description": "Official DeepMind announcement for the Gemini 3.1 Flash Live model.",
+                "reason": "Rule 2: Product launch announcement.",
+                "tags": [],
+                "url": "https://substack.com/redirect/da3fc685-947c-4fb3-8dcc-1498d6e48591"
+            },
+            {
+                "id": "sundar-pichai-on-gemini-live",
+                "title": "Sundar pichai on gemini live",
+                "description": "CEO perspective on Google's realtime AI push.",
+                "reason": "Rule 2: Product hype and company-anchored news.",
+                "tags": [],
+                "url": "https://substack.com/redirect/fc009719-b257-4824-b0b1-d16796863fb6"
+            },
+            {
+                "id": "google-ai-studio-preview",
+                "title": "Google ai studio preview",
+                "description": "Developer preview for Gemini 3.1 Flash Live in AI Studio.",
+                "reason": "Rule 2: Product launch announcement.",
+                "tags": [],
+                "url": "https://substack.com/redirect/36174a08-e42a-444f-9186-9e59c63a1975"
+            },
+            {
+                "id": "artificial-analysis-gemini-31-benchmarks",
+                "title": "Artificial analysis: gemini 3.1 benchmarks",
+                "description": "Third-party benchmarking of Google's new realtime models.",
+                "reason": "Rule 2: Market analysis and product benchmarking news.",
+                "tags": [],
+                "url": "https://substack.com/redirect/cf75ca6a-2e5a-4748-8c33-a77f437fd360"
+            },
+            {
+                "id": "mistral-ai-voxtral-tts",
+                "title": "Mistral ai voxtral tts",
+                "description": "Open-weight text-to-speech model launch from Mistral AI.",
+                "reason": "Rule 2: Product launch announcement.",
+                "tags": [],
+                "url": "https://substack.com/redirect/22157bbd-b756-4c58-92c2-8ada2559a7fc"
+            },
+            {
+                "id": "guillaume-lample-on-voxtral",
+                "title": "Guillaume lample on voxtral",
+                "description": "Technical details on the Mistral Voxtral TTS model.",
+                "reason": "Rule 2: Product launch announcement.",
+                "tags": [],
+                "url": "https://substack.com/redirect/96e33d7c-bd77-4393-9a20-5133a7853017"
+            },
+            {
+                "id": "vllm-support-for-voxtral",
+                "title": "Vllm support for voxtral",
+                "description": "Announcement of vLLM support for the new Mistral TTS model.",
+                "reason": "Rule 5: Hyper-specific tool update regarding a new model launch.",
+                "tags": [],
+                "url": "https://substack.com/redirect/51e52975-43c4-4969-b54f-ff817b4707c6"
+            },
+            {
+                "id": "voxtral-tts-preference-metrics",
+                "title": "Voxtral tts preference metrics",
+                "description": "Human preference testing results for Mistral's new speech model.",
+                "reason": "Rule 2: Product benchmarking and launch hype.",
+                "tags": [],
+                "url": "https://substack.com/redirect/fbad3d3a-059e-48a8-be4e-a9d4392acc47"
+            },
+            {
+                "id": "cohere-transcribe-launch",
+                "title": "Cohere transcribe launch",
+                "description": "Cohere's first audio model release under Apache 2.0.",
+                "reason": "Rule 2: Product launch announcement.",
+                "tags": [],
+                "url": "https://substack.com/redirect/f64a3e63-6673-4b08-9317-2899d27b23bc"
+            },
+            {
+                "id": "aidan-gomez-on-cohere-transcribe",
+                "title": "Aidan gomez on cohere transcribe",
+                "description": "CEO announcement of Cohere's new ASR model.",
+                "reason": "Rule 2: Product launch announcement.",
+                "tags": [],
+                "url": "https://substack.com/redirect/6c050a01-9738-462c-a42e-582a533d01d6"
+            },
+            {
+                "id": "jay-alammar-on-cohere-audio",
+                "title": "Jay alammar on cohere audio",
+                "description": "Insights into the performance of Cohere Transcribe.",
+                "reason": "Rule 2: Product launch announcement.",
+                "tags": [],
+                "url": "https://substack.com/redirect/b5362383-e85e-43ed-a21d-9061578afad8"
+            },
+            {
+                "id": "artificial-analysis-gpt-54-variants",
+                "title": "Artificial analysis: gpt-5.4 variants",
+                "description": "Benchmarking of OpenAI's GPT-5.4 mini and nano variants.",
+                "reason": "Rule 2: Product launch news and benchmarking.",
+                "tags": [],
+                "url": "https://substack.com/redirect/221b134e-cc17-4b31-b991-f76e510a6c4f"
+            },
+            {
+                "id": "developer-complaints-on-gpt-54-verbosity",
+                "title": "Developer complaints on gpt-5.4 verbosity",
+                "description": "Anecdotal feedback from developers regarding output token usage in new OpenAI models.",
+                "reason": "Rule 2: News and gossip regarding product performance.",
+                "tags": [],
+                "url": "https://substack.com/redirect/b00efa60-da3e-471d-9fc7-5d2f43df27c3"
+            },
+            {
+                "id": "glm-5-turbo-availability",
+                "title": "Glm-5-turbo availability",
+                "description": "Release of GLM-5-Turbo for coding plan users.",
+                "reason": "Rule 2: Product launch announcement.",
+                "tags": [],
+                "url": "https://substack.com/redirect/d4a96f2c-cc64-4909-a137-b4a00f21fb79"
+            },
+            {
+                "id": "reka-edge-and-flash-3-on-openrouter",
+                "title": "Reka edge and flash 3 on openrouter",
+                "description": "New model availability on the OpenRouter platform.",
+                "reason": "Rule 2: Product launch announcement.",
+                "tags": [],
+                "url": "https://substack.com/redirect/47515c05-f66d-4394-8a75-f739e3754d1a"
+            },
+            {
+                "id": "gemini-chat-history-import",
+                "title": "Gemini chat history import",
+                "description": "Google rolling out preference and history import from other AI apps.",
+                "reason": "Rule 2: Product feature update.",
+                "tags": [],
+                "url": "https://substack.com/redirect/fb5c06d2-2607-4884-9d38-0afd83a2e14b"
+            },
+            {
+                "id": "openai-deprioritizing-sora",
+                "title": "Openai deprioritizing sora",
+                "description": "News on OpenAI shifting focus away from side projects like Sora.",
+                "reason": "Rule 2: Company news and gossip.",
+                "tags": [],
+                "url": "https://substack.com/redirect/7332e9c4-8093-4b0e-bb13-39b0b8e266e2"
+            },
+            {
+                "id": "openai-adult-mode-rumors",
+                "title": "Openai adult mode rumors",
+                "description": "Reports on OpenAI's internal product prioritization.",
+                "reason": "Rule 2: Company news and gossip.",
+                "tags": [],
+                "url": "https://substack.com/redirect/48e5ae97-2021-4c2e-960d-a9f34b5dda93"
+            },
+            {
+                "id": "teknium-godmode-skill",
+                "title": "Teknium godmode skill",
+                "description": "Teaser for a persistent jailbreaking skill for AI agents.",
+                "reason": "Rule 2: Product hype and news regarding capability jailbreaking.",
+                "tags": [],
+                "url": "https://substack.com/redirect/adff9c0b-e9fc-46e8-ac05-2934fe80774b"
+            },
+            {
+                "id": "codex-toolkit-integration-requests",
+                "title": "Codex toolkit integration requests",
+                "description": "OpenAI soliciting requests for expanded toolkit integrations for Codex.",
+                "reason": "Rule 2: News and company-anchored product feedback.",
+                "tags": [],
+                "url": "https://substack.com/redirect/109ffcd3-3203-4765-8661-84cdd0f46db0"
+            },
+            {
+                "id": "gemini-api-skill-training",
+                "title": "Gemini api skill training",
+                "description": "How Google built a skill to teach Gemini models about newer APIs and SDKs.",
+                "reason": "Rule 3: Company-anchored research and implementation details.",
+                "tags": [],
+                "url": "https://substack.com/redirect/ada435b1-535e-4cbb-be85-bdec01e971e9"
+            },
+            {
+                "id": "sakana-ai-scientist-nature-paper",
+                "title": "Sakana ai scientist nature paper",
+                "description": "Nature paper on end-to-end automation of AI research.",
+                "reason": "Rule 7: Pure academic research not immediately applicable to building products.",
+                "tags": [],
+                "url": "https://substack.com/redirect/fcb76c40-3235-4028-9c12-77f6da8dc399"
+            },
+            {
+                "id": "ai-scientist-code-follow-up",
+                "title": "Ai scientist code follow-up",
+                "description": "Code repository for the AI Scientist research automation project.",
+                "reason": "Rule 7: Pure academic research follow-up.",
+                "tags": [],
+                "url": "https://substack.com/redirect/671eb3ee-1191-4f57-8649-964c5ee011a9"
+            },
+            {
+                "id": "chris-lu-on-ai-scientist-v1",
+                "title": "Chris lu on ai scientist v1",
+                "description": "Discussion on the headroom for AI research automation using newer models.",
+                "reason": "Rule 7: Academic research discussion.",
+                "tags": [],
+                "url": "https://substack.com/redirect/11deee76-83e1-4581-8bee-7b0bcea45895"
+            },
+            {
+                "id": "vllm-mamba-1-cuda-bugfix",
+                "title": "Vllm mamba-1 cuda bugfix",
+                "description": "Fix for a silent uint32_t overflow in the Mamba-1 CUDA kernel.",
+                "reason": "Rule 5: Hyper-specific tool update/minor bugfix.",
+                "tags": [],
+                "url": "https://substack.com/redirect/b3bde09f-1649-4525-810c-7e5b8036b45f"
+            },
+            {
+                "id": "ai21-on-mamba-1-logprob-mismatches",
+                "title": "Ai21 on mamba-1 logprob mismatches",
+                "description": "Technical post-mortem of a silent overflow bug in GRPO training.",
+                "reason": "Rule 5: Hyper-specific tool bug details.",
+                "tags": [],
+                "url": "https://substack.com/redirect/d6e6c6b5-8178-42bb-aa2f-6db2b0e1485b"
+            },
+            {
+                "id": "meta-tribe-v2-brain-encoder",
+                "title": "Meta tribe v2 brain encoder",
+                "description": "Trimodal brain encoder trained on fMRI data for zero-shot prediction.",
+                "reason": "Rule 7: Pure academic research not practically applicable to product engineering.",
+                "tags": [],
+                "url": "https://substack.com/redirect/69e86c8e-bb8c-4952-ab2f-a0afa6646df8"
+            },
+            {
+                "id": "meta-tribe-v2-details",
+                "title": "Meta tribe v2 details",
+                "description": "Technical specifications for Meta's trimodal brain encoder.",
+                "reason": "Rule 7: Pure academic research.",
+                "tags": [],
+                "url": "https://substack.com/redirect/2d0eb337-e51f-4aa2-bd1b-b0c384bf209c"
+            },
+            {
+                "id": "claude-code-remote-auto-fix",
+                "title": "Claude code remote auto-fix",
+                "description": "Anthropic's new feature for unattended CI-failure fixing in Claude Code.",
+                "reason": "Rule 2: Product feature launch announcement from a specific company.",
+                "tags": [],
+                "url": "https://substack.com/redirect/92caa0fd-5d71-410f-a55f-4cebcdeb2101"
+            },
+            {
+                "id": "avoiding-the-eye-of-sauron",
+                "title": "Avoiding the eye of sauron",
+                "description": "Strategic advice for startups on building products that are resilient to the rapid advancement of AI foundation models.",
+                "reason": "This content is focused on market share analysis and startup business strategy rather than technical implementation or engineering utility.",
+                "tags": [
+                    "thinking"
+                ],
+                "url": "https://blog.southparkcommons.com/p/avoiding-the-eye-of-sauron"
+            },
+            {
+                "id": "solve-dexterous-manipulation-to-win-part-of-a-180000-prize-pool",
+                "title": "Solve dexterous manipulation to win part of a $180,000 prize pool",
+                "description": "A robotics competition challenge for training AI models in dexterous manipulation.",
+                "reason": "This is labeled as a sponsor/ad content.",
+                "tags": [
+                    "ai"
+                ],
+                "url": "https://www.intrinsic.ai/go/register-for-the-ai-for-industry-challenge"
+            },
+            {
+                "id": "optio-github-repo",
+                "title": "Optio (github repo)",
+                "description": "An AI-driven workflow orchestration system that automates coding tasks into merged pull requests.",
+                "reason": "This is a product launch/announcement for a new tool.",
+                "tags": [
+                    "automation",
+                    "tooling",
+                    "ai"
+                ],
+                "url": "https://github.com/jonwiggins/optio"
+            },
+            {
+                "id": "nanobrew-website",
+                "title": "Nanobrew (website)",
+                "description": "A new package manager for macOS intended to replace Homebrew.",
+                "reason": "This is a product launch announcement for a hyper-specific tool.",
+                "tags": [
+                    "tooling"
+                ],
+                "url": "https://nanobrew.trilok.ai/"
+            },
+            {
+                "id": "ensu",
+                "title": "Ensu",
+                "description": "An initial release of an offline LLM application for privacy-focused AI interaction.",
+                "reason": "This is a product launch announcement.",
+                "tags": [
+                    "ai"
+                ],
+                "url": "https://ente.com/blog/ensu/"
+            },
+            {
+                "id": "missile-defense-is-np-complete",
+                "title": "Missile defense is np-complete",
+                "description": "A mathematical analysis of missile defense as a resource allocation problem and its computational complexity.",
+                "reason": "This is pure academic research that is not practically applicable to building software products.",
+                "tags": [
+                    "general concepts"
+                ],
+                "url": "https://smu160.github.io/posts/missile-defense-is-np-complete/"
+            },
+            {
+                "id": "tutorial-how-to-build-a-durable-ai-agent",
+                "title": "Tutorial: how to build a durable ai agent",
+                "description": "A guide on building reliable AI agents using Inngest's platform.",
+                "reason": "This is labeled as a sponsor/ad content.",
+                "tags": [
+                    "ai"
+                ],
+                "url": "https://www.inngest.com/blog/ai-agents-inngest-durable-steps"
+            },
+            {
+                "id": "what-covid-did-to-our-forecasting-models",
+                "title": "What covid did to our forecasting models",
+                "description": "How Airbnb redesigned its internal forecasting models to handle structural shifts in data.",
+                "reason": "This is workflow contamination, detailing exactly how a specific company structures their internal stack and custom implementation.",
+                "tags": [
+                    "backend",
+                    "general concepts"
+                ],
+                "url": "https://links.tldrnewsletter.com/D4p10U"
+            },
+            {
+                "id": "apply-here",
+                "title": "Apply here",
+                "description": "Job application link for TLDR.",
+                "reason": "This is a hiring/HR link.",
+                "tags": [],
+                "url": "https://jobs.ashbyhq.com/tldr.tech"
+            },
+            {
+                "id": "create-your-own-role",
+                "title": "Create your own role",
+                "description": "Job application link for custom roles at TLDR.",
+                "reason": "This is a hiring/HR link.",
+                "tags": [],
+                "url": "https://jobs.ashbyhq.com/tldr.tech/c227b917-a6a4-40ce-8950-d3e165357871"
+            },
+            {
+                "id": "incs-best-bootstrapped-businesses",
+                "title": "Inc.'s best bootstrapped businesses",
+                "description": "News regarding TLDR's business recognition.",
+                "reason": "This is news/gossip about a company's business status.",
+                "tags": [],
+                "url": "https://www.linkedin.com/feed/update/urn:li:activity:7401699691039830016/"
+            },
+            {
+                "id": "cut-your-qa-cycles-down-to-minutes-with-automated-testing",
+                "title": "Cut your qa cycles down to minutes with automated testing",
+                "description": "QA Wolf provides an AI-native service to achieve 80% automated end-to-end test coverage.",
+                "reason": "Labeled as a sponsor (Rule 1).",
+                "tags": [
+                    "qa",
+                    "automation"
+                ],
+                "url": "https://www.qawolf.com/"
+            },
+            {
+                "id": "apple-can-create-smaller-on-device-ai-models-from-googles-gemini",
+                "title": "Apple can create smaller on-device ai models from google's gemini",
+                "description": "Apple is using Google's Gemini model data to train its own smaller, on-device AI models through distillation.",
+                "reason": "Content is heavily tied to specific tech giants' (Apple/Google) releases and products (Rule 3).",
+                "tags": [
+                    "ai"
+                ],
+                "url": "https://www.macrumors.com/2026/03/25/apple-google-gemini-distill-models/"
+            },
+            {
+                "id": "meta-and-youtube-lose-landmark-social-media-addiction-trial",
+                "title": "Meta and youtube lose landmark social-media addiction trial",
+                "description": "A jury found Meta and YouTube negligent in a trial regarding social media addiction and its impact on youth.",
+                "reason": "This is a news report regarding legal updates and company liability (Rule 2).",
+                "tags": [
+                    "general concepts"
+                ],
+                "url": "https://links.tldrnewsletter.com/bTjiPI"
+            },
+            {
+                "id": "worlds-first-antimatter-delivery-by-truck-signals-a-new-era-in-physics",
+                "title": "World's first antimatter delivery by truck signals a 'new era' in physics",
+                "description": "CERN scientists successfully transported antiprotons using a special ion trap in a truck.",
+                "reason": "Pure academic/scientific news not practically applicable to building software products (Rule 2).",
+                "tags": [
+                    "general concepts"
+                ],
+                "url": "https://www.sciencealert.com/worlds-first-antimatter-delivery-by-truck-signals-a-new-era-in-physics"
+            },
+            {
+                "id": "we-got-an-audience-with-the-lunar-viceroy-to-talk-how-nasa-will-build-a-moon-base",
+                "title": "We got an audience with the “lunar viceroy” to talk how nasa will build a moon base",
+                "description": "An interview with NASA's Moon base manager regarding the agency's plans and critical paths for lunar activity.",
+                "reason": "General interest science/government news not applicable to product engineering (Rule 2).",
+                "tags": [
+                    "general concepts"
+                ],
+                "url": "https://arstechnica.com/space/2026/03/we-got-an-audience-with-the-lunar-viceroy-to-talk-how-nasa-will-build-a-moon-base/"
+            },
+            {
+                "id": "where-does-your-org-fall-on-ai-knowledge-management-maturity",
+                "title": "Where does your org fall on ai knowledge management maturity?",
+                "description": "Atlassian's webinar on AI-native systems for knowledge management.",
+                "reason": "Labeled as a sponsor (Rule 1).",
+                "tags": [
+                    "ai"
+                ],
+                "url": "https://www.atlassian.com/webinars/business/the-ai-maturity-curve-for-knowledge-management"
+            },
+            {
+                "id": "software-engineer-interviews-for-the-age-of-ai",
+                "title": "Software engineer interviews for the age of ai",
+                "description": "A guide on how to interview and hire software engineers in an era where AI is prevalent.",
+                "reason": "Content is focused on hiring and interview guides (Rule 6).",
+                "tags": [
+                    "thinking"
+                ],
+                "url": "https://swizec.com/blog/software-engineer-interviews-for-the-age-of-ai/"
+            },
+            {
+                "id": "google-bumps-up-q-day-deadline-to-2029-far-sooner-than-previously-thought",
+                "title": "Google bumps up q day deadline to 2029, far sooner than previously thought",
+                "description": "Google has accelerated its timeline for preparing for the point when quantum computers can break current cryptography.",
+                "reason": "Company-anchored update regarding a specific tech giant's timeline and product support (Rule 3).",
+                "tags": [
+                    "security"
+                ],
+                "url": "https://arstechnica.com/security/2026/03/google-bumps-up-q-day-estimate-to-2029-far-sooner-than-previously-thought/"
+            },
+            {
+                "id": "microsoft-build-2026-june-2-3-san-francisco",
+                "title": "Microsoft build 2026, june 2-3, san francisco",
+                "description": "Registration for Microsoft's developer conference focusing on the next generation of AI.",
+                "reason": "Labeled as a sponsor (Rule 1).",
+                "tags": [
+                    "ai",
+                    "tooling"
+                ],
+                "url": "https://fandf.co/47mjuHE"
+            },
+            {
+                "id": "googles-turboquant-ai-compression-algorithm-can-reduce-llm-memory-usage-by-6x",
+                "title": "Google's turboquant ai-compression algorithm can reduce llm memory usage by 6x",
+                "description": "A new algorithm from Google designed to compress LLMs for better memory efficiency and speed.",
+                "reason": "Content is heavily tied to a specific tech giant's (Google) product release (Rule 3).",
+                "tags": [
+                    "ai"
+                ],
+                "url": "https://arstechnica.com/ai/2026/03/google-says-new-turboquant-compression-can-lower-ai-memory-usage-without-sacrificing-quality/"
+            },
+            {
+                "id": "meta-cutting-several-hundred-jobs-across-reality-labs-facebook-and-other-departments",
+                "title": "Meta cutting several hundred jobs across reality labs, facebook, and other departments",
+                "description": "News regarding recent layoffs at Meta across various departments.",
+                "reason": "News regarding hiring/HR and corporate restructuring (Rule 2 and Rule 6).",
+                "tags": [
+                    "general concepts"
+                ],
+                "url": "https://www.cnbc.com/2026/03/25/meta-layoffs-reality-labs-facebook.html"
+            },
+            {
+                "id": "figmas-next-generation-data-caching-platform",
+                "title": "Figma's next-generation data caching platform",
+                "description": "A technical breakdown of FigCache, Figma's internal proxy service for caching.",
+                "reason": "Details a specific company's internal stack and workflow (Rule 4) and exceeds the 20-minute read threshold (Rule 8).",
+                "tags": [
+                    "backend",
+                    "tooling"
+                ],
+                "url": "https://www.figma.com/blog/figmas-next-generation-data-caching-platform/"
+            },
+            {
+                "id": "elon-musk-teases-new-tesla-suv-way-cooler-than-a-minivan",
+                "title": "Elon musk teases new tesla suv: 'way cooler than a minivan'",
+                "description": "Teaser information about Tesla's upcoming luxury SUV.",
+                "reason": "Product hype and launch news (Rule 2).",
+                "tags": [
+                    "general concepts"
+                ],
+                "url": "https://www.notateslaapp.com/news/3852/elon-musk-teases-new-tesla-suv-way-cooler-than-a-minivan"
+            },
+            {
+                "id": "apply-here",
+                "title": "Apply here",
+                "description": "Job application link for roles at TLDR.",
+                "reason": "Hiring/HR related content (Rule 6).",
+                "tags": [
+                    "general concepts"
+                ],
+                "url": "https://jobs.ashbyhq.com/tldr.tech"
+            },
+            {
+                "id": "crusoe-byom-5x-higher-throughput-for-custom-models-sponsor",
+                "title": "Crusoe byom: 5x higher throughput for custom models (sponsor)",
+                "description": "Crusoe's Bring Your Own Model (BYOM) inference engine optimized for unique weights using MemoryAlloy technology.",
+                "reason": "Assign 0% Useful because the content is labeled as a sponsor or promoted content (Rule 1).",
+                "tags": [],
+                "url": "https://www.crusoe.ai/cloud/managed-inference"
+            },
+            {
+                "id": "claude-auto-mode",
+                "title": "Claude auto mode",
+                "description": "Anthropic's new research preview enabling Claude to autonomously execute actions with built-in safeguards.",
+                "reason": "Assign 0% Useful because it is a product launch announcement and news item (Rule 2).",
+                "tags": [
+                    "ai"
+                ],
+                "url": "https://claude.com/blog/auto-mode"
+            },
+            {
+                "id": "chatgpt-refocuses-on-product-discovery",
+                "title": "Chatgpt refocuses on product discovery",
+                "description": "OpenAI's shift in strategy from in-chat checkout to merchant-directed purchasing flows.",
+                "reason": "Assign 0% Useful because it is news regarding a specific company's product strategy and market shifts (Rule 2).",
+                "tags": [
+                    "ai"
+                ],
+                "url": "https://links.tldrnewsletter.com/UdUkoZ"
+            },
+            {
+                "id": "harness-design-for-long-running-application-development",
+                "title": "Harness design for long-running application development",
+                "description": "A multi-agent architecture approach to improve AI-driven frontend and full-stack application coding.",
+                "reason": "Assign 0% Useful due to the Length Penalty; the article is estimated at a 24-minute read (Rule 8).",
+                "tags": [
+                    "frontend",
+                    "backend",
+                    "ai"
+                ],
+                "url": "https://www.anthropic.com/engineering/harness-design-long-running-apps"
+            },
+            {
+                "id": "claude-2026-everything-shipped-how-to-use-it",
+                "title": "Claude 2026: everything shipped & how to use it",
+                "description": "A comprehensive guide to Claude 4.6 features, including context windows, Cowork suite, and MCP protocols.",
+                "reason": "Assign 0% Useful as it is heavily tied to a specific tech giant's product releases and timeline (Rule 3).",
+                "tags": [
+                    "ai",
+                    "tooling"
+                ],
+                "url": "https://links.tldrnewsletter.com/2ZC5MN"
+            },
+            {
+                "id": "launch-fast-design-beautifully-build-your-startup-on-framer-free-for-your-first-year-sponsor",
+                "title": "Launch fast. design beautifully. build your startup on framer — free for your first year (sponsor)",
+                "description": "A promotion for Framer Pro, a no-code site building platform for startups.",
+                "reason": "Assign 0% Useful because the content is labeled as a sponsor or promoted content (Rule 1).",
+                "tags": [],
+                "url": "https://framer.link/TLDRAI"
+            },
+            {
+                "id": "rlvrs-impact-on-reasoning-performance",
+                "title": "Rlvr's impact on reasoning performance",
+                "description": "Research on directional updates in RLVR and their impact on reasoning-critical tokens and accuracy.",
+                "reason": "Assign 0% Useful as it falls under Pure Academic Research and exceeds the 15-minute length guideline (Rule 7, Rule 8).",
+                "tags": [
+                    "ai"
+                ],
+                "url": "https://qwen-pilot.notion.site/rlvr-direction"
+            },
+            {
+                "id": "trained-on-tokens-calibrated-on-concepts-the-emergence-of-semantic-calibration-in-llms",
+                "title": "Trained on tokens, calibrated on concepts: the emergence of semantic calibration in llms",
+                "description": "Research on how base models assess confidence in open-domain tasks through semantic calibration.",
+                "reason": "Assign 0% Useful as it is Pure Academic Research not immediately applicable to building products (Rule 7).",
+                "tags": [
+                    "ai"
+                ],
+                "url": "https://machinelearning.apple.com/research/trained-on-tokens"
+            },
+            {
+                "id": "openai-raises-additional-money-to-bring-record-funding-round-to-120-billion",
+                "title": "Openai raises additional money to bring record funding round to $120 billion",
+                "description": "News regarding OpenAI's latest funding round and future compute spending plans.",
+                "reason": "Assign 0% Useful as it is news related to funding rounds and corporate finance (Rule 2).",
+                "tags": [],
+                "url": "https://www.cnbc.com/2026/03/24/openai-secures-an-extra-10-billion-in-record-funding-round-cfo-friar-says.html"
+            },
+            {
+                "id": "us-governments-ban-on-anthropic-looks-like-punishment-judge-says",
+                "title": "Us government's ban on anthropic looks like punishment, judge says",
+                "description": "Legal updates regarding the US government's ban on Anthropic's AI models.",
+                "reason": "Assign 0% Useful as it is news regarding legal/government updates (Rule 2).",
+                "tags": [],
+                "url": "https://links.tldrnewsletter.com/9e6YPc"
+            },
+            {
+                "id": "replay-the-durable-execution-conference-for-agentic-ai-sponsor",
+                "title": "Replay: the durable execution conference for agentic ai (sponsor)",
+                "description": "Temporal's conference for building production-ready AI agents.",
+                "reason": "Assign 0% Useful because the content is labeled as a sponsor or promoted content (Rule 1).",
+                "tags": [],
+                "url": "https://replay.temporal.io/"
+            },
+            {
+                "id": "databricks-launches-ai-powered-security-platform",
+                "title": "Databricks launches ai-powered security platform",
+                "description": "Databricks enters the security market with Lakewatch, an AI-powered SIEM platform.",
+                "reason": "Assign 0% Useful as it is a product launch announcement (Rule 2).",
+                "tags": [
+                    "security",
+                    "ai"
+                ],
+                "url": "https://www.databricks.com/company/newsroom/press-releases/databricks-enters-security-market-launch-lakewatch-new-open-agentic"
+            },
+            {
+                "id": "anthropic-economic-index-report-learning-curves",
+                "title": "Anthropic economic index report: learning curves",
+                "description": "A report on the diversification of Claude usage and shifting economic trends in AI queries.",
+                "reason": "Assign 0% Useful as it is market share and economic analysis (Rule 2).",
+                "tags": [],
+                "url": "https://www.anthropic.com/research/economic-index-march-2026-report"
+            },
+            {
+                "id": "apply-here",
+                "title": "Apply here",
+                "description": "Hiring link for roles at TLDR.",
+                "reason": "Assign 0% Useful because it is a hiring/HR related link (Rule 6).",
+                "tags": [],
+                "url": "https://jobs.ashbyhq.com/tldr.tech"
+            },
+            {
+                "id": "create-your-own-role",
+                "title": "Create your own role",
+                "description": "Hiring link for custom roles at TLDR.",
+                "reason": "Assign 0% Useful because it is a hiring/HR related link (Rule 6).",
+                "tags": [],
+                "url": "https://jobs.ashbyhq.com/tldr.tech/c227b917-a6a4-40ce-8950-d3e165357871"
+            },
+            {
+                "id": "tldr-is-one-of-incs-best-bootstrapped-businesses",
+                "title": "Tldr is one of inc.'s best bootstrapped businesses",
+                "description": "LinkedIn post about TLDR's business achievements.",
+                "reason": "Assign 0% Useful as it is company news/gossip (Rule 2).",
+                "tags": [],
+                "url": "https://www.linkedin.com/feed/update/urn:li:activity:7401699691039830016/"
+            },
+            {
+                "id": "flashpoints-2026-global-threat-intelligence-report",
+                "title": "Flashpoint's 2026 global threat intelligence report",
+                "description": "A report on the rise of agentic frameworks for attackers, extortion models, and identity-based exploits.",
+                "reason": "Sponsored/Ads: This content is explicitly labeled as a sponsor/promoted report.",
+                "tags": [
+                    "security"
+                ],
+                "url": "https://go.flashpoint-intel.com/2026-global-threat-intelligence-report"
+            },
+            {
+                "id": "hackerone-discloses-employee-data-breach-after-navia-hack",
+                "title": "Hackerone discloses employee data breach after navia hack",
+                "description": "Report on a data breach at HackerOne resulting from a vulnerability in a benefits provider.",
+                "reason": "News, Gossip, & Launches: This is a report on a specific data breach incident.",
+                "tags": [
+                    "security"
+                ],
+                "url": "https://links.tldrnewsletter.com/Z9thPK"
+            },
+            {
+                "id": "astrazeneca-data-breach-what-you-need-to-know",
+                "title": "Astrazeneca data breach: what you need to know",
+                "description": "Alleged breach of AstraZeneca involving source code and infrastructure files.",
+                "reason": "News, Gossip, & Launches: This is a report on a specific data breach incident.",
+                "tags": [
+                    "security"
+                ],
+                "url": "https://links.tldrnewsletter.com/i7s1ET"
+            },
+            {
+                "id": "grc-engineering-101-program-as-code",
+                "title": "Grc engineering 101: program as code",
+                "description": "A guide on managing governance, risk, and compliance using engineering practices like Terraform and CI/CD.",
+                "reason": "Sponsored/Ads: Labeled as a sponsor content.",
+                "tags": [
+                    "security",
+                    "automation"
+                ],
+                "url": "https://www.anecdotes.ai/guides/grc-engineering-101"
+            },
+            {
+                "id": "managing-grc-as-code-with-anecdotes-ai",
+                "title": "Managing grc as code with anecdotes ai",
+                "description": "Information about using Anecdotes AI for GRC as code.",
+                "reason": "Sponsored/Ads: Labeled as a sponsor content.",
+                "tags": [
+                    "security",
+                    "ai"
+                ],
+                "url": "https://www.anecdotes.ai/grc-engineering"
+            },
+            {
+                "id": "native-automation-with-elastic-workflows-no-soar-required",
+                "title": "Native automation with elastic workflows — no soar required",
+                "description": "Elastic's new YAML-driven automation engine for security alerts and investigations.",
+                "reason": "News, Gossip, & Launches: Product launch announcement for a specific vendor's new feature.",
+                "tags": [
+                    "security",
+                    "automation"
+                ],
+                "url": "https://www.elastic.co/blog/workflows-soar"
+            },
+            {
+                "id": "firefox-now-has-a-built-in-vpn-with-50gb-monthly-data-limit",
+                "title": "Firefox now has a built-in vpn with 50gb monthly data limit",
+                "description": "Mozilla announces a built-in VPN for Firefox version 149.",
+                "reason": "News, Gossip, & Launches: Product launch announcement for a browser feature.",
+                "tags": [
+                    "security"
+                ],
+                "url": "https://links.tldrnewsletter.com/xU3sIA"
+            },
+            {
+                "id": "securing-our-codebase-with-autonomous-agents",
+                "title": "Securing our codebase with autonomous agents",
+                "description": "How Cursor uses autonomous agents for security reviews and vulnerability scanning in their PR workflow.",
+                "reason": "Workflow Contamination: Details exactly how a specific company (Cursor) structures their internal security stack and custom workflows.",
+                "tags": [
+                    "security",
+                    "ai",
+                    "automation"
+                ],
+                "url": "https://cursor.com/blog/security-agents"
+            },
+            {
+                "id": "the-us-government-just-banned-consumer-routers-made-outside-the-us",
+                "title": "The us government just banned consumer routers made outside the us",
+                "description": "The FCC has announced a ban on consumer routers manufactured in foreign countries.",
+                "reason": "News, Gossip, & Launches: Government/legal update regarding market regulations.",
+                "tags": [
+                    "security"
+                ],
+                "url": "https://www.theverge.com/news/899172/fcc-foreign-router-ban"
+            },
+            {
+                "id": "after-hackers-hit-an-iowa-company-cars-around-the-country-failed-to-start",
+                "title": "After hackers hit an iowa company, cars around the country failed to start",
+                "description": "A cyberattack on Intoxalock disabled ignition interlock devices for many drivers.",
+                "reason": "News, Gossip, & Launches: News report on a specific cyberattack incident.",
+                "tags": [
+                    "security"
+                ],
+                "url": "https://arstechnica.com/security/2026/03/after-hack-some-ignition-interlock-users-couldnt-start-their-own-cars/"
+            },
+            {
+                "id": "agentic-appsec-that-autonomously-fixes-vulnerabilities-in-ai-code",
+                "title": "Agentic appsec that autonomously fixes vulnerabilities in ai code",
+                "description": "Black Duck Signal uses LLMs to identify and fix vulnerabilities in AI-generated code.",
+                "reason": "Sponsored/Ads: Labeled as a sponsor content.",
+                "tags": [
+                    "security",
+                    "ai"
+                ],
+                "url": "https://www.blackduck.com/signal-ai-appsec.html"
+            },
+            {
+                "id": "build-securely-with-black-duck-signal",
+                "title": "Build securely with black duck signal",
+                "description": "Promotional link for Black Duck Signal's AI AppSec tool.",
+                "reason": "Sponsored/Ads: Labeled as a sponsor content.",
+                "tags": [
+                    "security",
+                    "ai"
+                ],
+                "url": "https://www.blackduck.com/signal-ai-appsec.html"
+            },
+            {
+                "id": "crunchyroll-probes-breach-after-hacker-claims-to-steal-68m-users-data",
+                "title": "Crunchyroll probes breach after hacker claims to steal 6.8m users' data",
+                "description": "Crunchyroll investigates a data breach involving millions of user support tickets.",
+                "reason": "News, Gossip, & Launches: This is a report on a specific data breach incident.",
+                "tags": [
+                    "security"
+                ],
+                "url": "https://links.tldrnewsletter.com/24zz8h"
+            },
+            {
+                "id": "31-million-impacted-by-qualderm-data-breach",
+                "title": "3.1 million impacted by qualderm data breach",
+                "description": "QualDerm Partners discloses a breach affecting millions of records.",
+                "reason": "News, Gossip, & Launches: This is a report on a specific data breach incident.",
+                "tags": [
+                    "security"
+                ],
+                "url": "https://links.tldrnewsletter.com/yAtUe2"
+            },
+            {
+                "id": "traces-of-unauthorized-access-mazda-confirms-data-breach-exposing-employee-and-partner-data-heres-what-we-know",
+                "title": "Traces of unauthorized access': mazda confirms data breach exposing employee and partner data — here's what we know",
+                "description": "Mazda confirms a breach of a warehouse management system.",
+                "reason": "News, Gossip, & Launches: This is a report on a specific data breach incident.",
+                "tags": [
+                    "security"
+                ],
+                "url": "https://www.techradar.com/pro/security/traces-of-unauthorized-access-mazda-confirms-data-breach-that-exposed-employee-and-partner-data"
+            }
+        ]
+    }
+}

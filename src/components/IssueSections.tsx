@@ -35,14 +35,9 @@ function normalizeTag(tag: string): string {
 
 export function IssueSections({ newsletterSlug, date, sections }: IssueSectionsProps) {
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
-  const [openSections, setOpenSections] = useState<Record<string, boolean>>(() => {
-
-    return Object.fromEntries(
-      sections
-        .filter((section) => section.collapsible)
-        .map((section) => [section.key, section.defaultOpen ?? true]),
-    );
-  });
+  const [openSections, setOpenSections] = useState<Record<string, boolean>>(() =>
+    Object.fromEntries(sections.map((section) => [section.key, section.defaultOpen ?? true])),
+  );
 
   const totalLinks = sections.reduce((sum, s) => sum + s.links.length, 0);
 
@@ -87,55 +82,56 @@ export function IssueSections({ newsletterSlug, date, sections }: IssueSectionsP
     <div className="space-y-5 md:space-y-6">
       {allTags.length > 0 ? (
         <section className="panel border border-stone-200 p-4 md:p-5">
-          <div className="flex flex-wrap items-center gap-2">
-            <span className="inline-flex items-center gap-1.5 text-[0.65rem] font-medium uppercase tracking-[0.14em] text-stone-400">
-              <Tag className="h-3 w-3" />
-              Filter by tag
-            </span>
-
-            <button
-              type="button"
-              className={`rounded-full border px-3 py-[0.3rem] text-[0.8rem] font-medium leading-none transition-colors ${
-                selectedTags.length === 0
-                  ? "border-violet-300 bg-violet-100 text-violet-950"
-                  : "border-stone-300 bg-white text-stone-700 hover:border-violet-200 hover:bg-violet-50"
-              }`}
-              onClick={() => { trackTagFilter({ newsletterSlug, tag: "", action: "clear" }); setSelectedTags([]); }}
-            >
-              All tags
-            </button>
-
-            {allTags.map((tag) => {
-              const active = selectedTags.includes(tag.key);
-
-              return (
-                <button
-                  key={tag.key}
-                  type="button"
-                  className={`rounded-full border px-3 py-[0.3rem] text-[0.8rem] font-medium leading-none transition-colors ${
-                    active
-                      ? "border-violet-300 bg-violet-100 text-violet-950"
-                      : "border-stone-300 bg-white text-stone-700 hover:border-violet-200 hover:bg-violet-50"
-                  }`}
-                  onClick={() => toggleTag(tag.key)}
-                >
-                  {tag.label}
-                </button>
-              );
-            })}
-          </div>
-
-          {selectedTags.length > 0 ? (
-            <p className="mt-3 inline-flex items-center gap-1 text-sm text-stone-600">
-              Filtering links by:
-              <span className="font-semibold text-stone-800">
-                {allTags
-                  .filter((tag) => selectedTags.includes(tag.key))
-                  .map((tag) => tag.label)
-                  .join(", ")}
+          <div className="space-y-3">
+            <div className="flex items-center justify-between gap-2">
+              <span className="inline-flex items-center gap-1.5 text-[0.65rem] font-medium uppercase tracking-[0.14em] text-stone-400">
+                <Tag className="h-3 w-3" />
+                Filter by tag
               </span>
-            </p>
-          ) : null}
+              {selectedTags.length > 0 ? (
+                <button
+                  type="button"
+                  className="text-[0.72rem] font-medium text-violet-600 transition-colors hover:text-violet-800"
+                  onClick={() => { trackTagFilter({ newsletterSlug, tag: "", action: "clear" }); setSelectedTags([]); }}
+                >
+                  Clear ({selectedTags.length})
+                </button>
+              ) : null}
+            </div>
+
+            <div className="flex flex-wrap gap-2">
+              <button
+                type="button"
+                className={`rounded-full border px-3 py-[0.3rem] text-[0.7rem] font-semibold uppercase leading-none tracking-wide transition-colors ${
+                  selectedTags.length === 0
+                    ? "border-violet-300 bg-violet-100 text-violet-950"
+                    : "border-stone-300 bg-white text-stone-500 hover:border-violet-200 hover:bg-violet-50 hover:text-violet-900"
+                }`}
+                onClick={() => { trackTagFilter({ newsletterSlug, tag: "", action: "clear" }); setSelectedTags([]); }}
+              >
+                All
+              </button>
+
+              {allTags.map((tag) => {
+                const active = selectedTags.includes(tag.key);
+
+                return (
+                  <button
+                    key={tag.key}
+                    type="button"
+                    className={`rounded-full border px-3 py-[0.3rem] text-[0.7rem] font-semibold uppercase leading-none tracking-wide transition-colors ${
+                      active
+                        ? "border-violet-300 bg-violet-100 text-violet-950"
+                        : "border-stone-300 bg-white text-stone-500 hover:border-violet-200 hover:bg-violet-50 hover:text-violet-900"
+                    }`}
+                    onClick={() => toggleTag(tag.key)}
+                  >
+                    {tag.label}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
         </section>
       ) : null}
 
@@ -165,39 +161,44 @@ export function IssueSections({ newsletterSlug, date, sections }: IssueSectionsP
             </ul>
           );
 
-        const isOpen = section.collapsible ? (openSections[section.key] ?? true) : true;
+        const isOpen = openSections[section.key] ?? true;
 
         return (
           <section
             key={section.key}
-            className={`panel space-y-4 border p-5 md:p-6 ${toneClassMap[section.tone]}`}
+            className={`panel border p-5 md:p-6 ${toneClassMap[section.tone]}`}
           >
             <div className="flex items-start justify-between gap-4">
               <div className="space-y-2">
-                <h2 className="text-[1.7rem] font-bold leading-tight">{section.title}</h2>
+                <h2 className="flex items-baseline gap-2 text-[1.7rem] font-bold leading-tight">
+                  {section.title}
+                  <span className="text-[1rem] font-normal text-stone-400">({section.links.length})</span>
+                </h2>
                 <p className="max-w-2xl text-[0.88rem] leading-6 text-stone-400">{section.description}</p>
               </div>
 
-              {section.collapsible ? (
-                <button
-                  type="button"
-                  className="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full border border-stone-300 bg-white text-stone-600 transition-colors hover:bg-stone-100"
-                  aria-label={isOpen ? `Collapse ${section.title}` : `Expand ${section.title}`}
-                  onClick={() => {
-                    setOpenSections((current) => ({
-                      ...current,
-                      [section.key]: !isOpen,
-                    }));
-                  }}
-                >
-                  <ChevronDown
-                    className={`h-4 w-4 transition-transform ${isOpen ? "rotate-180" : "rotate-0"}`}
-                  />
-                </button>
-              ) : null}
+              <button
+                type="button"
+                className="mt-1 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-stone-300 bg-white text-stone-600 transition-colors hover:bg-stone-100"
+                aria-label={isOpen ? `Collapse ${section.title}` : `Expand ${section.title}`}
+                onClick={() => {
+                  setOpenSections((current) => ({
+                    ...current,
+                    [section.key]: !isOpen,
+                  }));
+                }}
+              >
+                <ChevronDown
+                  className={`h-4 w-4 transition-transform duration-300 ${isOpen ? "rotate-180" : "rotate-0"}`}
+                />
+              </button>
             </div>
 
-            {isOpen ? <div>{content}</div> : null}
+            <div
+              className={`grid transition-all duration-300 ease-in-out ${isOpen ? "mt-4 grid-rows-[1fr]" : "grid-rows-[0fr]"}`}
+            >
+              <div className="overflow-hidden">{content}</div>
+            </div>
           </section>
         );
       })}

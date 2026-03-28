@@ -82,22 +82,39 @@ function normalizeSections(raw: RawRecord, slug: string): NewsletterSections {
       ? sectionBlock.discarded
       : raw.discardedLinks) ?? [];
 
+  const seenIds = new Set<string>();
+
+  function deduplicateId(id: string): string {
+    if (!seenIds.has(id)) {
+      seenIds.add(id);
+      return id;
+    }
+    let counter = 2;
+    while (seenIds.has(`${id}-${counter}`)) counter++;
+    const unique = `${id}-${counter}`;
+    seenIds.add(unique);
+    return unique;
+  }
+
   const useful = Array.isArray(usefulSource)
-    ? usefulSource.map((item, index) =>
-        normalizeLink(item, `${slug}-useful-${String(index + 1)}`),
-      )
+    ? usefulSource.map((item, index) => {
+        const link = normalizeLink(item, `${slug}-useful-${String(index + 1)}`);
+        return { ...link, id: deduplicateId(link.id) };
+      })
     : [];
 
   const maybeUseful = Array.isArray(maybeSource)
-    ? maybeSource.map((item, index) =>
-        normalizeLink(item, `${slug}-maybe-${String(index + 1)}`),
-      )
+    ? maybeSource.map((item, index) => {
+        const link = normalizeLink(item, `${slug}-maybe-${String(index + 1)}`);
+        return { ...link, id: deduplicateId(link.id) };
+      })
     : [];
 
   const discarded = Array.isArray(discardedSource)
-    ? discardedSource.map((item, index) =>
-        normalizeLink(item, `${slug}-discarded-${String(index + 1)}`),
-      )
+    ? discardedSource.map((item, index) => {
+        const link = normalizeLink(item, `${slug}-discarded-${String(index + 1)}`);
+        return { ...link, id: deduplicateId(link.id) };
+      })
     : [];
 
   return {

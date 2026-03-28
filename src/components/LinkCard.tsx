@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import {
+  ChevronDown,
   Lightbulb,
   ThumbsDown,
   ThumbsUp,
@@ -25,7 +26,7 @@ const SECTION_TONE: Record<NewsletterBucket, string> = {
   discarded: "border-pink-200 bg-pink-50/50",
 };
 
-const TAG_TONE = "text-[0.7rem] font-medium text-stone-500";
+const TAG_TONE = "text-[0.7rem] font-medium uppercase text-stone-500";
 
 export function LinkCard({
   newsletterSlug,
@@ -33,16 +34,12 @@ export function LinkCard({
   link,
 }: LinkCardProps) {
   const [voteState, setVoteState] = useState<"up" | "down" | null>(null);
+  const [reasonOpen, setReasonOpen] = useState(false);
 
   return (
     <li
       className={`space-y-3 rounded-xl border p-4 transition-shadow hover:shadow-md ${SECTION_TONE[section]}`}
     >
-      <p className="inline-flex items-center gap-1.5 rounded-full border border-stone-200 bg-white px-2.5 py-[0.3rem] text-[0.65rem] font-medium uppercase leading-none tracking-[0.1em] text-stone-400">
-        <Lightbulb className="h-3 w-3 shrink-0" />
-        {link.reason}
-      </p>
-
       <h3 className="max-w-3xl text-[1.25rem] font-bold leading-snug text-stone-900 md:text-[1.35rem]">
         <Link
           href={link.url}
@@ -64,6 +61,21 @@ export function LinkCard({
       </h3>
 
       <p className="text-[0.9rem] leading-6 text-stone-500">{link.description}</p>
+
+      <button
+        type="button"
+        onClick={() => setReasonOpen((v) => !v)}
+        className="inline-flex items-center gap-1 text-[0.75rem] text-stone-400 transition-colors hover:text-stone-600"
+      >
+        <Lightbulb className="h-3 w-3 shrink-0" />
+        Why this?
+        <ChevronDown className={`h-3 w-3 transition-transform ${reasonOpen ? "rotate-180" : ""}`} />
+      </button>
+      <div className={`grid transition-all duration-300 ease-in-out ${reasonOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
+        <div className="overflow-hidden">
+          <p className="pt-1 text-[0.8rem] leading-relaxed text-stone-500">{link.reason}</p>
+        </div>
+      </div>
 
       <div className="flex flex-wrap items-center justify-between gap-2">
         {link.tags.length > 0 ? (

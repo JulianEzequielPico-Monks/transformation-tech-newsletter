@@ -1,0 +1,205 @@
+"use client";
+
+import { useMemo, useState } from "react";
+import { ChevronDown, Compass, Sparkles, Tag, Trash2, X } from "lucide-react";
+
+import { LinkCard } from "@/components/LinkCard";
+import type { NewsletterBucket, NewsletterLink } from "@/types/newsletter";
+
+export type IssueSectionDefinition = {
+  key: NewsletterBucket;
+  title: string;
+  description: string;
+  icon: "sparkles" | "compass" | "trash";
+  tone: "teal" | "amber" | "rose";
+  collapsible?: boolean;
+  defaultOpen?: boolean;
+  links: NewsletterLink[];
+};
+
+type IssueSectionsProps = {
+  newsletterSlug: string;
+  sections: IssueSectionDefinition[];
+};
+
+const toneClassMap: Record<IssueSectionDefinition["tone"], string> = {
+  teal: "border-violet-200 bg-gradient-to-b from-white to-violet-50/50",
+  amber: "border-amber-200 bg-gradient-to-b from-white to-amber-50/50",
+  rose: "border-pink-200 bg-gradient-to-b from-white to-pink-50/50",
+};
+
+const iconMap = {
+  sparkles: Sparkles,
+  compass: Compass,
+  trash: Trash2,
+};
+
+function normalizeTag(tag: string): string {
+  return tag.trim().toLowerCase();
+}
+
+export function IssueSections({ newsletterSlug, sections }: IssueSectionsProps) {
+  const [selectedTags, setSelectedTags] = useState<string[]>([]);
+  const [openSections, setOpenSections] = useState<Record<string, boolean>>(() => {
+    return Object.fromEntries(
+      sections
+        .filter((section) => section.collapsible)
+        .map((section) => [section.key, section.defaultOpen ?? true]),
+    );
+  });
+
+  const allTags = useMemo(() => {
+    const uniqueTags = new Map<string, string>();
+
+    sections.forEach((section) => {
+      section.links.forEach((link) => {
+        link.tags.forEach((rawTag) => {
+          const label = rawTag.trim();
+          const key = normalizeTag(rawTag);
+
+          if (!key || !label) {
+            return;
+          }
+
+          if (!uniqueTags.has(key)) {
+            uniqueTags.set(key, label);
+          }
+        });
+      });
+    });
+
+    return Array.from(uniqueTags.entries())
+      .map(([key, label]) => ({ key, label }))
+      .sort((a, b) => a.label.localeCompare(b.label));
+  }, [sections]);
+
+  function toggleTag(tagKey: string) {
+    setSelectedTags((current) =>
+      current.includes(tagKey)
+        ? current.filter((item) => item !== tagKey)
+        : [...current, tagKey],
+    );
+  }
+
+  return (
+    <div className="space-y-5 md:space-y-6">
+      {allTags.length > 0 ? (
+        <section className="panel border border-stone-200 p-4 md:p-5">
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="inline-flex items-center gap-1.5 text-[0.65rem] font-medium uppercase tracking-[0.14em] text-stone-400">
+              <Tag className="h-3 w-3" />
+              Filter by tag
+            </span>
+
+            <button
+              type="button"
+              className={`rounded-full border px-3 py-[0.3rem] text-[0.8rem] font-medium leading-none transition-colors ${
+                selectedTags.length === 0
+                  ? "border-violet-300 bg-violet-100 text-violet-950"
+                  : "border-stone-300 bg-white text-stone-700 hover:border-violet-200 hover:bg-violet-50"
+              }`}
+              onClick={() => setSelectedTags([])}
+            >
+              All tags
+            </button>
+
+            {allTags.map((tag) => {
+              const active = selectedTags.includes(tag.key);
+
+              return (
+                <button
+                  key={tag.key}
+                  type="button"
+                  className={`rounded-full border px-3 py-[0.3rem] text-[0.8rem] font-medium leading-none transition-colors ${
+                    active
+                      ? "border-violet-300 bg-violet-100 text-violet-950"
+                      : "border-stone-300 bg-white text-stone-700 hover:border-violet-200 hover:bg-violet-50"
+                  }`}
+                  onClick={() => toggleTag(tag.key)}
+                >
+                  {tag.label}
+                </button>
+              );
+            })}
+          </div>
+
+          {selectedTags.length > 0 ? (
+            <p className="mt-3 inline-flex items-center gap-1 text-sm text-stone-600">
+              Filtering links by:
+              <span className="font-semibold text-stone-800">
+                {allTags
+                  .filter((tag) => selectedTags.includes(tag.key))
+                  .map((tag) => tag.label)
+                  .join(", ")}
+              </span>
+            </p>
+          ) : null}
+        </section>
+      ) : null}
+
+      {sections.map((section) => {
+        const Icon = iconMap[section.icon];
+        const filteredLinks = selectedTags.length > 0
+          ? section.links.filter((link) => {
+              const linkTagKeys = link.tags.map(normalizeTag).filter((tag) => tag.length > 0);
+              return selectedTags.some((tag) => linkTagKeys.includes(tag));
+            })
+          : section.links;
+
+        const content =
+          section.links.length === 0 ? (
+            <p className="text-stone-500">No links in this section for this issue.</p>
+          ) : filteredLinks.length === 0 ? (
+            <p className="text-stone-500">No links in this section match the selected tags.</p>
+          ) : (
+            <ul className="space-y-4">
+              {filteredLinks.map((item) => (
+                <LinkCard
+                  key={item.id}
+                  newsletterSlug={newsletterSlug}
+                  section={section.key}
+                  link={item}
+                />
+              ))}
+            </ul>
+          );
+
+        const isOpen = section.collapsible ? (openSections[section.key] ?? true) : true;
+
+        return (
+          <section
+            key={section.key}
+            className={`panel space-y-4 border p-5 md:p-6 ${toneClassMap[section.tone]}`}
+          >
+            <div className="flex items-start justify-between gap-4">
+              <div className="space-y-2">
+                <h2 className="text-[1.7rem] font-bold leading-tight">{section.title}</h2>
+                <p className="max-w-2xl text-[0.88rem] leading-6 text-stone-400">{section.description}</p>
+              </div>
+
+              {section.collapsible ? (
+                <button
+                  type="button"
+                  className="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full border border-stone-300 bg-white text-stone-600 transition-colors hover:bg-stone-100"
+                  aria-label={isOpen ? `Collapse ${section.title}` : `Expand ${section.title}`}
+                  onClick={() => {
+                    setOpenSections((current) => ({
+                      ...current,
+                      [section.key]: !isOpen,
+                    }));
+                  }}
+                >
+                  <ChevronDown
+                    className={`h-4 w-4 transition-transform ${isOpen ? "rotate-180" : "rotate-0"}`}
+                  />
+                </button>
+              ) : null}
+            </div>
+
+            {isOpen ? <div>{content}</div> : null}
+          </section>
+        );
+      })}
+    </div>
+  );
+}

@@ -1,0 +1,134 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "HelveticaNeue";
+  src: url("/fonts/HelveticaNeue-Light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+  ascent-override: 90%;
+  descent-override: 22%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: "HelveticaNeue";
+  src: url("/fonts/HelveticaNeue-Roman.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  ascent-override: 90%;
+  descent-override: 22%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: "HelveticaNeue";
+  src: url("/fonts/HelveticaNeue-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  ascent-override: 90%;
+  descent-override: 22%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: "HelveticaNeue";
+  src: url("/fonts/HelveticaNeue-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  ascent-override: 90%;
+  descent-override: 22%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: "NanumMyeongjo";
+  src: url("/fonts/NanumMyeongjo-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  ascent-override: 88%;
+  descent-override: 20%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: "NanumMyeongjo";
+  src: url("/fonts/NanumMyeongjo-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  ascent-override: 88%;
+  descent-override: 20%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: "NanumMyeongjo";
+  src: url("/fonts/NanumMyeongjo-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+  ascent-override: 88%;
+  descent-override: 20%;
+  line-gap-override: 0%;
+}
+
+:root {
+  /* Monks warm gradient palette */
+  --brand: #7c5cbf;
+  --brand-soft: #e8d9f7;
+  --accent: #c97c3a;
+  --accent-soft: #f5e4cc;
+  --pink: #d4709a;
+  --pink-soft: #f7dcea;
+
+  --bg: #eae8e4;
+  --surface: #ffffff;
+  --text: #1c1c1e;
+  --text-muted: #52525b;
+}
+
+@layer base {
+  * {
+    @apply border-stone-200;
+  }
+
+  body {
+    @apply min-h-screen antialiased;
+    font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: var(--text);
+    background-color: var(--bg);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: "NanumMyeongjo", Georgia, serif;
+    letter-spacing: -0.02em;
+    @apply text-stone-900;
+  }
+
+  p {
+    color: var(--text-muted);
+  }
+}
+
+@layer utilities {
+  .font-heading {
+    font-family: "NanumMyeongjo", Georgia, serif;
+  }
+
+  .app-shell {
+    @apply mx-auto w-full max-w-[960px] px-4;
+  }
+
+  .panel {
+    background: color-mix(in srgb, var(--surface) 94%, transparent);
+    @apply rounded-2xl border border-stone-200/80 shadow-[0_16px_34px_-24px_rgba(15,23,42,0.22)] backdrop-blur;
+  }
+}

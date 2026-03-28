@@ -1,0 +1,45 @@
+{
+  "slug": "2026-03-20",
+  "title": "Transformation Tech Weekly - March 20, 2026",
+  "date": "2026-03-20",
+  "sections": {
+    "useful": [
+      {
+        "id": "edge-deployment-guide",
+        "title": "Practical Edge Deployment Guide",
+        "description": "A clear breakdown of deploying modern workloads closer to users.",
+        "reason": "Useful because it provides implementation patterns and trade-offs with examples.",
+        "tags": ["Edge", "Architecture", "Deployment"],
+        "url": "https://example.com/edge-guide"
+      },
+      {
+        "id": "ai-governance-checklist",
+        "title": "AI Governance Checklist for Delivery Teams",
+        "description": "Operational checklist to keep AI systems compliant and auditable.",
+        "reason": "Useful because it is directly actionable for delivery leaders.",
+        "tags": ["AI", "Governance", "Compliance"],
+        "url": "https://example.com/ai-governance"
+      }
+    ],
+    "maybeUseful": [
+      {
+        "id": "future-frameworks",
+        "title": "Future Frameworks to Watch in 2026",
+        "description": "High-level trend piece about emerging frontend and backend stacks.",
+        "reason": "Maybe useful as inspiration, but lacks production-level depth.",
+        "tags": ["Trends", "Frameworks"],
+        "url": "https://example.com/future-frameworks"
+      }
+    ],
+    "discarded": [
+      {
+        "id": "overhyped-tool",
+        "title": "Overhyped Tool Without Benchmarks",
+        "description": "Opinion article promoting a tool without measurable outcomes.",
+        "reason": "Not useful due to missing evidence and no reproducible examples.",
+        "tags": ["Opinion"],
+        "url": "https://example.com/overhyped"
+      }
+    ]
+  }
+}

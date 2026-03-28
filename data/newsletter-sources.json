@@ -1,0 +1,33 @@
+{
+  "thanksMessage": "Thank you to the newsletters and publications that inspire this curated digest.",
+  "sources": [
+    {
+      "name": "The Pragmatic Engineer",
+      "url": "https://newsletter.pragmaticengineer.com/"
+    },
+    {
+      "name": "Latent Space",
+      "url": "https://www.latent.space/"
+    },
+    {
+      "name": "TLDR",
+      "url": "https://tldr.tech/"
+    },
+    {
+      "name": "Kotlin Weekly",
+      "url": "https://kotlinweekly.net/"
+    },
+    {
+      "name": "Android Weekly",
+      "url": "https://androidweekly.net/"
+    },
+    {
+      "name": "React Digest",
+      "url": "https://reactdigest.net/"
+    },
+    {
+      "name": "Programming Digest",
+      "url": "https://programmingdigest.net/"
+    }
+  ]
+}

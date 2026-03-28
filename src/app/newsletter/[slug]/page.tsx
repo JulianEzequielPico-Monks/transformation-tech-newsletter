@@ -55,7 +55,6 @@ export default async function NewsletterPage({
       key: "useful",
       title: "Useful Links",
       description: "High-confidence links with immediate practical value for your team.",
-      icon: "sparkles",
       tone: "teal",
       links: newsletter.sections.useful,
     },
@@ -63,7 +62,6 @@ export default async function NewsletterPage({
       key: "maybeUseful",
       title: "Maybe Useful Links",
       description: "Interesting signals and experiments that are worth a quick scan.",
-      icon: "compass",
       tone: "amber",
       links: newsletter.sections.maybeUseful,
     },
@@ -71,7 +69,6 @@ export default async function NewsletterPage({
       key: "discarded",
       title: "Discarded Links",
       description: "Low-priority links kept for transparency and future traceability.",
-      icon: "trash",
       tone: "rose",
       collapsible: true,
       defaultOpen: true,
@@ -85,7 +82,7 @@ export default async function NewsletterPage({
         <h1 className="text-3xl font-bold leading-tight md:text-5xl">{newsletter.title}</h1>
       </header>
 
-      <IssueSections key={newsletter.slug} newsletterSlug={newsletter.slug} sections={sections} />
+      <IssueSections key={newsletter.slug} newsletterSlug={newsletter.slug} date={newsletter.date} sections={sections} />
     </article>
   );
 }

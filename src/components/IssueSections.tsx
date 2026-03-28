@@ -1,16 +1,16 @@
 "use client";
 
-import { useMemo, useState } from "react";
-import { ChevronDown, Compass, Sparkles, Tag, Trash2, X } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
+import { ChevronDown, Tag } from "lucide-react";
 
 import { LinkCard } from "@/components/LinkCard";
+import { trackNewsletterIssueView, trackTagFilter } from "@/lib/analytics";
 import type { NewsletterBucket, NewsletterLink } from "@/types/newsletter";
 
 export type IssueSectionDefinition = {
   key: NewsletterBucket;
   title: string;
   description: string;
-  icon: "sparkles" | "compass" | "trash";
   tone: "teal" | "amber" | "rose";
   collapsible?: boolean;
   defaultOpen?: boolean;
@@ -19,6 +19,7 @@ export type IssueSectionDefinition = {
 
 type IssueSectionsProps = {
   newsletterSlug: string;
+  date: string;
   sections: IssueSectionDefinition[];
 };
 
@@ -28,25 +29,26 @@ const toneClassMap: Record<IssueSectionDefinition["tone"], string> = {
   rose: "border-pink-200 bg-gradient-to-b from-white to-pink-50/50",
 };
 
-const iconMap = {
-  sparkles: Sparkles,
-  compass: Compass,
-  trash: Trash2,
-};
-
 function normalizeTag(tag: string): string {
   return tag.trim().toLowerCase();
 }
 
-export function IssueSections({ newsletterSlug, sections }: IssueSectionsProps) {
+export function IssueSections({ newsletterSlug, date, sections }: IssueSectionsProps) {
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [openSections, setOpenSections] = useState<Record<string, boolean>>(() => {
+
     return Object.fromEntries(
       sections
         .filter((section) => section.collapsible)
         .map((section) => [section.key, section.defaultOpen ?? true]),
     );
   });
+
+  const totalLinks = sections.reduce((sum, s) => sum + s.links.length, 0);
+
+  useEffect(() => {
+    trackNewsletterIssueView({ newsletterSlug, date, totalLinks });
+  }, [newsletterSlug, totalLinks]);
 
   const allTags = useMemo(() => {
     const uniqueTags = new Map<string, string>();
@@ -74,11 +76,11 @@ export function IssueSections({ newsletterSlug, sections }: IssueSectionsProps) 
   }, [sections]);
 
   function toggleTag(tagKey: string) {
-    setSelectedTags((current) =>
-      current.includes(tagKey)
-        ? current.filter((item) => item !== tagKey)
-        : [...current, tagKey],
-    );
+    setSelectedTags((current) => {
+      const isActive = current.includes(tagKey);
+      trackTagFilter({ newsletterSlug, tag: tagKey, action: isActive ? "deselect" : "select" });
+      return isActive ? current.filter((item) => item !== tagKey) : [...current, tagKey];
+    });
   }
 
   return (
@@ -98,7 +100,7 @@ export function IssueSections({ newsletterSlug, sections }: IssueSectionsProps) 
                   ? "border-violet-300 bg-violet-100 text-violet-950"
                   : "border-stone-300 bg-white text-stone-700 hover:border-violet-200 hover:bg-violet-50"
               }`}
-              onClick={() => setSelectedTags([])}
+              onClick={() => { trackTagFilter({ newsletterSlug, tag: "", action: "clear" }); setSelectedTags([]); }}
             >
               All tags
             </button>
@@ -138,7 +140,6 @@ export function IssueSections({ newsletterSlug, sections }: IssueSectionsProps) 
       ) : null}
 
       {sections.map((section) => {
-        const Icon = iconMap[section.icon];
         const filteredLinks = selectedTags.length > 0
           ? section.links.filter((link) => {
               const linkTagKeys = link.tags.map(normalizeTag).filter((tag) => tag.length > 0);

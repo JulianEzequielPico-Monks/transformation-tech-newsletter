@@ -8,10 +8,7 @@ import {
   ThumbsUp,
 } from "lucide-react";
 
-import {
-  trackNewsletterFeedback,
-  trackNewsletterLinkClick,
-} from "@/lib/analytics";
+import { trackNewsletterFeedback, trackNewsletterLinkClick } from "@/lib/analytics";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import type { NewsletterBucket, NewsletterLink } from "@/types/newsletter";
@@ -56,6 +53,7 @@ export function LinkCard({
             trackNewsletterLinkClick({
               newsletterSlug,
               section,
+              linkId: link.id,
               title: link.title,
               url: link.url,
             })
@@ -90,7 +88,6 @@ export function LinkCard({
           <Button
             type="button"
             variant="ghost"
-            size="sm"
             title="Thumbs up"
             aria-label="Thumbs up"
             className={`h-8 w-8 rounded-full p-0 ${voteState === "up" ? "bg-violet-100 text-violet-900" : "text-stone-400 hover:bg-violet-50 hover:text-violet-700"}`}
@@ -110,7 +107,6 @@ export function LinkCard({
           <Button
             type="button"
             variant="ghost"
-            size="sm"
             title="Thumbs down"
             aria-label="Thumbs down"
             className={`h-8 w-8 rounded-full p-0 ${voteState === "down" ? "bg-pink-100 text-pink-900" : "text-stone-400 hover:bg-pink-50 hover:text-pink-700"}`}

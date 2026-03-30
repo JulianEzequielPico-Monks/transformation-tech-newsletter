@@ -81,7 +81,11 @@ Assign 50% Useful (Edge Cases / Maybe Include) ONLY if the content survives the 
 const STACK = [
   {
     name: "n8n",
-    description: "Orchestrates the full pipeline, triggering on incoming email, calling the AI, writing to Google Sheets, and saving the JSON.",
+    description: "Orchestrates the full pipeline. Currently triggered manually, a Tech Team member runs it after forwarding a curated newsletter email to the processing inbox.",
+  },
+  {
+    name: "Gmail API",
+    description: "Reads the raw HTML of newsletter emails from a dedicated inbox. The Tech Team manually selects and forwards newsletters to be processed, only emails added by the team are picked up.",
   },
   {
     name: "Gemini 3.0 Flash",
@@ -112,6 +116,9 @@ export default function HowItWorksPage() {
         <div className="space-y-2">
           <p className="text-xs font-semibold uppercase tracking-[0.14em] text-violet-700">Under the hood</p>
           <h1 className="text-3xl font-semibold md:text-4xl">How this works</h1>
+          <p className="max-w-2xl text-[0.88rem] leading-6 text-stone-500">
+            The pipeline is currently triggered manually by the Tech Team. Each run processes a newsletter email that was hand-picked and forwarded to the processing inbox — nothing gets in automatically.
+          </p>
         </div>
       </section>
 

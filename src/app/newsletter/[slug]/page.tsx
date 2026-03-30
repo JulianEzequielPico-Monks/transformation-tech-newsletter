@@ -36,9 +36,15 @@ export async function generateMetadata({
     };
   }
 
+  const description = `Issue published on ${formatNewsletterDate(newsletter.date)} with ${newsletter.counts.total} curated links.`;
+
   return {
-    title: `${newsletter.title} | Newsletter`,
-    description: `Issue published on ${formatNewsletterDate(newsletter.date)} with ${newsletter.counts.total} curated links.`,
+    title: newsletter.title,
+    description,
+    openGraph: {
+      title: `${newsletter.title} | Monks - Transformation Tech Digest`,
+      description,
+    },
   };
 }
 

@@ -9,9 +9,19 @@ import { getNewsletterSourcesConfig } from "@/lib/newsletter-sources";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Transformation Tech Digest",
+  title: {
+    default: "Monks - Transformation Tech Digest",
+    template: "%s | Monks - Transformation Tech Digest",
+  },
   description:
-    "A friendly weekly digest of useful transformation and technology links.",
+    "A friendly weekly digest of useful technology links.",
+  openGraph: {
+    siteName: "Monks - Transformation Tech Digest",
+    title: "Monks - Transformation Tech Digest",
+    description:
+      "A friendly weekly digest of useful technology links.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({

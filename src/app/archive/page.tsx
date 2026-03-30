@@ -7,6 +7,11 @@ export const dynamic = "force-static";
 
 export const metadata = {
   title: "Newsletter Archive",
+  description: "Browse all issues of the Monks Transformation Tech Digest — a weekly curation of useful technology and transformation links.",
+  openGraph: {
+    title: "Newsletter Archive | Monks - Transformation Tech Digest",
+    description: "Browse all issues of the Monks Transformation Tech Digest — a weekly curation of useful technology and transformation links.",
+  },
 };
 
 export default async function ArchivePage() {

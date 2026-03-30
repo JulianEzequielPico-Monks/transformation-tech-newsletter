@@ -1,7 +1,36 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { ChevronDown, Tag } from "lucide-react";
+import {
+  BookOpen,
+  BrainCircuit,
+  ChevronDown,
+  Lightbulb,
+  Monitor,
+  Server,
+  Shield,
+  Smartphone,
+  Sparkles,
+  Tag,
+  TestTube,
+  Workflow,
+  Wrench,
+  type LucideIcon,
+} from "lucide-react";
+
+const TAG_ICONS: Record<string, LucideIcon> = {
+  frontend: Monitor,
+  backend: Server,
+  mobile: Smartphone,
+  automation: Workflow,
+  qa: TestTube,
+  tooling: Wrench,
+  ai: BrainCircuit,
+  thinking: Lightbulb,
+  "general concepts": BookOpen,
+  security: Shield,
+  mindblown: Sparkles,
+};
 
 import { LinkCard } from "@/components/LinkCard";
 import { trackNewsletterIssueView, trackTagFilter } from "@/lib/analytics";
@@ -135,18 +164,20 @@ export function IssueSections({ newsletterSlug, date, sections }: IssueSectionsP
 
               {allTags.map((tag) => {
                 const active = selectedTags.includes(tag.key);
+                const Icon = TAG_ICONS[tag.key];
 
                 return (
                   <button
                     key={tag.key}
                     type="button"
-                    className={`rounded-full border px-3 py-[0.3rem] text-[0.7rem] font-semibold uppercase leading-none tracking-wide transition-colors ${
+                    className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-[0.3rem] text-[0.7rem] font-semibold uppercase leading-none tracking-wide transition-colors ${
                       active
                         ? "border-violet-300 bg-violet-100 text-violet-950"
                         : "border-stone-300 bg-white text-stone-500 hover:border-violet-200 hover:bg-violet-50 hover:text-violet-900"
                     }`}
                     onClick={() => toggleTag(tag.key)}
                   >
+                    {Icon ? <Icon className="h-3 w-3 shrink-0" /> : null}
                     {tag.label}
                   </button>
                 );

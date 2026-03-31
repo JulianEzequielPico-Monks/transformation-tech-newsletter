@@ -9,6 +9,7 @@ EXTRACTION PROTOCOL (follow in order):
 2. FILTER PASS: Remove only these utility patterns from your collected list:
    - href contains: unsubscribe, manage, preference, view-in-browser, advertise, mailto:, #
    - Inner text is: "Unsubscribe", "View in browser", "Manage subscriptions", "Twitter", "LinkedIn", etc.
+   - Hiring/recruiting links: URLs pointing to job boards or ATS platforms (e.g. jobs.ashbyhq.com, greenhouse.io, lever.co, boards.greenhouse.io, workable.com), or links whose anchor text is "Apply here", "We're hiring", "Join our team", "Create your own role", "View open roles", "Work with us", or similar recruiting CTAs. These must be silently dropped and must NOT appear anywhere in the JSON output.
 3. EVALUATE PASS: Apply the useful_perc rules to every remaining candidate.
 4. OUTPUT: Every candidate from step 3 must appear in the JSON output.
 
@@ -57,7 +58,7 @@ Assign 0% Useful (Strictly Reject) if the content is:
 3. Company Anchored: Content heavily tied to a specific tech giant's timeline, releases, or products (e.g., Google Q-Day, Apple using Gemini) even if it touches on a technical subject.
 4. Workflow Contamination: Articles detailing exactly how a specific company structures their internal stack, workflows, or custom implementations. We do not want to push untested, vendor-specific paradigms onto the team.
 5. Hyper-Specific Tools: Tactical tutorials, minor library updates, or highly specific tools. If an engineer needs this, they will search for it.
-6. Hiring/HR: Management, hiring, or interview guides.
+6. Hiring/HR: Management, hiring, or interview guides. Note: raw job application links are filtered out entirely in the FILTER PASS above and never reach evaluation.
 7. Pure Academic Research: Whitepapers or theoretical research not practically applicable to building products.
 8. Length Penalty: Any article that is clearly estimated to be over a 15-20 minute read.
 

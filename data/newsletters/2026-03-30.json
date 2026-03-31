@@ -2057,22 +2057,6 @@
                 "url": "https://tech.stonecharioteer.com/posts/2026/merrilin-local-sync/?utm_source=tldrdev"
             },
             {
-                "id": "apply-here",
-                "title": "Apply here",
-                "description": "Job application link for roles at TLDR.",
-                "reason": "This is a hiring and HR link, which is excluded from technical curation.",
-                "tags": [],
-                "url": "https://jobs.ashbyhq.com/tldr.tech"
-            },
-            {
-                "id": "create-your-own-role",
-                "title": "create your own role",
-                "description": "Job application link for custom roles at TLDR.",
-                "reason": "This is a hiring and HR link, which is excluded from technical curation.",
-                "tags": [],
-                "url": "https://jobs.ashbyhq.com/tldr.tech/c227b917-a6a4-40ce-8950-d3e165357871"
-            },
-            {
                 "id": "incs-best-bootstrapped-businesses",
                 "title": "Inc.'s Best Bootstrapped businesses",
                 "description": "LinkedIn post announcing TLDR's recognition as one of Inc.'s best bootstrapped businesses.",
@@ -2185,22 +2169,6 @@
                 "url": "https://www.omgubuntu.co.uk/2026/03/ubuntu-26-04-beta-is-now-available-to-download"
             },
             {
-                "id": "apply-here",
-                "title": "Apply here",
-                "description": "Job application link for TLDR.",
-                "reason": "This is a hiring/HR-related link.",
-                "tags": [],
-                "url": "https://jobs.ashbyhq.com/tldr.tech"
-            },
-            {
-                "id": "create-your-own-role",
-                "title": "create your own role",
-                "description": "Hiring link for custom roles at TLDR.",
-                "reason": "This is a hiring/HR-related link.",
-                "tags": [],
-                "url": "https://jobs.ashbyhq.com/tldr.tech/c227b917-a6a4-40ce-8950-d3e165357871"
-            },
-            {
                 "id": "incs-best-bootstrapped-businesses",
                 "title": "Inc.'s Best Bootstrapped businesses",
                 "description": "LinkedIn post about industry recognition for TLDR.",
@@ -2297,22 +2265,6 @@
                     "mobile"
                 ],
                 "url": "https://links.tldrnewsletter.com/aGutNV"
-            },
-            {
-                "id": "apply-here",
-                "title": "Apply here",
-                "description": "Job application portal for TLDR.",
-                "reason": "This is a hiring and recruitment link.",
-                "tags": [],
-                "url": "https://jobs.ashbyhq.com/tldr.tech"
-            },
-            {
-                "id": "create-your-own-role",
-                "title": "create your own role",
-                "description": "Open recruitment link for custom roles at TLDR.",
-                "reason": "This is a hiring and recruitment link.",
-                "tags": [],
-                "url": "https://jobs.ashbyhq.com/tldr.tech/c227b917-a6a4-40ce-8950-d3e165357871"
             },
             {
                 "id": "report-84-of-teams-use-ai-only-21-have-efficient-workflows",
@@ -2943,22 +2895,6 @@
                 "url": "https://gbhackers.com/critical-nvidia-vulnerabilities/?utm_source=tldrinfosec"
             },
             {
-                "id": "apply-here",
-                "title": "Apply here",
-                "description": "Job application link for TLDR.",
-                "reason": "This is a hiring/HR link and is not technical content.",
-                "tags": [],
-                "url": "https://jobs.ashbyhq.com/tldr.tech"
-            },
-            {
-                "id": "create-your-own-role",
-                "title": "create your own role",
-                "description": "Job application link for TLDR.",
-                "reason": "This is a hiring/HR link and is not technical content.",
-                "tags": [],
-                "url": "https://jobs.ashbyhq.com/tldr.tech/c227b917-a6a4-40ce-8950-d3e165357871"
-            },
-            {
                 "id": "incs-best-bootstrapped-businesses",
                 "title": "Inc.'s Best Bootstrapped businesses",
                 "description": "News about TLDR being recognized as a top bootstrapped business.",
@@ -3053,14 +2989,6 @@
                 "reason": "This is historical/entertainment content rather than a technical resource for building products.",
                 "tags": [],
                 "url": "https://www.web-rewind.com/?utm_source=tldrdev"
-            },
-            {
-                "id": "want-to-work-at-tldr",
-                "title": "Want to work at TLDR? 💼",
-                "description": "Job openings at TLDR.",
-                "reason": "This is hiring and HR content.",
-                "tags": [],
-                "url": "https://jobs.ashbyhq.com/tldr.tech"
             },
             {
                 "id": "incs-best-bootstrapped-businesses",
@@ -3158,22 +3086,6 @@
                     "automation"
                 ],
                 "url": "https://www.cncf.io/blog/2026/03/25/announcing-the-release-of-kubevirt-v1-8/?utm_source=tldrdevops"
-            },
-            {
-                "id": "apply-here",
-                "title": "Apply here",
-                "description": "Job application portal for TLDR.",
-                "reason": "This is a hiring and recruitment link.",
-                "tags": [],
-                "url": "https://jobs.ashbyhq.com/tldr.tech"
-            },
-            {
-                "id": "create-your-own-role",
-                "title": "create your own role",
-                "description": "Open application portal for custom roles at TLDR.",
-                "reason": "This is a hiring and recruitment link.",
-                "tags": [],
-                "url": "https://jobs.ashbyhq.com/tldr.tech/c227b917-a6a4-40ce-8950-d3e165357871"
             },
             {
                 "id": "incs-best-bootstrapped-businesses",
@@ -3342,22 +3254,6 @@
                     "ai"
                 ],
                 "url": "https://tracking.tldrnewsletter.com/CL0/https:%2F%2Fashleymayer.substack.com%2Fp%2Fwe-need-better-stories%3Futm_source=tldrnewsletter/1/0100019d2ed3c49e-f9ab9e11-81a9-4824-bfc1-67ba44c5c214-000000/tek34kxr0rNMCET1FdiX8eOlOejYG1OW2VyTKwbWBLE=450"
-            },
-            {
-                "id": "apply-here",
-                "title": "Apply here",
-                "description": "Link to apply for open roles at TLDR.",
-                "reason": "This is a hiring-related link, which is excluded from technical content curation.",
-                "tags": [],
-                "url": "https://tracking.tldrnewsletter.com/CL0/https:%2F%2Fjobs.ashbyhq.com%2Ftldr.tech/1/0100019d2ed3c49e-f9ab9e11-81a9-4824-bfc1-67ba44c5c214-000000/qG9TL2MI-kCkr-ahh4vgPtZ24MMMKz6OqAeA6hfE66s=450"
-            },
-            {
-                "id": "create-your-own-role",
-                "title": "create your own role",
-                "description": "Link to propose a custom role at TLDR.",
-                "reason": "This is a hiring-related link, which is excluded from technical content curation.",
-                "tags": [],
-                "url": "https://tracking.tldrnewsletter.com/CL0/https:%2F%2Fjobs.ashbyhq.com%2Ftldr.tech%2Fc227b917-a6a4-40ce-8950-d3e165357871/1/0100019d2ed3c49e-f9ab9e11-81a9-4824-bfc1-67ba44c5c214-000000/5JMkFVn7DwyqQydU_NLKkhpkYaWycaql22pzKZ5sxug=450"
             },
             {
                 "id": "the-launch-of-projectsdev",
@@ -3692,22 +3588,6 @@
                     "ai"
                 ],
                 "url": "https://blog.google/innovation-and-ai/technology/ai/lyria-3-pro/?utm_source=tldrai"
-            },
-            {
-                "id": "want-to-work-at-tldr-apply-here",
-                "title": "Want to work at TLDR? Apply here",
-                "description": "Open job positions at TLDR.",
-                "reason": "This is a hiring/HR link, which is strictly rejected by the evaluation protocol.",
-                "tags": [],
-                "url": "https://jobs.ashbyhq.com/tldr.tech"
-            },
-            {
-                "id": "create-your-own-role-at-tldr",
-                "title": "Create your own role at TLDR",
-                "description": "Opportunity to propose a custom role at TLDR.",
-                "reason": "This is a hiring/HR link, which is strictly rejected by the evaluation protocol.",
-                "tags": [],
-                "url": "https://jobs.ashbyhq.com/tldr.tech/c227b917-a6a4-40ce-8950-d3e165357871"
             },
             {
                 "id": "avoiding-the-eye-of-sauron",
@@ -4230,22 +4110,6 @@
                 "url": "https://www.techradar.com/pro/security/traces-of-unauthorized-access-mazda-confirms-data-breach-that-exposed-employee-and-partner-data?utm_source=tldrinfosec"
             },
             {
-                "id": "apply-here",
-                "title": "Apply here",
-                "description": "Job application link for TLDR.",
-                "reason": "This is a hiring and HR related link.",
-                "tags": [],
-                "url": "https://jobs.ashbyhq.com/tldr.tech"
-            },
-            {
-                "id": "create-your-own-role",
-                "title": "create your own role",
-                "description": "Open application link for TLDR.",
-                "reason": "This is a hiring and HR related link.",
-                "tags": [],
-                "url": "https://jobs.ashbyhq.com/tldr.tech/c227b917-a6a4-40ce-8950-d3e165357871"
-            },
-            {
                 "id": "incs-best-bootstrapped-businesses",
                 "title": "Inc.'s Best Bootstrapped businesses",
                 "description": "LinkedIn post about TLDR being recognized as a top bootstrapped business.",
@@ -4427,22 +4291,6 @@
                 "url": "https://www.engadget.com/ai/google-is-reportedly-testing-a-gemini-app-for-mac-203703372.html?utm_source=tldrai"
             },
             {
-                "id": "apply-here",
-                "title": "Apply here",
-                "description": "Hiring link for TLDR.",
-                "reason": "This is a hiring/HR link.",
-                "tags": [],
-                "url": "https://jobs.ashbyhq.com/tldr.tech"
-            },
-            {
-                "id": "create-your-own-role",
-                "title": "create your own role",
-                "description": "Hiring link for TLDR.",
-                "reason": "This is a hiring/HR link.",
-                "tags": [],
-                "url": "https://jobs.ashbyhq.com/tldr.tech/c227b917-a6a4-40ce-8950-d3e165357871"
-            },
-            {
                 "id": "incs-best-bootstrapped-businesses",
                 "title": "Inc.'s Best Bootstrapped businesses",
                 "description": "News about TLDR being recognized by Inc.",
@@ -4617,22 +4465,6 @@
                 "url": "https://tracking.tldrnewsletter.com/CL0/https:%2F%2Fsecurityaffairs.com%2F189689%2Fsecurity%2Fcritical-ubiquiti-unifi-unifi-security-flaw-allows-potential-account-hijacking.html%3Futm_source=tldrinfosec/1/0100019d0b5ca51e-d25e90f4-8870-4227-ac25-6f559f2375a1-000000/fNC0J1VQRAe4Yp3iXQObEZrG__clfZT_eHEKwxTjJeo=449"
             },
             {
-                "id": "apply-here",
-                "title": "Apply here",
-                "description": "Job application link for TLDR.",
-                "reason": "This is a hiring-related link and does not provide technical engineering content.",
-                "tags": [],
-                "url": "https://tracking.tldrnewsletter.com/CL0/https:%2F%2Fjobs.ashbyhq.com%2Ftldr.tech/1/0100019d0b5ca51e-d25e90f4-8870-4227-ac25-6f559f2375a1-000000/WY-3cJ_15wYoj5vVKPMRAgUqzt7ctAqMurDlkRE1fl0=449"
-            },
-            {
-                "id": "create-your-own-role",
-                "title": "create your own role",
-                "description": "Job application link for custom roles at TLDR.",
-                "reason": "This is a hiring-related link.",
-                "tags": [],
-                "url": "https://tracking.tldrnewsletter.com/CL0/https:%2F%2Fjobs.ashbyhq.com%2Ftldr.tech%2Fc227b917-a6a4-40ce-8950-d3e165357871/1/0100019d0b5ca51e-d25e90f4-8870-4227-ac25-6f559f2375a1-000000/b1CExoy9FjjWozG0pqRs82HFYO8HCKkR8h4mI8ULfL4=449"
-            },
-            {
                 "id": "incs-best-bootstrapped-businesses",
                 "title": "Inc.'s Best Bootstrapped businesses",
                 "description": "LinkedIn post about TLDR's recognition by Inc.",
@@ -4703,16 +4535,6 @@
                 "url": "https://links.tldrnewsletter.com/xlacmn"
             },
             {
-                "id": "tldr-is-hiring-a-senior-software-engineer-applied-ai",
-                "title": "TLDR is hiring a Senior Software Engineer, Applied AI",
-                "description": "Job posting for an AI engineering role at TLDR.",
-                "reason": "This is a hiring and recruitment post.",
-                "tags": [
-                    "ai"
-                ],
-                "url": "https://jobs.ashbyhq.com/tldr.tech/3b21aaf8-dea5-4127-be71-602d30e5001e"
-            },
-            {
                 "id": "your-frustration-is-the-product",
                 "title": "‘Your Frustration Is the Product'",
                 "description": "An opinion piece on how modern web design and metrics prioritize engagement through frustration.",
@@ -4739,14 +4561,6 @@
                 "reason": "This is company news and market hype.",
                 "tags": [],
                 "url": "https://www.linkedin.com/feed/update/urn:li:activity:7401699691039830016/"
-            },
-            {
-                "id": "apply-here",
-                "title": "Apply here",
-                "description": "Job application portal for TLDR.",
-                "reason": "This is a hiring/HR link.",
-                "tags": [],
-                "url": "https://jobs.ashbyhq.com/tldr.tech"
             },
             {
                 "id": "argo-cd-v34-release-candidate",
@@ -4859,14 +4673,6 @@
                 "url": "https://surfingcomplexity.blog/2026/03/07/grow-fast-and-overload-things/?utm_source=tldrdevops"
             },
             {
-                "id": "want-to-work-at-tldr",
-                "title": "Want to work at TLDR? 💼",
-                "description": "Job openings at TLDR.",
-                "reason": "This is a hiring and HR announcement.",
-                "tags": [],
-                "url": "https://jobs.ashbyhq.com/tldr.tech"
-            },
-            {
                 "id": "most-crms-are-glorified-spreadsheets-for-sales-data-lightfield-puts-your-data-to-use-sponsor",
                 "title": "Most CRMs are glorified spreadsheets for sales data. Lightfield puts your data to use (Sponsor)",
                 "description": "An AI-native CRM designed to automate data entry and follow-ups.",
@@ -4963,14 +4769,6 @@
                 "url": "https://tracking.tldrnewsletter.com/CL0/https:%2F%2Finsights.euclid.vc%2Fp%2Fwe-need-to-talk-about-agents%3Futm_source=tldrnewsletter/1/0100019d0ac710a0-de2d7fc2-735b-4168-ba38-872ebea8ab5c-000000/5z04X38Qjan9-FsxhjxH4PPOq2nTD4m2fPFYSv9x3fQ=449"
             },
             {
-                "id": "tldr-is-hiring-a-senior-software-engineer-applied-ai-250k-350k-fully-remote",
-                "title": "TLDR is hiring a Senior Software Engineer, Applied AI ($250k-$350k, Fully Remote)",
-                "description": "A job opening for an AI-focused software engineer at TLDR.",
-                "reason": "This is a hiring/recruitment post.",
-                "tags": [],
-                "url": "https://tracking.tldrnewsletter.com/CL0/https:%2F%2Fjobs.ashbyhq.com%2Ftldr.tech%2F3b21aaf8-dea5-4127-be71-602d30e5001e%3Futm_source=tldrnewsletter/1/0100019d0ac710a0-de2d7fc2-735b-4168-ba38-872ebea8ab5c-000000/71UwVjVDAeuvljbbZ_w7XRrvodGoDOqiL29r6CKKsLI=449"
-            },
-            {
                 "id": "xiaomi-launches-next-gen-su7-with-902-km-range-and-lidar-still-undercuts-tesla-4-minute-read",
                 "title": "Xiaomi launches next-gen SU7 with 902 km range and LiDAR, still undercuts Tesla (4 minute read)",
                 "description": "Details on the launch of Xiaomi's new electric vehicle.",
@@ -4985,22 +4783,6 @@
                 "reason": "This is company-anchored news and ecosystem gossip regarding acquisitions.",
                 "tags": [],
                 "url": "https://tracking.tldrnewsletter.com/CL0/https:%2F%2Fsimonwillison.net%2F2026%2FMar%2F19%2Fopenai-acquiring-astral%2F%3Futm_source=tldrnewsletter/1/0100019d0ac710a0-de2d7fc2-735b-4168-ba38-872ebea8ab5c-000000/CwuQTJ3w2Zzhsy3LubUUicJspPsxoyCxAoF1ERlaCEM=449"
-            },
-            {
-                "id": "apply-here",
-                "title": "Apply here",
-                "description": "Link to TLDR job board.",
-                "reason": "This is a hiring/HR link.",
-                "tags": [],
-                "url": "https://tracking.tldrnewsletter.com/CL0/https:%2F%2Fjobs.ashbyhq.com%2Ftldr.tech/1/0100019d0ac710a0-de2d7fc2-735b-4168-ba38-872ebea8ab5c-000000/fnhnKlrVjKTDvPHPZjTrjk9HzqF_5nIu0gMQ5iMU00Y=449"
-            },
-            {
-                "id": "create-your-own-role",
-                "title": "create your own role",
-                "description": "Link to submit a custom job application.",
-                "reason": "This is a hiring/HR link.",
-                "tags": [],
-                "url": "https://tracking.tldrnewsletter.com/CL0/https:%2F%2Fjobs.ashbyhq.com%2Ftldr.tech%2Fc227b917-a6a4-40ce-8950-d3e165357871/1/0100019d0ac710a0-de2d7fc2-735b-4168-ba38-872ebea8ab5c-000000/oeesDRq9mIJXIUpFJ6lhIXSvg2GntdlAEeKD7IM2Xd4=449"
             }
         ]
     }

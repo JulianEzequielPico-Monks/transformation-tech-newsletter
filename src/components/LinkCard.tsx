@@ -21,7 +21,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 
-import { trackNewsletterFeedback, trackNewsletterLinkClick } from "@/lib/analytics";
+import { trackNewsletterFeedback, trackNewsletterLinkClick, trackReasonExpand } from "@/lib/analytics";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import type { NewsletterBucket, NewsletterLink } from "@/types/newsletter";
@@ -115,7 +115,11 @@ export function LinkCard({
       <div className="mt-3">
         <button
           type="button"
-          onClick={() => setReasonOpen((v) => !v)}
+          onClick={() => {
+            const next = !reasonOpen;
+            setReasonOpen(next);
+            trackReasonExpand({ newsletterSlug, section, linkId: link.id, state: next ? "open" : "closed" });
+          }}
           className="inline-flex items-center gap-1 text-[0.7rem] text-stone-400 transition-colors hover:text-stone-500"
         >
           <Lightbulb className="h-3 w-3 shrink-0" />

@@ -33,7 +33,7 @@ const TAG_ICONS: Record<string, LucideIcon> = {
 };
 
 import { LinkCard } from "@/components/LinkCard";
-import { trackNewsletterIssueView, trackTagFilter } from "@/lib/analytics";
+import { trackNewsletterIssueView, trackTagFilter, trackTagModeChange, trackSectionToggle } from "@/lib/analytics";
 import type { NewsletterBucket, NewsletterLink } from "@/types/newsletter";
 
 export type IssueSectionDefinition = {
@@ -73,7 +73,7 @@ export function IssueSections({ newsletterSlug, date, sections }: IssueSectionsP
 
   useEffect(() => {
     trackNewsletterIssueView({ newsletterSlug, date, totalLinks });
-  }, [newsletterSlug, totalLinks]);
+  }, [newsletterSlug, date, totalLinks]);
 
   const allTags = useMemo(() => {
     const uniqueTags = new Map<string, string>();
@@ -124,14 +124,14 @@ export function IssueSections({ newsletterSlug, date, sections }: IssueSectionsP
                     <button
                       type="button"
                       className={`rounded-full px-2.5 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wide transition-colors ${tagMode === "or" ? "bg-white text-stone-800 shadow-sm" : "text-stone-400 hover:text-stone-600"}`}
-                      onClick={() => setTagMode("or")}
+                      onClick={() => { setTagMode("or"); trackTagModeChange({ newsletterSlug, mode: "or" }); }}
                     >
                       Match any
                     </button>
                     <button
                       type="button"
                       className={`rounded-full px-2.5 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wide transition-colors ${tagMode === "and" ? "bg-white text-stone-800 shadow-sm" : "text-stone-400 hover:text-stone-600"}`}
-                      onClick={() => setTagMode("and")}
+                      onClick={() => { setTagMode("and"); trackTagModeChange({ newsletterSlug, mode: "and" }); }}
                     >
                       Match all
                     </button>
@@ -240,6 +240,7 @@ export function IssueSections({ newsletterSlug, date, sections }: IssueSectionsP
                     ...current,
                     [section.key]: !isOpen,
                   }));
+                  trackSectionToggle({ newsletterSlug, section: section.key, state: isOpen ? "closed" : "open" });
                 }}
               >
                 <ChevronDown

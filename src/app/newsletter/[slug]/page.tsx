@@ -100,6 +100,11 @@ export default async function NewsletterPage({
             {formatNewsletterDate(newsletter.date)}
           </p>
           <h1 className="text-3xl font-bold leading-tight md:text-5xl">{newsletter.title}</h1>
+          {newsletter.emailsProcessed > 0 && (
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-stone-400">
+              {newsletter.emailsProcessed} emails processed
+            </p>
+          )}
         </div>
       </header>
 

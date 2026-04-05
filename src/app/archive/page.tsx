@@ -40,6 +40,11 @@ export default async function ArchivePage() {
             <span className="text-sm text-stone-400">
               {latest.counts.total} links curated
             </span>
+            {latest.emailsProcessed > 0 && (
+              <span className="text-sm text-stone-400">
+                · {latest.emailsProcessed} emails processed
+              </span>
+            )}
           </div>
         </section>
       ) : null}
@@ -50,6 +55,7 @@ export default async function ArchivePage() {
           title: n.title,
           formattedDate: formatNewsletterDate(n.date),
           total: n.counts.total,
+          emailsProcessed: n.emailsProcessed,
         }))}
         total={newsletters.length}
       />

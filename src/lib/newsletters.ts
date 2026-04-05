@@ -139,12 +139,19 @@ async function readNewsletterFile(fileName: string): Promise<Newsletter | null> 
 
   const sections = normalizeSections(json, slug);
 
+  const rawEmailsProcessed = json.emailsProcessed;
+  const emailsProcessed =
+    typeof rawEmailsProcessed === "number" && rawEmailsProcessed >= 0
+      ? rawEmailsProcessed
+      : 0;
+
   return {
     slug,
     date,
     title: toString(json.title, `Newsletter ${date}`),
     sections,
     counts: computeCounts(sections),
+    emailsProcessed,
   };
 }
 

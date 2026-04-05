@@ -28,4 +28,5 @@ export type Newsletter = {
   date: string;
   sections: NewsletterSections;
   counts: NewsletterCounts;
+  emailsProcessed: number;
 };

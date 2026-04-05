@@ -9,6 +9,7 @@ type IssueItem = {
   title: string;
   formattedDate: string;
   total: number;
+  emailsProcessed: number;
 };
 
 type Props = {
@@ -52,6 +53,9 @@ export function ArchiveAllIssues({ newsletters, total }: Props) {
                     <div className="flex items-center gap-2">
                       <p className="text-sm font-semibold text-stone-900">{newsletter.formattedDate}</p>
                       <span className="text-xs text-stone-400">{newsletter.total} links</span>
+                      {newsletter.emailsProcessed > 0 && (
+                        <span className="text-xs text-stone-400">· {newsletter.emailsProcessed} emails</span>
+                      )}
                     </div>
                   </Link>
                 </li>

@@ -18,6 +18,8 @@ export const ANALYTICS_EVENTS = {
   REASON_EXPAND: "newsletter_reason_expand",
   SOURCE_LINK_CLICK: "newsletter_source_link_click",
   NAV_LINK_CLICK: "newsletter_nav_link_click",
+  SUMMARY_TOGGLE: "newsletter_summary_toggle",
+  SUMMARY_LINK_CLICK: "newsletter_summary_link_click",
 } as const;
 
 export const SECTION_NAMES: Record<NewsletterBucket, string> = {
@@ -168,5 +170,27 @@ export function trackNavLinkClick(args: {
   void trackEvent(ANALYTICS_EVENTS.NAV_LINK_CLICK, {
     label: args.label,
     destination: args.destination,
+  });
+}
+
+export function trackSummaryToggle(args: {
+  newsletterSlug: string;
+  state: "open" | "closed";
+}): void {
+  void trackEvent(ANALYTICS_EVENTS.SUMMARY_TOGGLE, {
+    newsletter_slug: args.newsletterSlug,
+    state: args.state,
+  });
+}
+
+export function trackSummaryLinkClick(args: {
+  newsletterSlug: string;
+  linkUrl: string;
+  linkText: string;
+}): void {
+  void trackEvent(ANALYTICS_EVENTS.SUMMARY_LINK_CLICK, {
+    newsletter_slug: args.newsletterSlug,
+    link_url: args.linkUrl,
+    link_text: args.linkText,
   });
 }

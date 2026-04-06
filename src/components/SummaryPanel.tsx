@@ -3,12 +3,14 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import ReactMarkdown from "react-markdown";
+import { trackSummaryToggle, trackSummaryLinkClick } from "@/lib/analytics";
 
 type SummaryPanelProps = {
+  newsletterSlug: string;
   summary: string;
 };
 
-export function SummaryPanel({ summary }: SummaryPanelProps) {
+export function SummaryPanel({ newsletterSlug, summary }: SummaryPanelProps) {
   const [isOpen, setIsOpen] = useState(true);
 
   return (
@@ -19,7 +21,11 @@ export function SummaryPanel({ summary }: SummaryPanelProps) {
           type="button"
           className="mt-1 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-stone-300 bg-white text-stone-600 transition-colors hover:bg-stone-100"
           aria-label={isOpen ? "Collapse Summary" : "Expand Summary"}
-          onClick={() => setIsOpen((prev) => !prev)}
+          onClick={() => {
+            const next = !isOpen;
+            setIsOpen(next);
+            trackSummaryToggle({ newsletterSlug, state: next ? "open" : "closed" });
+          }}
         >
           <ChevronDown
             className={`h-4 w-4 transition-transform duration-300 ${isOpen ? "rotate-180" : "rotate-0"}`}
@@ -32,7 +38,28 @@ export function SummaryPanel({ summary }: SummaryPanelProps) {
       >
         <div className="overflow-hidden">
           <div className="markdown-body">
-            <ReactMarkdown>{summary}</ReactMarkdown>
+            <ReactMarkdown
+              components={{
+                a: ({ href, children }) => (
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() =>
+                      trackSummaryLinkClick({
+                        newsletterSlug,
+                        linkUrl: href ?? "",
+                        linkText: typeof children === "string" ? children : "",
+                      })
+                    }
+                  >
+                    {children}
+                  </a>
+                ),
+              }}
+            >
+              {summary}
+            </ReactMarkdown>
           </div>
         </div>
       </div>

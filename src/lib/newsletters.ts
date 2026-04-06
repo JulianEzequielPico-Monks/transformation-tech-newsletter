@@ -145,10 +145,13 @@ async function readNewsletterFile(fileName: string): Promise<Newsletter | null> 
       ? rawEmailsProcessed
       : 0;
 
+  const summary = toString(json.summary);
+
   return {
     slug,
     date,
     title: toString(json.title, `Newsletter ${date}`),
+    ...(summary ? { summary } : {}),
     sections,
     counts: computeCounts(sections),
     emailsProcessed,

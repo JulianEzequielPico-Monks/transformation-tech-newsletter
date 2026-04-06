@@ -7,6 +7,7 @@ import {
   IssueSections,
   type IssueSectionDefinition,
 } from "@/components/IssueSections";
+import { SummaryPanel } from "@/components/SummaryPanel";
 import {
   formatNewsletterDate,
   getAllNewsletterSlugs,
@@ -107,6 +108,8 @@ export default async function NewsletterPage({
           )}
         </div>
       </header>
+
+      {newsletter.summary ? <SummaryPanel summary={newsletter.summary} /> : null}
 
       <IssueSections key={newsletter.slug} newsletterSlug={newsletter.slug} date={newsletter.date} sections={sections} />
     </article>

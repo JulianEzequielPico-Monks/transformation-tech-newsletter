@@ -118,6 +118,30 @@
   }
 }
 
+@layer components {
+  .markdown-body {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    line-height: 1.75;
+
+    p { @apply mb-3 last:mb-0; }
+    h1, h2, h3, h4 { @apply mb-2 mt-4 first:mt-0 text-stone-800; }
+    h1 { @apply text-xl; }
+    h2 { @apply text-lg; }
+    h3 { @apply text-base; }
+    strong { @apply font-semibold text-stone-800; }
+    em { @apply italic; }
+    a { @apply text-violet-600 hover:underline; }
+    ul { @apply mb-3 ml-5 list-disc space-y-1; }
+    ol { @apply mb-3 ml-5 list-decimal space-y-1; }
+    li { @apply text-stone-600; }
+    code { @apply rounded bg-stone-100 px-1 py-0.5 text-xs font-mono text-stone-700; }
+    pre { @apply mb-3 rounded-lg bg-stone-100 p-3 text-xs overflow-x-auto; }
+    blockquote { @apply border-l-2 border-stone-300 pl-3 text-stone-500 italic; }
+    hr { @apply my-4 border-stone-200; }
+  }
+}
+
 @layer utilities {
   .font-heading {
     font-family: "NanumMyeongjo", Georgia, serif;

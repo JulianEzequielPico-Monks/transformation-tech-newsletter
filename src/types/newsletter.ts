@@ -26,6 +26,7 @@ export type Newsletter = {
   slug: string;
   title: string;
   date: string;
+  summary?: string;
   sections: NewsletterSections;
   counts: NewsletterCounts;
   emailsProcessed: number;

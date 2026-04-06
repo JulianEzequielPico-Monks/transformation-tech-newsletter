@@ -37,6 +37,9 @@ export function SummaryPanel({ newsletterSlug, summary }: SummaryPanelProps) {
         className={`grid transition-all duration-300 ease-in-out ${isOpen ? "mt-4 grid-rows-[1fr]" : "grid-rows-[0fr]"}`}
       >
         <div className="overflow-hidden">
+          <div className="mb-4 rounded-xl border border-amber-200 bg-amber-50/60 px-4 py-3 text-sm font-bold leading-relaxed text-amber-900">
+            This summary doesn&apos;t cover all the links. Explore the sections below and use the tag filters to find what&apos;s most relevant to you.
+          </div>
           <div className="markdown-body">
             <ReactMarkdown
               components={{

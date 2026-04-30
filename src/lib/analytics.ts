@@ -20,6 +20,7 @@ export const ANALYTICS_EVENTS = {
   NAV_LINK_CLICK: "newsletter_nav_link_click",
   SUMMARY_TOGGLE: "newsletter_summary_toggle",
   SUMMARY_LINK_CLICK: "newsletter_summary_link_click",
+  HIGHLIGHT_CLICK: "newsletter_highlight_click",
 } as const;
 
 export const SECTION_NAMES: Record<NewsletterBucket, string> = {
@@ -192,5 +193,17 @@ export function trackSummaryLinkClick(args: {
     newsletter_slug: args.newsletterSlug,
     link_url: args.linkUrl,
     link_text: args.linkText,
+  });
+}
+
+export function trackHighlightClick(args: {
+  newsletterSlug: string;
+  linkId: string;
+  url: string;
+}): void {
+  void trackEvent(ANALYTICS_EVENTS.HIGHLIGHT_CLICK, {
+    newsletter_slug: args.newsletterSlug,
+    link_id: args.linkId,
+    link_url: args.url,
   });
 }

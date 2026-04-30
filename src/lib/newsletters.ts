@@ -4,6 +4,7 @@ import path from "node:path";
 import type {
   Newsletter,
   NewsletterCounts,
+  NewsletterHighlight,
   NewsletterLink,
   NewsletterSections,
 } from "@/types/newsletter";
@@ -146,15 +147,50 @@ async function readNewsletterFile(fileName: string): Promise<Newsletter | null> 
       : 0;
 
   const summary = toString(json.summary);
+  const highlight = normalizeHighlight(json.highlight, sections);
 
   return {
     slug,
     date,
     title: toString(json.title, `Newsletter ${date}`),
     ...(summary ? { summary } : {}),
+    ...(highlight ? { highlight } : {}),
     sections,
     counts: computeCounts(sections),
     emailsProcessed,
+  };
+}
+
+function normalizeHighlight(
+  value: unknown,
+  sections: NewsletterSections,
+): NewsletterHighlight | null {
+  if (typeof value !== "object" || value === null) {
+    return null;
+  }
+
+  const source = value as RawRecord;
+  const linkId = toString(source.linkId);
+
+  if (!linkId) {
+    return null;
+  }
+
+  const exists = [
+    ...sections.useful,
+    ...sections.maybeUseful,
+    ...sections.discarded,
+  ].some((link) => link.id === linkId);
+
+  if (!exists) {
+    return null;
+  }
+
+  const commentary = toString(source.commentary);
+
+  return {
+    linkId,
+    ...(commentary ? { commentary } : {}),
   };
 }
 

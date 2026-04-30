@@ -22,11 +22,17 @@ export type NewsletterCounts = {
   discarded: number;
 };
 
+export type NewsletterHighlight = {
+  linkId: string;
+  commentary?: string;
+};
+
 export type Newsletter = {
   slug: string;
   title: string;
   date: string;
   summary?: string;
+  highlight?: NewsletterHighlight;
   sections: NewsletterSections;
   counts: NewsletterCounts;
   emailsProcessed: number;

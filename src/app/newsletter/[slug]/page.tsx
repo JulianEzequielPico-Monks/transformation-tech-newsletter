@@ -8,6 +8,7 @@ import {
   IssueSections,
   type IssueSectionDefinition,
 } from "@/components/IssueSections";
+import { NewsletterHighlight } from "@/components/NewsletterHighlight";
 import { SummaryPanel } from "@/components/SummaryPanel";
 import {
   formatNewsletterDate,
@@ -60,32 +61,45 @@ export default async function NewsletterPage({
     notFound();
   }
 
-  const sections: IssueSectionDefinition[] = [
+  const peerSections: IssueSectionDefinition[] = [
     {
       key: "useful",
       title: "Useful Links",
       description: "High-confidence links with immediate practical value for your team.",
       tone: "teal",
-      defaultOpen: false,
+      defaultOpen: true,
       links: newsletter.sections.useful,
     },
+  ];
+
+  const groupedSections: IssueSectionDefinition[] = [
     {
       key: "maybeUseful",
-      title: "Maybe Useful Links",
-      description: "Interesting signals and experiments that are worth a quick scan.",
+      title: "Maybe Useful",
+      description: "Interesting signals and experiments worth a quick scan.",
       tone: "amber",
       defaultOpen: false,
       links: newsletter.sections.maybeUseful,
     },
     {
       key: "discarded",
-      title: "Discarded Links",
-      description: "Low-priority links kept for transparency and future traceability.",
+      title: "Discarded",
+      description: "Low-priority links kept for transparency.",
       tone: "rose",
       defaultOpen: false,
       links: newsletter.sections.discarded,
     },
   ];
+
+  const allLinks = [
+    ...newsletter.sections.useful,
+    ...newsletter.sections.maybeUseful,
+    ...newsletter.sections.discarded,
+  ];
+  const highlightLink = newsletter.highlight
+    ? allLinks.find((link) => link.id === newsletter.highlight!.linkId) ?? null
+    : null;
+  const hideLinkIds = highlightLink ? [highlightLink.id] : [];
 
   return (
     <article className="space-y-5 md:space-y-6">
@@ -102,17 +116,27 @@ export default async function NewsletterPage({
             {formatNewsletterDate(newsletter.date)}
           </p>
           <h1 className="text-3xl font-bold leading-tight md:text-5xl">{newsletter.title}</h1>
-          {newsletter.emailsProcessed > 0 && (
-            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-stone-400">
-              {newsletter.emailsProcessed} emails processed
-            </p>
-          )}
         </div>
       </header>
 
+      {highlightLink ? (
+        <NewsletterHighlight
+          newsletterSlug={newsletter.slug}
+          link={highlightLink}
+          commentary={newsletter.highlight?.commentary}
+        />
+      ) : null}
+
       {newsletter.summary ? <SummaryPanel newsletterSlug={newsletter.slug} summary={newsletter.summary} /> : null}
 
-      <IssueSections key={newsletter.slug} newsletterSlug={newsletter.slug} date={newsletter.date} sections={sections} />
+      <IssueSections
+        key={newsletter.slug}
+        newsletterSlug={newsletter.slug}
+        date={newsletter.date}
+        sections={peerSections}
+        groupedSections={groupedSections}
+        hideLinkIds={hideLinkIds}
+      />
 
       <BackToTop />
     </article>

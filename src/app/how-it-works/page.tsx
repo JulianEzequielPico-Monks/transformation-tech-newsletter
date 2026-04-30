@@ -99,7 +99,7 @@ export default function HowItWorksPage() {
           <p className="text-sm text-stone-500">This prompt generates the human-readable summary shown at the top of each issue.</p>
         </div>
         <div className="rounded-xl border border-violet-200 bg-violet-50/60 px-4 py-3 text-sm leading-relaxed text-violet-900">
-          Once curation is done, the structured JSON already contains every scored and tagged link — but raw data alone doesn't give readers a quick sense of what a given issue is about. This second prompt takes the curated output and produces a flowing, paragraph-form snapshot of the Useful and Maybe Useful sections, grouping links by theme and embedding them inline. It's the difference between a spreadsheet and a briefing.
+          Once curation is done, the structured JSON already contains every scored and tagged link — but raw data alone doesn&apos;t give readers a quick sense of what a given issue is about. This second prompt takes the curated output and produces a flowing, paragraph-form snapshot of the Useful and Maybe Useful sections, grouping links by theme and embedding them inline. It&apos;s the difference between a spreadsheet and a briefing.
         </div>
         <pre className="overflow-x-auto rounded-xl border border-stone-200 bg-stone-50 p-4 text-[0.78rem] leading-relaxed whitespace-pre-wrap text-stone-700">
           {SUMMARY_PROMPT}

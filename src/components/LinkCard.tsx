@@ -6,7 +6,6 @@ import { useState } from "react";
 import {
   BookOpen,
   BrainCircuit,
-  ChevronDown,
   Lightbulb,
   Monitor,
   Server,
@@ -21,7 +20,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 
-import { trackNewsletterFeedback, trackNewsletterLinkClick, trackReasonExpand } from "@/lib/analytics";
+import { trackNewsletterFeedback, trackNewsletterLinkClick } from "@/lib/analytics";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import type { NewsletterBucket, NewsletterLink } from "@/types/newsletter";
@@ -52,6 +51,24 @@ const SECTION_TONE: Record<NewsletterBucket, string> = {
   discarded: "border-pink-200 bg-pink-50/50",
 };
 
+const REASON_TONE: Record<NewsletterBucket, string> = {
+  useful: "border-violet-200 bg-violet-100/60 text-violet-700",
+  maybeUseful: "border-amber-200 bg-amber-100/60 text-amber-800",
+  discarded: "border-pink-200 bg-pink-100/60 text-pink-800",
+};
+
+const REASON_LABEL_TONE: Record<NewsletterBucket, string> = {
+  useful: "text-violet-700",
+  maybeUseful: "text-amber-800",
+  discarded: "text-pink-800",
+};
+
+const REASON_BODY_TONE: Record<NewsletterBucket, string> = {
+  useful: "text-violet-900/85",
+  maybeUseful: "text-amber-950/85",
+  discarded: "text-pink-950/85",
+};
+
 const TAG_TONE = "text-[0.65rem] font-semibold uppercase tracking-wide text-stone-400";
 
 export function LinkCard({
@@ -60,7 +77,6 @@ export function LinkCard({
   link,
 }: LinkCardProps) {
   const [voteState, setVoteState] = useState<"up" | "down" | null>(null);
-  const [reasonOpen, setReasonOpen] = useState(false);
 
   let faviconUrl: string | null = null;
   try {
@@ -111,26 +127,13 @@ export function LinkCard({
         </div>
       </div>
 
-      {/* Why this — collapsible footnote */}
-      <div className="mt-3">
-        <button
-          type="button"
-          onClick={() => {
-            const next = !reasonOpen;
-            setReasonOpen(next);
-            trackReasonExpand({ newsletterSlug, section, linkId: link.id, state: next ? "open" : "closed" });
-          }}
-          className="inline-flex items-center gap-1 text-[0.7rem] text-stone-400 transition-colors hover:text-stone-500"
-        >
-          <Lightbulb className="h-3 w-3 shrink-0" />
-          Why this?
-          <ChevronDown className={`h-3 w-3 transition-transform duration-200 ${reasonOpen ? "rotate-180" : ""}`} />
-        </button>
-        <div className={`grid transition-all duration-300 ease-in-out ${reasonOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"}`}>
-          <div className="overflow-hidden">
-            <p className="pt-1.5 text-[0.78rem] italic leading-relaxed text-stone-400">{link.reason}</p>
-          </div>
-        </div>
+      {/* Why this — inline callout, tone matches section */}
+      <div className={`mt-4 rounded-lg border px-3 py-2.5 ${REASON_TONE[section]}`}>
+        <p className={`inline-flex items-center gap-1.5 text-[0.7rem] font-semibold uppercase tracking-[0.12em] ${REASON_LABEL_TONE[section]}`}>
+          <Lightbulb className="h-3.5 w-3.5 shrink-0" />
+          Why is this here?
+        </p>
+        <p className={`mt-1.5 text-[0.85rem] leading-6 ${REASON_BODY_TONE[section]}`}>{link.reason}</p>
       </div>
 
       {/* Meta zone — tags + feedback */}

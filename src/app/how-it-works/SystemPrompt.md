@@ -21,11 +21,11 @@ You must output ONLY a valid JSON array of objects. Do not include any markdown 
 
 Each object in the array must strictly match this schema:
 `{
-  "title": "String - The title of the article, don't add upper or lowercase. Ignore if it's in <strong> tags",
+  "title": "String - The title of the article, don't add upper or lowercase. Ignore if it's in <strong> tags. CRITICAL: the title must always describe the content itself, never a person. If the link points to a tweet/X post, Threads, Bluesky, Mastodon, LinkedIn post, YouTube video, or any social/personal post where the natural anchor text is a username, handle (e.g. '@someone'), or real name, you MUST replace it with a short, content-descriptive title derived from the surrounding context, the post's topic, or the description (e.g. 'Why React Server Components change data fetching', not 'Dan Abramov'). A reader scanning the list should be able to tell what the link is about without recognizing the author.",
   "link": "String - The URL of the article",
   "description": "String - A brief description of what the link contains",
   "useful_perc": Number - Must be exactly 0, 50, or 100 based on the evaluation rules,
-  "reason": "String - A concise explanation of why this content is or isn't useful to the team. Do NOT reference rule names or numbers. Instead, explain the substance: what the content covers, why it helps or doesn't help engineers, and why it earned that score.",
+  "reason": "String - A concise explanation of why this content is or isn't useful to the team. Do NOT reference rule names or numbers. Instead, explain the substance: what the content covers, why it helps or doesn't help engineers, and why it earned that score. It MUST explain why it's useful for the team, or why do you think it's useful for the team. It will serve as a 'quick sneak peak' of what the content is",
   "tags": ["String"] - VIOLATION if any value is not in the allowed list below
 }`
 

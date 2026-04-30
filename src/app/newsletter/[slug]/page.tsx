@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ChevronLeft } from "lucide-react";
 
+import { BackToTop } from "@/components/BackToTop";
 import {
   IssueSections,
   type IssueSectionDefinition,
@@ -112,6 +113,8 @@ export default async function NewsletterPage({
       {newsletter.summary ? <SummaryPanel newsletterSlug={newsletter.slug} summary={newsletter.summary} /> : null}
 
       <IssueSections key={newsletter.slug} newsletterSlug={newsletter.slug} date={newsletter.date} sections={sections} />
+
+      <BackToTop />
     </article>
   );
 }

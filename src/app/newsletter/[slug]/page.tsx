@@ -8,7 +8,7 @@ import {
   IssueSections,
   type IssueSectionDefinition,
 } from "@/components/IssueSections";
-import { NewsletterHighlight } from "@/components/NewsletterHighlight";
+import { HighlightsPanel } from "@/components/NewsletterHighlight";
 import { SummaryPanel } from "@/components/SummaryPanel";
 import {
   formatNewsletterDate,
@@ -68,6 +68,7 @@ export default async function NewsletterPage({
       description: "High-confidence links with immediate practical value for your team.",
       tone: "teal",
       defaultOpen: true,
+      hideCount: true,
       links: newsletter.sections.useful,
     },
   ];
@@ -96,38 +97,40 @@ export default async function NewsletterPage({
     ...newsletter.sections.maybeUseful,
     ...newsletter.sections.discarded,
   ];
-  const highlightLink = newsletter.highlight
-    ? allLinks.find((link) => link.id === newsletter.highlight!.linkId) ?? null
-    : null;
-  const hideLinkIds = highlightLink ? [highlightLink.id] : [];
+  type ResolvedHighlight = { link: typeof allLinks[number]; commentary?: string };
+  const highlights: ResolvedHighlight[] = (newsletter.highlights ?? []).flatMap((h) => {
+    const link = allLinks.find((l) => l.id === h.linkId);
+    if (!link) return [];
+    return [h.commentary ? { link, commentary: h.commentary } : { link }];
+  });
+  const hideLinkIds = highlights.map(({ link }) => link.id);
+  const highlightsLabel = highlights.length > 1 ? "This week's picks" : "This week's pick";
 
   return (
     <article className="space-y-5 md:space-y-6">
-      <header className="panel space-y-3 border border-violet-200 bg-gradient-to-r from-white via-violet-50/50 to-amber-50/40 p-5 md:p-6">
+      <header className="space-y-4 border-b border-stone-200 pb-5">
         <Link
           href="/archive"
-          className="inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-[0.14em] text-stone-400 transition-colors hover:text-stone-600"
+          className="inline-flex items-center gap-1.5 rounded-full border border-stone-200 bg-white px-3 py-1 text-[0.78rem] font-medium text-stone-500 transition-colors hover:border-stone-300 hover:text-stone-700"
         >
-          <ChevronLeft className="h-3 w-3" />
+          <ChevronLeft className="h-3.5 w-3.5" />
           All issues
         </Link>
-        <div className="space-y-2">
-          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-violet-500">
-            {formatNewsletterDate(newsletter.date)}
-          </p>
-          <h1 className="text-3xl font-bold leading-tight md:text-5xl">{newsletter.title}</h1>
+        <div className="space-y-1.5">
+          <p className="text-[0.78rem] text-stone-500">{formatNewsletterDate(newsletter.date)}</p>
+          <h1 className="text-2xl font-bold leading-tight md:text-3xl">{newsletter.title}</h1>
         </div>
       </header>
 
-      {highlightLink ? (
-        <NewsletterHighlight
+      {newsletter.summary ? <SummaryPanel newsletterSlug={newsletter.slug} summary={newsletter.summary} /> : null}
+
+      {highlights.length > 0 ? (
+        <HighlightsPanel
           newsletterSlug={newsletter.slug}
-          link={highlightLink}
-          commentary={newsletter.highlight?.commentary}
+          label={highlightsLabel}
+          highlights={highlights}
         />
       ) : null}
-
-      {newsletter.summary ? <SummaryPanel newsletterSlug={newsletter.slug} summary={newsletter.summary} /> : null}
 
       <IssueSections
         key={newsletter.slug}

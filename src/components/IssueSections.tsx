@@ -43,6 +43,7 @@ export type IssueSectionDefinition = {
   tone: "teal" | "amber" | "rose";
   collapsible?: boolean;
   defaultOpen?: boolean;
+  hideCount?: boolean;
   links: NewsletterLink[];
 };
 
@@ -57,9 +58,9 @@ type IssueSectionsProps = {
 };
 
 const toneClassMap: Record<IssueSectionDefinition["tone"], string> = {
-  teal: "border-violet-200 bg-gradient-to-b from-white to-violet-50/50",
-  amber: "border-amber-200 bg-gradient-to-b from-white to-amber-50/50",
-  rose: "border-pink-200 bg-gradient-to-b from-white to-pink-50/50",
+  teal: "border-stone-200 bg-white",
+  amber: "border-stone-200 bg-white",
+  rose: "border-stone-200 bg-white",
 };
 
 function normalizeTag(tag: string): string {
@@ -152,85 +153,83 @@ export function IssueSections({
     });
   }
 
-  return (
-    <div className="space-y-5 md:space-y-6">
-      {allTags.length > 0 ? (
-        <section className="panel border border-stone-200 p-4 md:p-5">
-          <div className="space-y-3">
-            <div className="flex items-center justify-between gap-2">
-              <span className="inline-flex items-center gap-1.5 text-[0.65rem] font-medium uppercase tracking-[0.14em] text-stone-400">
-                <Tag className="h-3 w-3" />
-                Filter by tag
-              </span>
-              <div className="flex items-center gap-3">
-                {selectedTags.length >= 2 ? (
-                  <div className="inline-flex items-center rounded-full border border-stone-200 bg-stone-100 p-0.5">
-                    <button
-                      type="button"
-                      className={`rounded-full px-2.5 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wide transition-colors ${tagMode === "or" ? "bg-white text-stone-800 shadow-sm" : "text-stone-400 hover:text-stone-600"}`}
-                      onClick={() => { setTagMode("or"); trackTagModeChange({ newsletterSlug, mode: "or" }); }}
-                    >
-                      Match any
-                    </button>
-                    <button
-                      type="button"
-                      className={`rounded-full px-2.5 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wide transition-colors ${tagMode === "and" ? "bg-white text-stone-800 shadow-sm" : "text-stone-400 hover:text-stone-600"}`}
-                      onClick={() => { setTagMode("and"); trackTagModeChange({ newsletterSlug, mode: "and" }); }}
-                    >
-                      Match all
-                    </button>
-                  </div>
-                ) : null}
-                {selectedTags.length > 0 ? (
-                  <button
-                    type="button"
-                    className="text-[0.72rem] font-medium text-violet-600 transition-colors hover:text-violet-800"
-                    onClick={() => { trackTagFilter({ newsletterSlug, tag: "", action: "clear" }); setSelectedTags([]); }}
-                  >
-                    Clear ({selectedTags.length})
-                  </button>
-                ) : null}
-              </div>
-            </div>
-
-            <div className="flex flex-wrap gap-2">
+  const filterBar = allTags.length > 0 ? (
+    <div className="space-y-3 rounded-xl border border-stone-200 bg-white p-4">
+      <div className="flex items-center justify-between gap-2">
+        <span className="inline-flex items-center gap-1.5 text-[0.65rem] font-medium uppercase tracking-[0.14em] text-stone-400">
+          <Tag className="h-3 w-3" />
+          Filter by tag
+        </span>
+        <div className="flex items-center gap-3">
+          {selectedTags.length >= 2 ? (
+            <div className="inline-flex items-center rounded-full border border-stone-200 bg-stone-100 p-0.5">
               <button
                 type="button"
-                className={`rounded-full border px-3 py-[0.3rem] text-[0.7rem] font-semibold uppercase leading-none tracking-wide transition-colors ${
-                  selectedTags.length === 0
-                    ? "border-violet-300 bg-violet-100 text-violet-950"
-                    : "border-stone-300 bg-white text-stone-500 hover:border-violet-200 hover:bg-violet-50 hover:text-violet-900"
-                }`}
-                onClick={() => { trackTagFilter({ newsletterSlug, tag: "", action: "clear" }); setSelectedTags([]); }}
+                className={`rounded-full px-2.5 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wide transition-colors ${tagMode === "or" ? "bg-white text-stone-800 shadow-sm" : "text-stone-400 hover:text-stone-600"}`}
+                onClick={() => { setTagMode("or"); trackTagModeChange({ newsletterSlug, mode: "or" }); }}
               >
-                All
+                Match any
               </button>
-
-              {allTags.map((tag) => {
-                const active = selectedTags.includes(tag.key);
-                const Icon = TAG_ICONS[tag.key];
-
-                return (
-                  <button
-                    key={tag.key}
-                    type="button"
-                    className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-[0.3rem] text-[0.7rem] font-semibold uppercase leading-none tracking-wide transition-colors ${
-                      active
-                        ? "border-violet-300 bg-violet-100 text-violet-950"
-                        : "border-stone-300 bg-white text-stone-500 hover:border-violet-200 hover:bg-violet-50 hover:text-violet-900"
-                    }`}
-                    onClick={() => toggleTag(tag.key)}
-                  >
-                    {Icon ? <Icon className="h-3 w-3 shrink-0" /> : null}
-                    {tag.label}
-                  </button>
-                );
-              })}
+              <button
+                type="button"
+                className={`rounded-full px-2.5 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wide transition-colors ${tagMode === "and" ? "bg-white text-stone-800 shadow-sm" : "text-stone-400 hover:text-stone-600"}`}
+                onClick={() => { setTagMode("and"); trackTagModeChange({ newsletterSlug, mode: "and" }); }}
+              >
+                Match all
+              </button>
             </div>
-          </div>
-        </section>
-      ) : null}
+          ) : null}
+          {selectedTags.length > 0 ? (
+            <button
+              type="button"
+              className="text-[0.72rem] font-medium text-violet-600 transition-colors hover:text-violet-800"
+              onClick={() => { trackTagFilter({ newsletterSlug, tag: "", action: "clear" }); setSelectedTags([]); }}
+            >
+              Clear ({selectedTags.length})
+            </button>
+          ) : null}
+        </div>
+      </div>
 
+      <div className="flex flex-wrap gap-2">
+        <button
+          type="button"
+          className={`rounded-full border px-3 py-[0.3rem] text-[0.7rem] font-semibold uppercase leading-none tracking-wide transition-colors ${
+            selectedTags.length === 0
+              ? "border-violet-300 bg-violet-100 text-violet-950"
+              : "border-stone-300 bg-white text-stone-500 hover:border-violet-200 hover:bg-violet-50 hover:text-violet-900"
+          }`}
+          onClick={() => { trackTagFilter({ newsletterSlug, tag: "", action: "clear" }); setSelectedTags([]); }}
+        >
+          All
+        </button>
+
+        {allTags.map((tag) => {
+          const active = selectedTags.includes(tag.key);
+          const Icon = TAG_ICONS[tag.key];
+
+          return (
+            <button
+              key={tag.key}
+              type="button"
+              className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-[0.3rem] text-[0.7rem] font-semibold uppercase leading-none tracking-wide transition-colors ${
+                active
+                  ? "border-violet-300 bg-violet-100 text-violet-950"
+                  : "border-stone-300 bg-white text-stone-500 hover:border-violet-200 hover:bg-violet-50 hover:text-violet-900"
+              }`}
+              onClick={() => toggleTag(tag.key)}
+            >
+              {Icon ? <Icon className="h-3 w-3 shrink-0" /> : null}
+              {tag.label}
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  ) : null;
+
+  return (
+    <div className="space-y-5 md:space-y-6">
       {visibleSections.map((section) => renderSection(section, { nested: false }))}
 
       {visibleGroupedSections.length > 0 && groupedTotal > 0 ? (
@@ -241,8 +240,8 @@ export function IssueSections({
             aria-expanded={groupOpen}
             onClick={() => setGroupOpen((current) => !current)}
           >
-            <div className="space-y-1.5">
-              <h2 className="text-[1.15rem] font-semibold leading-tight text-stone-700">
+            <div className="space-y-1">
+              <h2 className="text-[1.25rem] font-semibold leading-tight text-stone-700">
                 {groupedLabel}
                 <span className="ml-2 text-[0.95rem] font-normal text-stone-400">({groupedTotal})</span>
               </h2>
@@ -260,6 +259,7 @@ export function IssueSections({
           >
             <div className="overflow-hidden">
               <div className="space-y-5">
+                {filterBar}
                 {visibleGroupedSections.map((section) => renderSection(section, { nested: true }))}
               </div>
             </div>
@@ -302,9 +302,6 @@ export function IssueSections({
 
     const isOpen = openSections[section.key] ?? true;
     const padding = options.nested ? "p-4 md:p-5" : "p-5 md:p-6";
-    const titleSize = options.nested
-      ? "text-[1.25rem] font-semibold"
-      : "text-[1.7rem] font-bold";
 
     return (
       <section
@@ -312,12 +309,14 @@ export function IssueSections({
         className={`panel border ${padding} ${toneClassMap[section.tone]}`}
       >
         <div className="flex items-start justify-between gap-4">
-          <div className="space-y-2">
-            <h2 className={`flex items-baseline gap-2 leading-tight ${titleSize}`}>
+          <div className="space-y-1">
+            <h2 className="flex items-baseline gap-2 text-[1.25rem] font-semibold leading-tight">
               {section.title}
-              <span className="text-[1rem] font-normal text-stone-400">({filteredLinks.length})</span>
+              {section.hideCount ? null : (
+                <span className="text-[0.95rem] font-normal text-stone-400">({filteredLinks.length})</span>
+              )}
             </h2>
-            <p className="max-w-2xl text-[0.88rem] leading-6 text-stone-400">{section.description}</p>
+            <p className="max-w-2xl text-[0.85rem] leading-6 text-stone-400">{section.description}</p>
           </div>
 
           <button

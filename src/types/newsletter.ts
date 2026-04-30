@@ -32,7 +32,7 @@ export type Newsletter = {
   title: string;
   date: string;
   summary?: string;
-  highlight?: NewsletterHighlight;
+  highlights?: NewsletterHighlight[];
   sections: NewsletterSections;
   counts: NewsletterCounts;
   emailsProcessed: number;

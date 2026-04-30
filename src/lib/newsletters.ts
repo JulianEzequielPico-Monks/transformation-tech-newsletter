@@ -147,51 +147,55 @@ async function readNewsletterFile(fileName: string): Promise<Newsletter | null> 
       : 0;
 
   const summary = toString(json.summary);
-  const highlight = normalizeHighlight(json.highlight, sections);
+  const highlights = normalizeHighlights(json.highlights, sections);
 
   return {
     slug,
     date,
     title: toString(json.title, `Newsletter ${date}`),
     ...(summary ? { summary } : {}),
-    ...(highlight ? { highlight } : {}),
+    ...(highlights.length > 0 ? { highlights } : {}),
     sections,
     counts: computeCounts(sections),
     emailsProcessed,
   };
 }
 
-function normalizeHighlight(
+const MAX_HIGHLIGHTS = 3;
+
+function normalizeHighlights(
   value: unknown,
   sections: NewsletterSections,
-): NewsletterHighlight | null {
-  if (typeof value !== "object" || value === null) {
-    return null;
+): NewsletterHighlight[] {
+  if (!Array.isArray(value)) {
+    return [];
   }
 
-  const source = value as RawRecord;
-  const linkId = toString(source.linkId);
+  const allLinkIds = new Set(
+    [...sections.useful, ...sections.maybeUseful, ...sections.discarded].map(
+      (link) => link.id,
+    ),
+  );
+  const seen = new Set<string>();
+  const result: NewsletterHighlight[] = [];
 
-  if (!linkId) {
-    return null;
+  for (const entry of value) {
+    if (result.length >= MAX_HIGHLIGHTS) break;
+    if (typeof entry !== "object" || entry === null) continue;
+
+    const source = entry as RawRecord;
+    const linkId = toString(source.linkId);
+    if (!linkId || !allLinkIds.has(linkId) || seen.has(linkId)) continue;
+
+    const commentary = toString(source.commentary);
+    seen.add(linkId);
+    result.push({
+      linkId,
+      ...(commentary ? { commentary } : {}),
+    });
   }
 
-  const exists = [
-    ...sections.useful,
-    ...sections.maybeUseful,
-    ...sections.discarded,
-  ].some((link) => link.id === linkId);
-
-  if (!exists) {
-    return null;
-  }
-
-  const commentary = toString(source.commentary);
-
-  return {
-    linkId,
-    ...(commentary ? { commentary } : {}),
-  };
+  return result;
 }
 
 export async function getAllNewsletters(): Promise<Newsletter[]> {

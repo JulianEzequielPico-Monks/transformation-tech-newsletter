@@ -11,27 +11,30 @@ type SummaryPanelProps = {
 };
 
 export function SummaryPanel({ newsletterSlug, summary }: SummaryPanelProps) {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <section className="panel border border-stone-200 bg-gradient-to-b from-white to-stone-50/50 p-5 md:p-6">
-      <div className="flex items-start justify-between gap-4">
-        <h2 className="text-[1.7rem] font-bold leading-tight">Summary</h2>
-        <button
-          type="button"
-          className="mt-1 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-stone-300 bg-white text-stone-600 transition-colors hover:bg-stone-100"
-          aria-label={isOpen ? "Collapse Summary" : "Expand Summary"}
-          onClick={() => {
-            const next = !isOpen;
-            setIsOpen(next);
-            trackSummaryToggle({ newsletterSlug, state: next ? "open" : "closed" });
-          }}
-        >
+    <section className="panel border border-stone-200 bg-white p-5 md:p-6">
+      <button
+        type="button"
+        className="flex w-full items-start justify-between gap-4 text-left"
+        aria-expanded={isOpen}
+        onClick={() => {
+          const next = !isOpen;
+          setIsOpen(next);
+          trackSummaryToggle({ newsletterSlug, state: next ? "open" : "closed" });
+        }}
+      >
+        <div className="space-y-1">
+          <h2 className="text-[1.25rem] font-semibold leading-tight">Summary</h2>
+          <p className="max-w-2xl text-[0.85rem] leading-6 text-stone-400">A paragraph-form briefing of the issue&apos;s themes.</p>
+        </div>
+        <span className="mt-1 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-stone-300 bg-white text-stone-600">
           <ChevronDown
             className={`h-4 w-4 transition-transform duration-300 ${isOpen ? "rotate-180" : "rotate-0"}`}
           />
-        </button>
-      </div>
+        </span>
+      </button>
 
       <div
         className={`grid transition-all duration-300 ease-in-out ${isOpen ? "mt-4 grid-rows-[1fr]" : "grid-rows-[0fr]"}`}

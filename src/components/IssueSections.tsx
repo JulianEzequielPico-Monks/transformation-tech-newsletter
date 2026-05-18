@@ -4,7 +4,11 @@ import { useEffect, useMemo, useState } from "react";
 import { ChevronDown } from "lucide-react";
 
 import { LinkCard } from "@/components/LinkCard";
-import { trackNewsletterIssueView, trackSectionToggle } from "@/lib/analytics";
+import {
+  trackGroupedToggle,
+  trackNewsletterIssueView,
+  trackSectionToggle,
+} from "@/lib/analytics";
 import {
   DEFAULT_FILTER_STATE,
   type FilterState,
@@ -129,7 +133,15 @@ export function IssueSections({
             type="button"
             className="flex w-full items-start justify-between gap-4 text-left"
             aria-expanded={effectiveGroupOpen}
-            onClick={() => setGroupOpen((current) => !current)}
+            onClick={() => {
+              setGroupOpen((current) => {
+                trackGroupedToggle({
+                  newsletterSlug,
+                  state: current ? "closed" : "open",
+                });
+                return !current;
+              });
+            }}
           >
             <div className="space-y-1">
               <h2 className="text-[1.25rem] font-semibold leading-tight text-stone-700">
@@ -188,6 +200,9 @@ export function IssueSections({
               newsletterSlug={newsletterSlug}
               section={section.key}
               link={item}
+              activeSection={filtersActive ? filters.section : undefined}
+              activeTagCount={filtersActive ? filters.tags.length : undefined}
+              activeSourceCount={filtersActive ? filters.sources.length : undefined}
             />
           ))}
         </ul>

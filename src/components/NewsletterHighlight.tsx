@@ -6,7 +6,7 @@ import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import { ChevronDown, Sparkles } from "lucide-react";
 
-import { trackHighlightClick } from "@/lib/analytics";
+import { trackHighlightClick, trackHighlightsPanelToggle } from "@/lib/analytics";
 import type { NewsletterLink } from "@/types/newsletter";
 
 type ResolvedHighlight = {
@@ -109,7 +109,15 @@ export function HighlightsPanel({
         type="button"
         className="flex w-full items-start justify-between gap-4 text-left"
         aria-expanded={isOpen}
-        onClick={() => setIsOpen((current) => !current)}
+        onClick={() =>
+          setIsOpen((current) => {
+            trackHighlightsPanelToggle({
+              newsletterSlug,
+              state: current ? "closed" : "open",
+            });
+            return !current;
+          })
+        }
       >
         <div className="space-y-1">
           <h2 className="flex items-center gap-2 text-[1.25rem] font-semibold leading-tight text-violet-700">

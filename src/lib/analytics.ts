@@ -15,7 +15,16 @@ export const ANALYTICS_EVENTS = {
   TAG_FILTER: "newsletter_tag_filter",
   TAG_MODE_CHANGE: "newsletter_tag_mode_change",
   SECTION_TOGGLE: "newsletter_section_toggle",
-  REASON_EXPAND: "newsletter_reason_expand",
+  GROUPED_TOGGLE: "newsletter_grouped_toggle",
+  FILTER_DRAWER_TOGGLE: "newsletter_filter_drawer_toggle",
+  FILTER_EMPTY_RESULTS: "newsletter_filter_empty_results",
+  PAGE_VIEW: "newsletter_page_view",
+  BACK_TO_TOP: "newsletter_back_to_top",
+  HISTORY_MENU_TOGGLE: "newsletter_history_menu_toggle",
+  HISTORY_MENU_NAV: "newsletter_history_menu_nav",
+  ARCHIVE_ALL_TOGGLE: "newsletter_archive_all_toggle",
+  ARCHIVE_ISSUE_CLICK: "newsletter_archive_issue_click",
+  HIGHLIGHTS_PANEL_TOGGLE: "newsletter_highlights_panel_toggle",
   SOURCE_LINK_CLICK: "newsletter_source_link_click",
   NAV_LINK_CLICK: "newsletter_nav_link_click",
   SUMMARY_TOGGLE: "newsletter_summary_toggle",
@@ -85,14 +94,21 @@ export function trackNewsletterLinkClick(args: {
   linkId: string;
   title: string;
   url: string;
+  activeSection?: string;
+  activeTagCount?: number;
+  activeSourceCount?: number;
 }): void {
-  void trackEvent(ANALYTICS_EVENTS.LINK_CLICK, {
+  const params: Record<string, string | number> = {
     newsletter_slug: args.newsletterSlug,
     section: SECTION_NAMES[args.section],
     link_id: args.linkId,
     link_title: args.title,
     link_url: args.url,
-  });
+  };
+  if (args.activeSection !== undefined) params.active_section = args.activeSection;
+  if (args.activeTagCount !== undefined) params.active_tag_count = args.activeTagCount;
+  if (args.activeSourceCount !== undefined) params.active_source_count = args.activeSourceCount;
+  void trackEvent(ANALYTICS_EVENTS.LINK_CLICK, params);
 }
 
 export function trackNewsletterFeedback(args: {
@@ -143,17 +159,37 @@ export function trackSectionToggle(args: {
   });
 }
 
-export function trackReasonExpand(args: {
+export function trackGroupedToggle(args: {
   newsletterSlug: string;
-  section: NewsletterBucket;
-  linkId: string;
   state: "open" | "closed";
 }): void {
-  void trackEvent(ANALYTICS_EVENTS.REASON_EXPAND, {
+  void trackEvent(ANALYTICS_EVENTS.GROUPED_TOGGLE, {
     newsletter_slug: args.newsletterSlug,
-    section: SECTION_NAMES[args.section],
-    link_id: args.linkId,
     state: args.state,
+  });
+}
+
+export function trackFilterDrawerToggle(args: {
+  newsletterSlug: string;
+  state: "open" | "closed";
+}): void {
+  void trackEvent(ANALYTICS_EVENTS.FILTER_DRAWER_TOGGLE, {
+    newsletter_slug: args.newsletterSlug,
+    state: args.state,
+  });
+}
+
+export function trackFilterEmptyResults(args: {
+  newsletterSlug: string;
+  section: string;
+  tagCount: number;
+  sourceCount: number;
+}): void {
+  void trackEvent(ANALYTICS_EVENTS.FILTER_EMPTY_RESULTS, {
+    newsletter_slug: args.newsletterSlug,
+    section: args.section,
+    tag_count: args.tagCount,
+    source_count: args.sourceCount,
   });
 }
 
@@ -238,5 +274,55 @@ export function trackFilterClear(args: {
 }): void {
   void trackEvent(ANALYTICS_EVENTS.FILTER_CLEAR, {
     newsletter_slug: args.newsletterSlug,
+  });
+}
+
+export function trackPageView(args: { page: string }): void {
+  void trackEvent(ANALYTICS_EVENTS.PAGE_VIEW, { page: args.page });
+}
+
+export function trackBackToTop(args: { page: string }): void {
+  void trackEvent(ANALYTICS_EVENTS.BACK_TO_TOP, { page: args.page });
+}
+
+export function trackHistoryMenuToggle(args: {
+  state: "open" | "closed";
+}): void {
+  void trackEvent(ANALYTICS_EVENTS.HISTORY_MENU_TOGGLE, { state: args.state });
+}
+
+export function trackHistoryMenuNav(args: {
+  destination: string;
+  label: string;
+}): void {
+  void trackEvent(ANALYTICS_EVENTS.HISTORY_MENU_NAV, {
+    destination: args.destination,
+    label: args.label,
+  });
+}
+
+export function trackArchiveAllToggle(args: {
+  state: "open" | "closed";
+}): void {
+  void trackEvent(ANALYTICS_EVENTS.ARCHIVE_ALL_TOGGLE, { state: args.state });
+}
+
+export function trackArchiveIssueClick(args: {
+  newsletterSlug: string;
+  position: number;
+}): void {
+  void trackEvent(ANALYTICS_EVENTS.ARCHIVE_ISSUE_CLICK, {
+    newsletter_slug: args.newsletterSlug,
+    position: args.position,
+  });
+}
+
+export function trackHighlightsPanelToggle(args: {
+  newsletterSlug: string;
+  state: "open" | "closed";
+}): void {
+  void trackEvent(ANALYTICS_EVENTS.HIGHLIGHTS_PANEL_TOGGLE, {
+    newsletter_slug: args.newsletterSlug,
+    state: args.state,
   });
 }

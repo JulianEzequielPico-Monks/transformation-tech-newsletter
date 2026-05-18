@@ -4,6 +4,11 @@ import Link from "next/link";
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 
+import {
+  trackArchiveAllToggle,
+  trackArchiveIssueClick,
+} from "@/lib/analytics";
+
 type IssueItem = {
   slug: string;
   title: string;
@@ -32,7 +37,12 @@ export function ArchiveAllIssues({ newsletters, total }: Props) {
           type="button"
           className="mt-1 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-stone-300 bg-white text-stone-600 transition-colors hover:bg-stone-100"
           aria-label={open ? "Collapse all issues" : "Expand all issues"}
-          onClick={() => setOpen((v) => !v)}
+          onClick={() =>
+            setOpen((v) => {
+              trackArchiveAllToggle({ state: v ? "closed" : "open" });
+              return !v;
+            })
+          }
         >
           <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${open ? "rotate-180" : "rotate-0"}`} />
         </button>
@@ -44,10 +54,16 @@ export function ArchiveAllIssues({ newsletters, total }: Props) {
             <p className="text-stone-600">No issues yet.</p>
           ) : (
             <ul className="space-y-3">
-              {newsletters.map((newsletter) => (
+              {newsletters.map((newsletter, index) => (
                 <li key={newsletter.slug}>
                   <Link
                     href={`/newsletter/${newsletter.slug}`}
+                    onClick={() =>
+                      trackArchiveIssueClick({
+                        newsletterSlug: newsletter.slug,
+                        position: index,
+                      })
+                    }
                     className="block rounded-2xl border border-stone-200 bg-white p-4 shadow-[0_12px_28px_-24px_rgba(30,41,59,0.4)] transition-all hover:border-violet-200 hover:bg-violet-50/40 hover:shadow-md"
                   >
                     <div className="flex items-center gap-2">

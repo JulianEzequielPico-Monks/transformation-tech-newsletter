@@ -44,6 +44,9 @@ type LinkCardProps = {
   newsletterSlug: string;
   section: NewsletterBucket;
   link: NewsletterLink;
+  activeSection?: string;
+  activeTagCount?: number;
+  activeSourceCount?: number;
 };
 
 const SECTION_TONE: Record<NewsletterBucket, string> = {
@@ -76,6 +79,9 @@ export function LinkCard({
   newsletterSlug,
   section,
   link,
+  activeSection,
+  activeTagCount,
+  activeSourceCount,
 }: LinkCardProps) {
   const [voteState, setVoteState] = useState<"up" | "down" | null>(null);
 
@@ -117,6 +123,9 @@ export function LinkCard({
                   linkId: link.id,
                   title: link.title,
                   url: link.url,
+                  activeSection,
+                  activeTagCount,
+                  activeSourceCount,
                 })
               }
             >

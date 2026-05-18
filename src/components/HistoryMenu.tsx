@@ -4,6 +4,10 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { ChevronDown } from "lucide-react";
 
+import {
+  trackHistoryMenuNav,
+  trackHistoryMenuToggle,
+} from "@/lib/analytics";
 import type { Newsletter } from "@/types/newsletter";
 
 type HistoryMenuProps = {
@@ -29,7 +33,12 @@ export function HistoryMenu({ latest, history }: HistoryMenuProps) {
     <div ref={ref} className="relative">
       <button
         type="button"
-        onClick={() => setOpen((v) => !v)}
+        onClick={() =>
+          setOpen((v) => {
+            trackHistoryMenuToggle({ state: v ? "closed" : "open" });
+            return !v;
+          })
+        }
         className="inline-flex cursor-pointer items-center gap-1 rounded-full border border-stone-300 bg-white px-3 py-1.5 text-sm font-medium text-stone-700 shadow-sm transition-colors hover:border-stone-400 hover:bg-stone-50 hover:text-stone-900"
       >
         Past issues
@@ -41,7 +50,13 @@ export function HistoryMenu({ latest, history }: HistoryMenuProps) {
           {latest ? (
             <Link
               href={`/newsletter/${latest.slug}`}
-              onClick={() => setOpen(false)}
+              onClick={() => {
+                trackHistoryMenuNav({
+                  destination: `/newsletter/${latest.slug}`,
+                  label: "latest",
+                });
+                setOpen(false);
+              }}
               className="block rounded-xl bg-violet-50 px-3 py-2 text-sm font-semibold text-violet-900 hover:bg-violet-100"
             >
               Latest: {latest.date}
@@ -55,7 +70,13 @@ export function HistoryMenu({ latest, history }: HistoryMenuProps) {
               <li key={item.slug}>
                 <Link
                   href={`/newsletter/${item.slug}`}
-                  onClick={() => setOpen(false)}
+                  onClick={() => {
+                    trackHistoryMenuNav({
+                      destination: `/newsletter/${item.slug}`,
+                      label: "history_item",
+                    });
+                    setOpen(false);
+                  }}
                   className="block rounded-lg px-3 py-2 text-sm text-stone-600 hover:bg-stone-100 hover:text-stone-900"
                 >
                   {item.date}
@@ -67,7 +88,13 @@ export function HistoryMenu({ latest, history }: HistoryMenuProps) {
           <div className="mt-1 border-t border-stone-200 pt-2">
             <Link
               href="/archive"
-              onClick={() => setOpen(false)}
+              onClick={() => {
+                trackHistoryMenuNav({
+                  destination: "/archive",
+                  label: "view_all_issues",
+                });
+                setOpen(false);
+              }}
               className="block rounded-lg px-3 py-2 text-sm font-medium text-stone-700 hover:bg-stone-100"
             >
               View all issues

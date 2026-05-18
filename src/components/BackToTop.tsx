@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import { ArrowUp } from "lucide-react";
 
+import { trackBackToTop } from "@/lib/analytics";
+
 const SCROLL_THRESHOLD = 320;
 
 export function BackToTop() {
@@ -21,7 +23,10 @@ export function BackToTop() {
     <button
       type="button"
       aria-label="Back to top"
-      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      onClick={() => {
+        trackBackToTop({ page: window.location.pathname });
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }}
       className={`fixed bottom-6 right-6 z-50 inline-flex h-11 w-11 items-center justify-center rounded-full border border-stone-300 bg-white text-stone-600 shadow-lg shadow-stone-900/10 transition-all duration-300 ease-out hover:bg-stone-100 hover:text-stone-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-400 focus-visible:ring-offset-2 ${
         visible
           ? "pointer-events-auto translate-y-0 opacity-100"

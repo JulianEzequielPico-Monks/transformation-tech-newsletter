@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import fs from "fs";
 import path from "path";
 
+import { PageViewTracker } from "@/components/PageViewTracker";
+
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
@@ -53,6 +55,7 @@ const STACK = [
 export default function HowItWorksPage() {
   return (
     <div className="space-y-8">
+      <PageViewTracker page="how_it_works" />
       <section className="panel space-y-4 border border-violet-200 bg-gradient-to-b from-white via-violet-50/35 to-white p-5 md:p-7">
         <div className="space-y-2">
           <p className="text-xs font-semibold uppercase tracking-[0.14em] text-violet-700">Under the hood</p>

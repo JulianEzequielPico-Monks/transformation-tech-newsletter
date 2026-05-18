@@ -1,17 +1,19 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 import { FilterPanel } from "@/components/FilterPanel";
 import {
   IssueSections,
   type IssueSectionDefinition,
 } from "@/components/IssueSections";
+import { trackFilterEmptyResults } from "@/lib/analytics";
 import {
   DEFAULT_FILTER_STATE,
   type FilterState,
   type LinkFilterContext,
   type SectionFilter,
+  isFilterActive,
   linkMatchesFilters,
   normalizeTag,
 } from "@/lib/newsletter-filters";
@@ -97,6 +99,32 @@ export function NewsletterFilterableContent({
     }
     return Array.from(set).sort((a, b) => a.localeCompare(b));
   }, [indexedLinks]);
+
+  const filteredTotal = useMemo(() => {
+    if (!isFilterActive(filters)) return indexedLinks.length;
+    let n = 0;
+    for (const { link, context } of indexedLinks) {
+      if (linkMatchesFilters(link, context, filters)) n++;
+    }
+    return n;
+  }, [indexedLinks, filters]);
+
+  const lastEmptyKey = useRef<string | null>(null);
+  useEffect(() => {
+    if (filteredTotal !== 0 || !isFilterActive(filters)) {
+      lastEmptyKey.current = null;
+      return;
+    }
+    const key = `${filters.section}|${[...filters.tags].sort().join(",")}|${filters.tagMode}|${[...filters.sources].sort().join(",")}`;
+    if (lastEmptyKey.current === key) return;
+    lastEmptyKey.current = key;
+    trackFilterEmptyResults({
+      newsletterSlug,
+      section: filters.section,
+      tagCount: filters.tags.length,
+      sourceCount: filters.sources.length,
+    });
+  }, [filteredTotal, filters, newsletterSlug]);
 
   return (
     <div className="grid gap-5 lg:grid-cols-[16rem_minmax(0,1fr)] lg:gap-8">

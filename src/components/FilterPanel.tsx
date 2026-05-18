@@ -22,6 +22,7 @@ import {
 
 import {
   trackFilterClear,
+  trackFilterDrawerToggle,
   trackSectionFilter,
   trackSourceFilter,
   trackTagFilter,
@@ -90,6 +91,14 @@ export function FilterPanel(props: FilterPanelProps) {
     props.filters.tags.length +
     props.filters.sources.length;
 
+  function setDrawer(open: boolean) {
+    setDrawerOpen(open);
+    trackFilterDrawerToggle({
+      newsletterSlug: props.newsletterSlug,
+      state: open ? "open" : "closed",
+    });
+  }
+
   return (
     <>
       {/* Mobile trigger */}
@@ -97,7 +106,7 @@ export function FilterPanel(props: FilterPanelProps) {
         <button
           type="button"
           className="inline-flex w-full items-center justify-between gap-2 rounded-xl border border-stone-200 bg-white px-4 py-2.5 text-[0.85rem] font-medium text-stone-700 shadow-sm transition-colors hover:border-stone-300"
-          onClick={() => setDrawerOpen(true)}
+          onClick={() => setDrawer(true)}
         >
           <span className="inline-flex items-center gap-2">
             <Filter className="h-4 w-4" />
@@ -125,7 +134,7 @@ export function FilterPanel(props: FilterPanelProps) {
             type="button"
             aria-label="Close filters"
             className="absolute inset-0 bg-stone-900/40 backdrop-blur-sm"
-            onClick={() => setDrawerOpen(false)}
+            onClick={() => setDrawer(false)}
           />
           <div className="absolute inset-y-0 left-0 flex w-[min(20rem,86vw)] flex-col bg-[#f5f3ef] shadow-xl">
             <div className="flex items-center justify-between border-b border-stone-200 px-4 py-3">
@@ -137,7 +146,7 @@ export function FilterPanel(props: FilterPanelProps) {
                 type="button"
                 aria-label="Close filters"
                 className="rounded-full p-1 text-stone-500 transition-colors hover:bg-stone-200/60 hover:text-stone-700"
-                onClick={() => setDrawerOpen(false)}
+                onClick={() => setDrawer(false)}
               >
                 <X className="h-4 w-4" />
               </button>

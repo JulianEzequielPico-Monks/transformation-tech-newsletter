@@ -102,6 +102,10 @@ export function IssueSections({
   );
 
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
+  const groupedSectionKeys = useMemo(
+    () => new Set(visibleGroupedSections.map((section) => section.key)),
+    [visibleGroupedSections],
+  );
   const [tagMode, setTagMode] = useState<"or" | "and">("or");
   const [openSections, setOpenSections] = useState<Record<string, boolean>>(() =>
     Object.fromEntries(
@@ -123,7 +127,7 @@ export function IssueSections({
   const allTags = useMemo(() => {
     const uniqueTags = new Map<string, string>();
 
-    allRenderedSections.forEach((section) => {
+    visibleGroupedSections.forEach((section) => {
       section.links.forEach((link) => {
         link.tags.forEach((rawTag) => {
           const label = rawTag.trim();
@@ -143,7 +147,7 @@ export function IssueSections({
     return Array.from(uniqueTags.entries())
       .map(([key, label]) => ({ key, label }))
       .sort((a, b) => a.label.localeCompare(b.label));
-  }, [allRenderedSections]);
+  }, [visibleGroupedSections]);
 
   function toggleTag(tagKey: string) {
     setSelectedTags((current) => {
@@ -273,7 +277,8 @@ export function IssueSections({
     section: IssueSectionDefinition,
     options: { nested: boolean },
   ) {
-    const filteredLinks = selectedTags.length > 0
+    const applyTagFilter = selectedTags.length > 0 && groupedSectionKeys.has(section.key);
+    const filteredLinks = applyTagFilter
       ? section.links.filter((link) => {
           const linkTagKeys = link.tags.map(normalizeTag).filter((tag) => tag.length > 0);
           return tagMode === "and"

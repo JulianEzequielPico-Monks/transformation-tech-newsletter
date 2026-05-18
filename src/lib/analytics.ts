@@ -21,6 +21,9 @@ export const ANALYTICS_EVENTS = {
   SUMMARY_TOGGLE: "newsletter_summary_toggle",
   SUMMARY_LINK_CLICK: "newsletter_summary_link_click",
   HIGHLIGHT_CLICK: "newsletter_highlight_click",
+  SECTION_FILTER: "newsletter_section_filter",
+  SOURCE_FILTER: "newsletter_source_filter",
+  FILTER_CLEAR: "newsletter_filter_clear",
 } as const;
 
 export const SECTION_NAMES: Record<NewsletterBucket, string> = {
@@ -205,5 +208,35 @@ export function trackHighlightClick(args: {
     newsletter_slug: args.newsletterSlug,
     link_id: args.linkId,
     link_url: args.url,
+  });
+}
+
+export function trackSectionFilter(args: {
+  newsletterSlug: string;
+  section: "all" | "topPicks" | "useful" | "maybeUseful";
+}): void {
+  void trackEvent(ANALYTICS_EVENTS.SECTION_FILTER, {
+    newsletter_slug: args.newsletterSlug,
+    section: args.section,
+  });
+}
+
+export function trackSourceFilter(args: {
+  newsletterSlug: string;
+  source: string;
+  action: "select" | "deselect" | "clear";
+}): void {
+  void trackEvent(ANALYTICS_EVENTS.SOURCE_FILTER, {
+    newsletter_slug: args.newsletterSlug,
+    source: args.source,
+    action: args.action,
+  });
+}
+
+export function trackFilterClear(args: {
+  newsletterSlug: string;
+}): void {
+  void trackEvent(ANALYTICS_EVENTS.FILTER_CLEAR, {
+    newsletter_slug: args.newsletterSlug,
   });
 }

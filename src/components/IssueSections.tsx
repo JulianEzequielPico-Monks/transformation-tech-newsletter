@@ -1,39 +1,16 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import {
-  BookOpen,
-  BrainCircuit,
-  ChevronDown,
-  Lightbulb,
-  Monitor,
-  Server,
-  Shield,
-  Smartphone,
-  Sparkles,
-  Tag,
-  TestTube,
-  Workflow,
-  Wrench,
-  type LucideIcon,
-} from "lucide-react";
-
-const TAG_ICONS: Record<string, LucideIcon> = {
-  frontend: Monitor,
-  backend: Server,
-  mobile: Smartphone,
-  automation: Workflow,
-  qa: TestTube,
-  tooling: Wrench,
-  ai: BrainCircuit,
-  thinking: Lightbulb,
-  "general concepts": BookOpen,
-  security: Shield,
-  mindblown: Sparkles,
-};
+import { ChevronDown } from "lucide-react";
 
 import { LinkCard } from "@/components/LinkCard";
-import { trackNewsletterIssueView, trackTagFilter, trackTagModeChange, trackSectionToggle } from "@/lib/analytics";
+import { trackNewsletterIssueView, trackSectionToggle } from "@/lib/analytics";
+import {
+  DEFAULT_FILTER_STATE,
+  type FilterState,
+  isFilterActive,
+  linkMatchesFilters,
+} from "@/lib/newsletter-filters";
 import type { NewsletterBucket, NewsletterLink } from "@/types/newsletter";
 
 export type IssueSectionDefinition = {
@@ -55,6 +32,8 @@ type IssueSectionsProps = {
   groupedLabel?: string;
   groupedDescription?: string;
   hideLinkIds?: string[];
+  topPickIds?: string[];
+  filters?: FilterState;
 };
 
 const toneClassMap: Record<IssueSectionDefinition["tone"], string> = {
@@ -62,10 +41,6 @@ const toneClassMap: Record<IssueSectionDefinition["tone"], string> = {
   amber: "border-stone-200 bg-white",
   rose: "border-stone-200 bg-white",
 };
-
-function normalizeTag(tag: string): string {
-  return tag.trim().toLowerCase();
-}
 
 export function IssueSections({
   newsletterSlug,
@@ -75,8 +50,11 @@ export function IssueSections({
   groupedLabel = "Everything else we scanned",
   groupedDescription = "The rest of what came in this week. Open it if you want to dig in.",
   hideLinkIds = [],
+  topPickIds = [],
+  filters = DEFAULT_FILTER_STATE,
 }: IssueSectionsProps) {
   const hideSet = useMemo(() => new Set(hideLinkIds), [hideLinkIds]);
+  const topPickSet = useMemo(() => new Set(topPickIds), [topPickIds]);
 
   const visibleSections = useMemo(
     () =>
@@ -96,17 +74,6 @@ export function IssueSections({
     [groupedSections, hideSet],
   );
 
-  const allRenderedSections = useMemo(
-    () => [...visibleSections, ...visibleGroupedSections],
-    [visibleSections, visibleGroupedSections],
-  );
-
-  const [selectedTags, setSelectedTags] = useState<string[]>([]);
-  const groupedSectionKeys = useMemo(
-    () => new Set(visibleGroupedSections.map((section) => section.key)),
-    [visibleGroupedSections],
-  );
-  const [tagMode, setTagMode] = useState<"or" | "and">("or");
   const [openSections, setOpenSections] = useState<Record<string, boolean>>(() =>
     Object.fromEntries(
       [...sections, ...groupedSections].map((section) => [
@@ -117,153 +84,74 @@ export function IssueSections({
   );
   const [groupOpen, setGroupOpen] = useState(false);
 
-  const totalLinks = allRenderedSections.reduce((sum, s) => sum + s.links.length, 0);
-  const groupedTotal = visibleGroupedSections.reduce((sum, s) => sum + s.links.length, 0);
+  const totalLinks =
+    visibleSections.reduce((sum, s) => sum + s.links.length, 0) +
+    visibleGroupedSections.reduce((sum, s) => sum + s.links.length, 0);
 
   useEffect(() => {
     trackNewsletterIssueView({ newsletterSlug, date, totalLinks });
   }, [newsletterSlug, date, totalLinks]);
 
-  const allTags = useMemo(() => {
-    const uniqueTags = new Map<string, string>();
+  const filtersActive = isFilterActive(filters);
 
-    visibleGroupedSections.forEach((section) => {
-      section.links.forEach((link) => {
-        link.tags.forEach((rawTag) => {
-          const label = rawTag.trim();
-          const key = normalizeTag(rawTag);
+  // When any filter narrows results, auto-open the grouped wrapper so matches
+  // inside Maybe Useful / Discarded are immediately visible.
+  const effectiveGroupOpen = filtersActive ? true : groupOpen;
 
-          if (!key || !label) {
-            return;
-          }
-
-          if (!uniqueTags.has(key)) {
-            uniqueTags.set(key, label);
-          }
-        });
-      });
-    });
-
-    return Array.from(uniqueTags.entries())
-      .map(([key, label]) => ({ key, label }))
-      .sort((a, b) => a.label.localeCompare(b.label));
-  }, [visibleGroupedSections]);
-
-  function toggleTag(tagKey: string) {
-    setSelectedTags((current) => {
-      const isActive = current.includes(tagKey);
-      trackTagFilter({ newsletterSlug, tag: tagKey, action: isActive ? "deselect" : "select" });
-      return isActive ? current.filter((item) => item !== tagKey) : [...current, tagKey];
-    });
-  }
-
-  const filterBar = allTags.length > 0 ? (
-    <div className="space-y-3 rounded-xl border border-stone-200 bg-white p-4">
-      <div className="flex items-center justify-between gap-2">
-        <span className="inline-flex items-center gap-1.5 text-[0.65rem] font-medium uppercase tracking-[0.14em] text-stone-400">
-          <Tag className="h-3 w-3" />
-          Filter by tag
-        </span>
-        <div className="flex items-center gap-3">
-          {selectedTags.length >= 2 ? (
-            <div className="inline-flex items-center rounded-full border border-stone-200 bg-stone-100 p-0.5">
-              <button
-                type="button"
-                className={`rounded-full px-2.5 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wide transition-colors ${tagMode === "or" ? "bg-white text-stone-800 shadow-sm" : "text-stone-400 hover:text-stone-600"}`}
-                onClick={() => { setTagMode("or"); trackTagModeChange({ newsletterSlug, mode: "or" }); }}
-              >
-                Match any
-              </button>
-              <button
-                type="button"
-                className={`rounded-full px-2.5 py-0.5 text-[0.65rem] font-semibold uppercase tracking-wide transition-colors ${tagMode === "and" ? "bg-white text-stone-800 shadow-sm" : "text-stone-400 hover:text-stone-600"}`}
-                onClick={() => { setTagMode("and"); trackTagModeChange({ newsletterSlug, mode: "and" }); }}
-              >
-                Match all
-              </button>
-            </div>
-          ) : null}
-          {selectedTags.length > 0 ? (
-            <button
-              type="button"
-              className="text-[0.72rem] font-medium text-violet-600 transition-colors hover:text-violet-800"
-              onClick={() => { trackTagFilter({ newsletterSlug, tag: "", action: "clear" }); setSelectedTags([]); }}
-            >
-              Clear ({selectedTags.length})
-            </button>
-          ) : null}
-        </div>
-      </div>
-
-      <div className="flex flex-wrap gap-2">
-        <button
-          type="button"
-          className={`rounded-full border px-3 py-[0.3rem] text-[0.7rem] font-semibold uppercase leading-none tracking-wide transition-colors ${
-            selectedTags.length === 0
-              ? "border-violet-300 bg-violet-100 text-violet-950"
-              : "border-stone-300 bg-white text-stone-500 hover:border-violet-200 hover:bg-violet-50 hover:text-violet-900"
-          }`}
-          onClick={() => { trackTagFilter({ newsletterSlug, tag: "", action: "clear" }); setSelectedTags([]); }}
-        >
-          All
-        </button>
-
-        {allTags.map((tag) => {
-          const active = selectedTags.includes(tag.key);
-          const Icon = TAG_ICONS[tag.key];
-
-          return (
-            <button
-              key={tag.key}
-              type="button"
-              className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-[0.3rem] text-[0.7rem] font-semibold uppercase leading-none tracking-wide transition-colors ${
-                active
-                  ? "border-violet-300 bg-violet-100 text-violet-950"
-                  : "border-stone-300 bg-white text-stone-500 hover:border-violet-200 hover:bg-violet-50 hover:text-violet-900"
-              }`}
-              onClick={() => toggleTag(tag.key)}
-            >
-              {Icon ? <Icon className="h-3 w-3 shrink-0" /> : null}
-              {tag.label}
-            </button>
-          );
-        })}
-      </div>
-    </div>
-  ) : null;
+  const groupedFilteredTotal = useMemo(() => {
+    if (!filtersActive) {
+      return visibleGroupedSections.reduce((sum, s) => sum + s.links.length, 0);
+    }
+    let n = 0;
+    for (const section of visibleGroupedSections) {
+      for (const link of section.links) {
+        if (
+          linkMatchesFilters(
+            link,
+            { bucket: section.key, topPickIds: topPickSet },
+            filters,
+          )
+        ) {
+          n++;
+        }
+      }
+    }
+    return n;
+  }, [visibleGroupedSections, filters, filtersActive, topPickSet]);
 
   return (
     <div className="space-y-5 md:space-y-6">
       {visibleSections.map((section) => renderSection(section, { nested: false }))}
 
-      {visibleGroupedSections.length > 0 && groupedTotal > 0 ? (
+      {visibleGroupedSections.length > 0 ? (
         <section className="panel border border-stone-200 bg-stone-50/40 p-5 md:p-6">
           <button
             type="button"
             className="flex w-full items-start justify-between gap-4 text-left"
-            aria-expanded={groupOpen}
+            aria-expanded={effectiveGroupOpen}
             onClick={() => setGroupOpen((current) => !current)}
           >
             <div className="space-y-1">
               <h2 className="text-[1.25rem] font-semibold leading-tight text-stone-700">
                 {groupedLabel}
-                <span className="ml-2 text-[0.95rem] font-normal text-stone-400">({groupedTotal})</span>
+                <span className="ml-2 text-[0.95rem] font-normal text-stone-400">
+                  ({groupedFilteredTotal})
+                </span>
               </h2>
               <p className="max-w-2xl text-[0.85rem] leading-6 text-stone-400">{groupedDescription}</p>
             </div>
             <span className="mt-1 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-stone-300 bg-white text-stone-600">
               <ChevronDown
-                className={`h-4 w-4 transition-transform duration-300 ${groupOpen ? "rotate-180" : "rotate-0"}`}
+                className={`h-4 w-4 transition-transform duration-300 ${effectiveGroupOpen ? "rotate-180" : "rotate-0"}`}
               />
             </span>
           </button>
 
           <div
-            className={`grid transition-all duration-300 ease-in-out ${groupOpen ? "mt-5 grid-rows-[1fr]" : "grid-rows-[0fr]"}`}
+            className={`grid transition-all duration-300 ease-in-out ${effectiveGroupOpen ? "mt-5 grid-rows-[1fr]" : "grid-rows-[0fr]"}`}
           >
             <div className="overflow-hidden">
               <div className="space-y-5">
-                {filterBar}
                 {visibleGroupedSections.map((section) => renderSection(section, { nested: true }))}
               </div>
             </div>
@@ -277,21 +165,21 @@ export function IssueSections({
     section: IssueSectionDefinition,
     options: { nested: boolean },
   ) {
-    const applyTagFilter = selectedTags.length > 0 && groupedSectionKeys.has(section.key);
-    const filteredLinks = applyTagFilter
-      ? section.links.filter((link) => {
-          const linkTagKeys = link.tags.map(normalizeTag).filter((tag) => tag.length > 0);
-          return tagMode === "and"
-            ? selectedTags.every((tag) => linkTagKeys.includes(tag))
-            : selectedTags.some((tag) => linkTagKeys.includes(tag));
-        })
+    const filteredLinks = filtersActive
+      ? section.links.filter((link) =>
+          linkMatchesFilters(
+            link,
+            { bucket: section.key, topPickIds: topPickSet },
+            filters,
+          ),
+        )
       : section.links;
 
     const content =
       section.links.length === 0 ? (
         <p className="text-stone-500">No links in this section for this issue.</p>
       ) : filteredLinks.length === 0 ? (
-        <p className="text-stone-500">No links in this section match the selected tags.</p>
+        <p className="text-stone-500">No links in this section match the active filters.</p>
       ) : (
         <ul className="space-y-4">
           {filteredLinks.map((item) => (

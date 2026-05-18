@@ -148,7 +148,7 @@
   }
 
   .app-shell {
-    @apply mx-auto w-full max-w-[960px] px-4;
+    @apply mx-auto w-full max-w-[1200px] px-4;
   }
 
   .panel {

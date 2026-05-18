@@ -7,6 +7,7 @@ export type NewsletterLink = {
   reason: string;
   tags: string[];
   url: string;
+  source?: string;
 };
 
 export type NewsletterSections = {

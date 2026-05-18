@@ -38,6 +38,7 @@ function normalizeLink(link: unknown, fallbackId: string): NewsletterLink {
     : {}) as RawRecord;
 
   const title = toString(source.title, "Untitled link");
+  const sourceName = toString(source.source).trim();
 
   return {
     id: toString(source.id, sanitizeId(title) || fallbackId),
@@ -46,6 +47,7 @@ function normalizeLink(link: unknown, fallbackId: string): NewsletterLink {
     reason: toString(source.reason, "No reason provided."),
     tags: toStringArray(source.tags),
     url: toString(source.url),
+    ...(sourceName ? { source: sourceName } : {}),
   };
 }
 

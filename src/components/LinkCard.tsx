@@ -7,6 +7,7 @@ import {
   BookOpen,
   BrainCircuit,
   Lightbulb,
+  Mail,
   Monitor,
   Server,
   Shield,
@@ -124,6 +125,13 @@ export function LinkCard({
           </h3>
 
           <p className="max-w-2xl text-[0.88rem] leading-6 text-stone-500">{link.description}</p>
+
+          {link.source ? (
+            <p className="inline-flex items-center gap-1 text-[0.7rem] font-medium text-stone-400">
+              <Mail className="h-3 w-3 shrink-0" />
+              <span className="line-clamp-1">via {link.source}</span>
+            </p>
+          ) : null}
         </div>
       </div>
 

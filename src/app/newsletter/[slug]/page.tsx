@@ -4,10 +4,8 @@ import { notFound } from "next/navigation";
 import { ChevronLeft } from "lucide-react";
 
 import { BackToTop } from "@/components/BackToTop";
-import {
-  IssueSections,
-  type IssueSectionDefinition,
-} from "@/components/IssueSections";
+import { type IssueSectionDefinition } from "@/components/IssueSections";
+import { NewsletterFilterableContent } from "@/components/NewsletterFilterableContent";
 import { HighlightsPanel } from "@/components/NewsletterHighlight";
 import { SummaryPanel } from "@/components/SummaryPanel";
 import {
@@ -103,7 +101,8 @@ export default async function NewsletterPage({
     if (!link) return [];
     return [h.commentary ? { link, commentary: h.commentary } : { link }];
   });
-  const hideLinkIds = highlights.map(({ link }) => link.id);
+  const topPickIds = highlights.map(({ link }) => link.id);
+  const hideLinkIds = topPickIds;
   const highlightsLabel = highlights.length > 1 ? "This week's picks" : "This week's pick";
 
   return (
@@ -132,13 +131,14 @@ export default async function NewsletterPage({
         />
       ) : null}
 
-      <IssueSections
+      <NewsletterFilterableContent
         key={newsletter.slug}
         newsletterSlug={newsletter.slug}
         date={newsletter.date}
         sections={peerSections}
         groupedSections={groupedSections}
         hideLinkIds={hideLinkIds}
+        topPickIds={topPickIds}
       />
 
       <BackToTop />

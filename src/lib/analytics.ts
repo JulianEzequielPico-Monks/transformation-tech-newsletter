@@ -67,6 +67,9 @@ export const SECTION_TOGGLE_STATES = {
 // ---------------------------------------------------------------------------
 
 async function trackEvent(eventName: string, params: Record<string, string | number>): Promise<void> {
+  // No analytics in development — keep dev activity out of production metrics.
+  if (process.env.NODE_ENV === "development") return;
+
   const analytics = await getFirebaseAnalytics();
   if (!analytics) return;
   logEvent(analytics, eventName, params);

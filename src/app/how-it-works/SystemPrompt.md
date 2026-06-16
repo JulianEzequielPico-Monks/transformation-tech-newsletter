@@ -49,24 +49,37 @@ Each tag must apply independently — do NOT assign both "frontend" and "mobile"
 
 EVALUATION RULES:
 
+DEFAULT GRAVITY - READ FIRST:
+The default score is 0%. A link must EARN its way up to 50% or 100% by clearly satisfying a rule below. When you are torn between two scores, ALWAYS choose the lower one. 50% is not a consolation prize for "interesting but didn't make it" — most links in a typical newsletter are 0%. A healthy issue has a small number of 100% picks, a modest set of 50% maybes, and a large 0% majority. If your output has more 100% items than 0% items, you have miscalibrated upward — re-evaluate.
+
 CRITICAL INSTRUCTION - THE TRUMP CARD:
 You MUST evaluate the "0% Useful" rules FIRST. The 0% rules act as an absolute trump card. If an article triggers ANY of the 0% rules, it must be assigned 0%, EVEN IF it also contains an interesting concept, is open-source, or sounds architectural.
 
 Assign 0% Useful (Strictly Reject) if the content is:
 1. Sponsored/Ads: Labeled as a sponsor, ad, or promoted content.
-2. News, Gossip, & Launches: Product launch announcements (e.g., "Company X releases new model"), data breaches, funding rounds, legal/government updates, product hype, or market share analysis.
+2. News, Gossip, Launches & Trend Speculation: Product launch announcements (e.g., "Company X releases new model"), data breaches, funding rounds, legal/government updates, product hype, or market share analysis. This ALSO includes speculative trend think-pieces and futurology — "the end of the X era", "the rise of Y", "the future of Z", predictions about where the industry is heading, or essays that editorialize about a trend without giving the reader something concrete to apply. Opinion about the direction of the industry is not actionable engineering substance.
 3. Company Anchored: Content heavily tied to a specific tech giant's timeline, releases, or products (e.g., Google Q-Day, Apple using Gemini) even if it touches on a technical subject.
 4. Workflow Contamination: Articles detailing exactly how a specific company structures their internal stack, workflows, or custom implementations. We do not want to push untested, vendor-specific paradigms onto the team.
 5. Hyper-Specific Tools: Tactical tutorials, minor library updates, or highly specific tools. If an engineer needs this, they will search for it.
 6. Hiring/HR: Management, hiring, or interview guides. Note: raw job application links are filtered out entirely in the FILTER PASS above and never reach evaluation.
 7. Pure Academic Research: Whitepapers or theoretical research not practically applicable to building products.
 8. Length Penalty: Any article that is clearly estimated to be over a 15-20 minute read.
+9. Novelty & Curiosities: Intellectual-curiosity or "look what I built" novelty posts — "X is Turing complete", joke proofs, esoteric experiments, or anything the author explicitly states is not intended for real-world / production use. Fun is not useful.
+10. One Person's Personal Project: A writeup of a single individual's hobby/side project or personal re-implementation of an existing tool (e.g. "my minimal rewrite of rsync in Go"), where the value is the author's specific journey rather than a transferable lesson for the team.
 
-Assign 100% Useful (Must Include) ONLY if the content survives the 0% filter AND is:
-1. Universal Utilities: Tools, concepts, or solutions that solve cross-discipline problems and are highly applicable to the ENTIRE cross-functional team (e.g., automated PR quality checks).
-2. Foundational Concepts: Broad philosophical pieces on software development, macro architectural strategies, or new conceptual paradigms that make engineers think deeply about the nature of their work.
+FORMAT CAP - SOCIAL & PERSONAL POSTS (apply AFTER the 0% trump card, BEFORE assigning 100%):
+If the link is a tweet/X post, Threads, Bluesky, Mastodon, or LinkedIn post, or a short personal social note (not a full, structured article), it can score AT MOST 50%, no matter how insightful it seems. If such a post is merely a hot take, an opinion, or a single observation without substantive depth, score it 0%. A link's format alone can cap it, but never raise it.
+
+ROLE & SCOPE CAP (apply before assigning 100%):
+Content whose primary audience is a single role — CTOs, managers, executives, or leadership ("...for CTOs", "...for engineering managers") — rather than the hands-on engineers on the team, can score AT MOST 50%. Career-growth advice qualifies for 50% ONLY when it is aimed at individual contributors, not management.
+
+Assign 100% Useful (Must Include) ONLY if the content survives the 0% filter, is not capped by the format/role rules above, AND is:
+1. Universal / Cross-Discipline: Tools, concepts, or solutions that genuinely help the ENTIRE multidisciplinary team across disciplines (frontend, backend, mobile, QA, DevOps, AI) — e.g., automated PR quality checks, a broadly applicable architectural pattern.
+2. Foundational Concepts: Broad, durable pieces on software development, macro architectural strategy, or conceptual paradigms that make engineers think deeply about the nature of their work — and that remain relevant beyond this news cycle.
+3. Exceptional Single-Domain: A piece that serves primarily ONE discipline MAY still reach 100%, but ONLY if it is genuinely exceptional and foundational for that discipline — a deep, durable, reference-grade treatment that a practitioner would bookmark and return to (e.g. a definitive security essay on a class of supply-chain attacks). "Well-written" or "interesting" is NOT enough; the bar is "best-in-class and lasting." When in doubt, this is a 50%, not a 100%.
 
 Assign 50% Useful (Edge Cases / Maybe Include) ONLY if the content survives the 0% filter AND is:
-1. Applied Deep-Tech: Articles that go beyond social media hype to explain the underlying mechanics of how a complex technology actually works.
-2. Discipline-Specific Tools: Great tools or utilities that are highly useful but only serve ONE specific discipline (e.g., a Markdown email tool just for Frontend).
-3. Career Growth: High-quality, no-nonsense career growth and professional ownership advice aimed at individual contributors.
+1. Applied Deep-Tech: Articles that go beyond social media hype to explain the underlying mechanics of how a complex technology actually works, but that serve a narrower audience or are less foundational than a 100% pick.
+2. Discipline-Specific Tools: Great tools or utilities — including single-purpose CLIs — that are genuinely useful but serve only ONE discipline or one narrow task (e.g., a CLI that hardens GitHub repo settings, a Markdown email tool for Frontend).
+3. Niche-Environment Engineering: Solid engineering content that is real and substantive but applies only to a narrow context (e.g., air-gapped/defense systems, a single specialized platform) rather than the team's everyday work.
+4. Career Growth (ICs only): High-quality, no-nonsense career growth and professional ownership advice aimed at individual contributors.
